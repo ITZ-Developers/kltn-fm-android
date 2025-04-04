@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                  
+
+    
+                 
+                     
+                                                                  
+                 
+                    
+                                                                 
+                                          
+                                                       
+                                                   
+
+           
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+                                                 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" android:tag="layout/activity_tag_detail_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:bind="http://schemas.android.com/tools">
+        <include
+            android:id="@+id/layout_header"
+            layout="@layout/layout_header_title"
+                                                                                          
+                          
+            />
+
+        <androidx.core.widget.NestedScrollView
+            android:tag="binding_1"                  
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_header"
+            app:layout_constraintBottom_toTopOf="@+id/btnEPUpdate"
+            android:layout_marginBottom="@dimen/_15sdp"
+            >
+            <LinearLayout
+                android:tag="binding_2"                  
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_7sdp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    >
+                    <TextView
+                        style="@style/AppTvTitleForEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tag_kind"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/asterisk"                                  
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/_12sdp"
+                         android:tag="binding_3"/>
+                </LinearLayout>
+
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/DropDownMenu"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    >
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                        app:boxStrokeColor="@color/normal_brown"
+                        app:boxStrokeWidthFocused="@dimen/_1sdp"
+                        app:endIconTint="@color/gray_cbb"
+                        android:enabled="false"                                       
+                         android:tag="binding_4">
+                        <AutoCompleteTextView
+                            android:id="@+id/cbb_tag_kind"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:textSize="@dimen/_12ssp"
+                            android:paddingVertical="0dp"
+                            android:textCursorDrawable="@drawable/cursor_color"
+                            android:fontFamily="@font/roboto_medium"
+                            style="@style/AppSpinner"
+                            android:background="@drawable/bg_cbb_disable"                                                                              
+                             android:tag="binding_5">
+                        </AutoCompleteTextView>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    >
+                    <TextView
+                        style="@style/AppTvTitleForEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tag_name"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/asterisk"                                  
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/_12sdp"
+                         android:tag="binding_6"/>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/edit_project_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    style="@style/AppEditTextInput"
+                    android:hint="@string/input_project"
+                    android:tag="binding_7"                                                    
+                                                  
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    >
+                    <TextView
+                        style="@style/AppTvTitleForEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pick_color"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/asterisk"                                  
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/_12sdp"
+                         android:tag="binding_8"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:tag="binding_9"                     
+                    >
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginVertical="@dimen/_5sdp"
+                        android:elevation="@dimen/_10sdp"
+                        android:tag="binding_10"                    
+                        >
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:id="@+id/layout_color"
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:orientation="horizontal"
+                                android:background="#FFFFFF"
+                                android:padding="@dimen/_1sdp"
+                                >
+                            </LinearLayout>
+                            <FrameLayout
+                                android:id="@+id/layout_background"
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:orientation="horizontal"
+                                android:background="@drawable/bg_border_color"
+                                >
+                            </FrameLayout>
+                        </FrameLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:src="@drawable/ic_pick_color"
+                        android:tag="binding_11"                    
+                        android:layout_marginStart="@dimen/_25sdp"
+                        android:layout_gravity="center_vertical"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <Button
+            android:id="@+id/btnEPUpdate"
+            style="@style/AppButtonStyle"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:tag="binding_12"                                                                                 
+                                               
+                                                                         
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+         

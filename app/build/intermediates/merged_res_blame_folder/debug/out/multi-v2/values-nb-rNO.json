@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nb-rNO/values-nb-rNO.xml",
+            "outputFile": "/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nb-rNO/values-nb-rNO.xml",
             "map": [
                 {
                     "source": "/Users/vantrungiunhim/.gradle/caches/transforms-3/70067b7b477636b52a8a60a8e178627a/transformed/jetified-imagepicker-2.1/res/values-nb-rNO/values-nb-rNO.xml",

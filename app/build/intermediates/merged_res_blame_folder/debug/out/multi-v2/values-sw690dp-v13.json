@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw690dp-v13/values-sw690dp-v13.xml",
+            "outputFile": "/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw690dp-v13/values-sw690dp-v13.xml",
             "map": [
                 {
                     "source": "/Users/vantrungiunhim/.gradle/caches/transforms-3/a27b5231f852e1490b38ce640891429d/transformed/jetified-sdp-android-1.0.6/res/values-sw690dp-v13/values-sw690dp-v13.xml",

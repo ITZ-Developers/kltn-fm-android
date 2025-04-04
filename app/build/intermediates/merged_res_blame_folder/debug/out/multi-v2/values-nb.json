@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nb/values-nb.xml",
+            "outputFile": "/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nb/values-nb.xml",
             "map": [
                 {
                     "source": "/Users/vantrungiunhim/.gradle/caches/transforms-3/8fbba3367b5dd1021478c2c7b7b914c7/transformed/core-1.13.1/res/values-nb/values-nb.xml",

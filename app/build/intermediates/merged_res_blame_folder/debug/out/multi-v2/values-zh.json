@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh/values-zh.xml",
+            "outputFile": "/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh/values-zh.xml",
             "map": [
                 {
                     "source": "/Users/vantrungiunhim/.gradle/caches/transforms-3/f71a8945571048ccc466c29b18a72e72/transformed/jetified-ucrop-2.2.6/res/values-zh/values-zh.xml",

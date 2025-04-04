@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                        
+
+    
+                 
+                      
+                                                                                         
+                                                      
+                                                      
+                                          
+                                  
+                           
+                                                    
+                                                            
+                                                           
+                                                           
+                                                       
+           
+
+    <com.chauthai.swipereveallayout.SwipeRevealLayout
+        android:id="@+id/swipe_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mode="same_level"
+        app:dragEdge="right"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:background="@color/color_bg_tran"
+         android:tag="layout/item_transaction_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <FrameLayout
+                android:id="@+id/layout_approve"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_accept"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:tag="binding_1"                                                                        
+                >
+                <ImageView
+                    android:id="@+id/img_approve"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:src="@drawable/ic_accept"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center"
+                    />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/layout_reject"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_reject"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:tag="binding_2"                                                                      
+                >
+                <ImageView
+                    android:id="@+id/img_reject"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:src="@drawable/ic_reject"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center"
+                     />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/layout_delete"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_delete"
+                android:tag="binding_3"                                                                      
+                >
+                <ImageView
+                    android:id="@+id/img_delete"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:src="@drawable/ic_delete"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_15sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/bg_tran"
+                android:layout_marginHorizontal="@dimen/_4sdp"
+                >
+
+                <ImageView
+                    android:id="@+id/img_state"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:src="@drawable/ic_paid"                                                                                                                                                        
+
+                     android:tag="binding_4"/>
+
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:text="transaction1"                     
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/img_state"
+                    android:maxWidth="@dimen/_250sdp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                      android:tag="binding_5"/>
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_medium"
+                    android:textColor="@color/brown_text_2"
+                    android:textSize="@dimen/_12ssp"
+                    android:text="@string/date_default"                                                                                                                       
+                    android:layout_marginStart="@dimen/_7sdp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_name"
+                    app:layout_constraintStart_toEndOf="@id/img_state"
+                    android:layout_marginTop="@dimen/_5sdp"
+
+                     android:tag="binding_6"/>
+                <TextView
+                    android:id="@+id/tv_category"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_500"
+                    android:textColor="@color/green_text"
+                    android:textSize="@dimen/_10ssp"
+                    android:text="Category"                                                                  
+                    android:layout_marginTop="@dimen/_7sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="gone"
+                     android:tag="binding_7"/>
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/lato_bold"
+                    android:tag="binding_8"                                               
+                    android:textSize="@dimen/_12ssp"
+                    android:text="@string/number_default"                                                                                                                          
+                    android:maxWidth="@dimen/_120sdp"
+                    android:layout_marginEnd="@dimen/_7sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.chauthai.swipereveallayout.SwipeRevealLayout>
+         

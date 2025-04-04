@@ -6,41 +6,41 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="24"
-8-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
+8-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="33" />
-9-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
+9-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
 10
 11    <!-- Internet -->
 12    <uses-feature
-12-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:6:5-8:36
+12-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:6:5-8:36
 13        android:name="android.hardware.camera"
-13-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:7:9-47
+13-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:7:9-47
 14        android:required="false" />
-14-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:8:9-33
+14-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:8:9-33
 15
 16    <uses-permission android:name="android.permission.INTERNET" />
-16-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:10:5-66
-16-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:10:22-64
+16-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:10:5-66
+16-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:10:22-64
 17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-17-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:11:5-79
-17-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:11:22-76
+17-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:11:5-79
+17-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:11:22-76
 18
 19    <!-- Camera, Gallery -->
 20    <uses-permission android:name="android.permission.CAMERA" />
-20-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:14:5-65
-20-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:14:22-62
+20-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:14:5-65
+20-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:14:22-62
 21    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-21-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:15:5-80
-21-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:15:22-77
+21-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:15:5-80
+21-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:15:22-77
 22    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-22-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:16:5-81
-22-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:16:22-78
+22-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:16:5-81
+22-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:16:22-78
 23    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-23-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:17:5-76
-23-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:17:22-73
+23-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:17:5-76
+23-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:17:22-73
 24    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-24-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:18:5-82
-24-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:18:22-79
+24-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:18:5-82
+24-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:18:22-79
 25
 26    <queries>
 26-->[com.github.dhaval2404:imagepicker:2.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/70067b7b477636b52a8a60a8e178627a/transformed/jetified-imagepicker-2.1/AndroidManifest.xml:9:5-19:15
@@ -80,394 +80,394 @@
 45-->[androidx.core:core:1.13.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/8fbba3367b5dd1021478c2c7b7b914c7/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
 46
 47    <application
-47-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:21:5-214:19
+47-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:21:5-214:19
 48        android:name="com.finance.MVVMApplication"
-48-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:29:9-40
+48-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:29:9-40
 49        android:allowBackup="true"
-49-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:22:9-35
+49-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:22:9-35
 50        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 50-->[androidx.core:core:1.13.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/8fbba3367b5dd1021478c2c7b7b914c7/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 51        android:debuggable="true"
 52        android:extractNativeLibs="false"
 53        android:hardwareAccelerated="true"
-53-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:30:9-43
+53-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:30:9-43
 54        android:icon="@mipmap/ic_launcher"
-54-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:23:9-43
+54-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:23:9-43
 55        android:label="@string/app_name"
-55-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:24:9-41
+55-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:24:9-41
 56        android:networkSecurityConfig="@xml/network_security_config"
-56-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:27:9-69
+56-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:27:9-69
 57        android:roundIcon="@mipmap/ic_launcher_round"
-57-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:25:9-54
+57-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:25:9-54
 58        android:supportsRtl="true"
-58-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:26:9-35
+58-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:26:9-35
 59        android:testOnly="true"
 60        android:theme="@style/Base.Theme.Finance" >
-60-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:28:9-50
+60-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:28:9-50
 61        <activity
-61-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:32:9-39:20
+61-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:32:9-39:20
 62            android:name="com.finance.ui.login.LoginActivity"
-62-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:33:13-51
+62-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:33:13-51
 63            android:exported="true" >
-63-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:34:13-36
+63-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:34:13-36
 64            <intent-filter>
-64-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:35:13-38:29
+64-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:35:13-38:29
 65                <action android:name="android.intent.action.MAIN" />
-65-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:36:17-69
-65-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:36:25-66
+65-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:36:17-69
+65-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:36:25-66
 66
 67                <category android:name="android.intent.category.LAUNCHER" />
-67-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:37:17-77
-67-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:37:27-74
+67-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:37:17-77
+67-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:37:27-74
 68            </intent-filter>
 69        </activity>
 70        <activity
-70-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:40:9-43:20
+70-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:40:9-43:20
 71            android:name="com.finance.ui.password.forget.ForgetPasswordActivity"
-71-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:40:19-76
+71-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:40:19-76
 72            android:exported="true"
-72-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:41:13-36
+72-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:41:13-36
 73            android:windowSoftInputMode="adjustResize|stateHidden" >
-73-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:42:13-67
+73-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:42:13-67
 74        </activity>
 75        <activity
-75-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:44:9-47:20
+75-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:44:9-47:20
 76            android:name="com.finance.ui.password.reset.ResetPasswordActivity"
-76-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:44:19-74
+76-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:44:19-74
 77            android:exported="true"
-77-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:45:13-36
+77-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:45:13-36
 78            android:windowSoftInputMode="adjustResize|stateHidden" >
-78-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:46:13-67
+78-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:46:13-67
 79        </activity>
 80        <activity
-80-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:48:9-50:20
+80-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:48:9-50:20
 81            android:name="com.finance.ui.key.infor.KeyInfoActivity"
-81-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:48:19-63
+81-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:48:19-63
 82            android:exported="true" >
-82-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:49:13-36
+82-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:49:13-36
 83        </activity>
 84        <activity
-84-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:51:9-54:20
+84-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:51:9-54:20
 85            android:name="com.finance.ui.key.group.details.KeyGroupDetailsActivity"
-85-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:51:19-79
+85-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:51:19-79
 86            android:exported="true"
-86-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:52:13-36
+86-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:52:13-36
 87            android:windowSoftInputMode="adjustResize|stateHidden" >
-87-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:53:13-67
+87-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:53:13-67
 88        </activity>
 89        <activity
-89-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:55:9-57:20
+89-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:55:9-57:20
 90            android:name="com.finance.ui.key.group.KeyGroupActivity"
-90-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:55:19-64
+90-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:55:19-64
 91            android:exported="true" >
-91-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:56:13-36
+91-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:56:13-36
 92        </activity>
 93        <activity
-93-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:58:9-61:20
+93-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:58:9-61:20
 94            android:name="com.finance.ui.key.details.KeyDetailsActivity"
-94-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:58:19-68
+94-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:58:19-68
 95            android:exported="true"
-95-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:59:13-36
+95-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:59:13-36
 96            android:windowSoftInputMode="adjustResize|stateHidden" >
-96-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:60:13-67
+96-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:60:13-67
 97        </activity>
 98        <activity
-98-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:62:9-64:20
+98-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:62:9-64:20
 99            android:name="com.finance.ui.department.DepartmentActivity"
-99-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:62:19-67
+99-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:62:19-67
 100            android:exported="true" >
-100-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:63:13-36
+100-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:63:13-36
 101        </activity>
 102        <activity
-102-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:65:9-67:20
+102-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:65:9-67:20
 103            android:name="com.finance.ui.category.CategoryActivity"
-103-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:65:19-63
+103-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:65:19-63
 104            android:exported="true" >
-104-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:66:13-36
+104-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:66:13-36
 105        </activity>
 106        <activity
-106-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:68:9-71:20
+106-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:68:9-71:20
 107            android:name="com.finance.ui.department.details.DepartmentDetailActivity"
-107-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:68:19-81
+107-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:68:19-81
 108            android:exported="true"
-108-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:69:13-36
+108-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:69:13-36
 109            android:windowSoftInputMode="adjustResize|stateHidden" >
-109-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:70:13-67
+109-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:70:13-67
 110        </activity>
 111        <activity
-111-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:72:9-75:20
+111-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:72:9-75:20
 112            android:name="com.finance.ui.category.details.CategoryDetailsActivity"
-112-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:72:19-78
+112-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:72:19-78
 113            android:exported="true"
-113-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:73:13-36
+113-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:73:13-36
 114            android:windowSoftInputMode="adjustResize|stateHidden" >
-114-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:74:13-67
+114-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:74:13-67
 115        </activity>
 116        <activity
-116-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:76:9-79:20
+116-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:76:9-79:20
 117            android:name="com.finance.ui.main.MainActivity"
-117-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:76:19-55
+117-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:76:19-55
 118            android:exported="true"
-118-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:77:13-36
+118-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:77:13-36
 119            android:windowSoftInputMode="adjustPan" >
-119-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:78:13-52
+119-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:78:13-52
 120        </activity>
 121        <activity
-121-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:80:9-83:15
+121-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:80:9-83:15
 122            android:name="com.finance.ui.fragment.account.update.UpdateProfileActivity"
-122-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:80:19-83
+122-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:80:19-83
 123            android:exported="true"
-123-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:81:13-36
+123-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:81:13-36
 124            android:windowSoftInputMode="adjustResize|stateHidden" />
-124-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:82:13-67
+124-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:82:13-67
 125        <activity
-125-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:84:9-87:15
+125-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:84:9-87:15
 126            android:name="com.finance.ui.fragment.statistics.detail.StaticsDetailActivity"
-126-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:84:19-86
+126-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:84:19-86
 127            android:exported="true"
-127-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:85:13-36
+127-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:85:13-36
 128            android:windowSoftInputMode="adjustResize|stateHidden" />
-128-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:86:13-67
+128-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:86:13-67
 129        <activity
-129-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:88:9-91:15
+129-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:88:9-91:15
 130            android:name="com.finance.ui.transaction.detail.TransactionDetailActivity"
-130-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:88:19-82
+130-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:88:19-82
 131            android:exported="true"
-131-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:89:13-36
+131-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:89:13-36
 132            android:windowSoftInputMode="adjustResize|stateHidden" />
-132-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:90:13-67
+132-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:90:13-67
 133        <activity
-133-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:92:9-95:15
+133-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:92:9-95:15
 134            android:name="com.finance.ui.transaction.create_or_update.TransactionCreateUpdateActivity"
-134-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:92:19-98
+134-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:92:19-98
 135            android:exported="true"
-135-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:93:13-36
+135-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:93:13-36
 136            android:windowSoftInputMode="adjustResize|stateHidden" />
-136-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:94:13-67
+136-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:94:13-67
 137        <activity
-137-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:96:9-99:15
+137-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:96:9-99:15
 138            android:name="com.finance.ui.transaction.group.TransactionGroupActivity"
-138-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:96:19-80
+138-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:96:19-80
 139            android:exported="true"
-139-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:97:13-36
+139-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:97:13-36
 140            android:windowSoftInputMode="adjustResize|stateHidden" />
-140-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:98:13-67
+140-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:98:13-67
 141        <activity
-141-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:100:9-103:15
+141-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:100:9-103:15
 142            android:name="com.finance.ui.transaction.group.detail.TransactionGroupDetailActivity"
-142-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:100:19-93
+142-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:100:19-93
 143            android:exported="true"
-143-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:101:13-36
+143-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:101:13-36
 144            android:windowSoftInputMode="adjustResize|stateHidden" />
-144-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:102:13-67
+144-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:102:13-67
 145        <activity
-145-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:104:9-107:15
+145-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:104:9-107:15
 146            android:name="com.finance.ui.service.ServiceActivity"
-146-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:104:19-61
+146-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:104:19-61
 147            android:exported="true"
-147-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:105:13-36
+147-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:105:13-36
 148            android:windowSoftInputMode="adjustResize|stateHidden" />
-148-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:106:13-67
+148-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:106:13-67
 149        <activity
-149-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:108:9-111:15
+149-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:108:9-111:15
 150            android:name="com.finance.ui.service.detail.ServiceDetailActivity"
-150-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:108:19-74
+150-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:108:19-74
 151            android:exported="true"
-151-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:109:13-36
+151-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:109:13-36
 152            android:windowSoftInputMode="adjustResize|stateHidden" />
-152-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:110:13-67
+152-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:110:13-67
 153        <activity
-153-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:112:9-115:15
+153-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:112:9-115:15
 154            android:name="com.finance.ui.service.group.ServiceGroupActivity"
-154-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:112:19-72
+154-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:112:19-72
 155            android:exported="true"
-155-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:113:13-36
+155-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:113:13-36
 156            android:windowSoftInputMode="adjustResize|stateHidden" />
-156-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:114:13-67
+156-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:114:13-67
 157        <activity
-157-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:116:9-119:15
+157-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:116:9-119:15
 158            android:name="com.finance.ui.service.group.detail.ServiceGroupDetailActivity"
-158-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:116:19-85
+158-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:116:19-85
 159            android:exported="true"
-159-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:117:13-36
+159-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:117:13-36
 160            android:windowSoftInputMode="adjustResize|stateHidden" />
-160-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:118:13-67
+160-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:118:13-67
 161        <activity
-161-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:120:9-123:15
+161-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:120:9-123:15
 162            android:name="com.finance.ui.password.change.ChangePasswordActivity"
-162-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:120:19-76
+162-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:120:19-76
 163            android:exported="true"
-163-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:121:13-36
+163-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:121:13-36
 164            android:windowSoftInputMode="adjustResize|stateHidden" />
-164-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:122:13-67
+164-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:122:13-67
 165        <activity
-165-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:124:9-127:15
+165-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:124:9-127:15
 166            android:name="com.finance.ui.service.schedule.ServiceScheduleActivity"
-166-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:124:19-78
+166-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:124:19-78
 167            android:exported="true"
-167-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:125:13-36
+167-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:125:13-36
 168            android:windowSoftInputMode="adjustResize|stateHidden" />
-168-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:126:13-67
+168-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:126:13-67
 169        <activity
-169-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:128:9-131:15
+169-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:128:9-131:15
 170            android:name="com.finance.ui.organization.OrganizationActivity"
-170-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:128:19-71
+170-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:128:19-71
 171            android:exported="true"
-171-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:129:13-36
+171-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:129:13-36
 172            android:windowSoftInputMode="adjustResize|stateHidden" />
-172-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:130:13-67
+172-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:130:13-67
 173        <activity
-173-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:132:9-135:15
+173-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:132:9-135:15
 174            android:name="com.finance.ui.organization.detail.OrganizationDetailActivity"
-174-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:132:19-84
+174-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:132:19-84
 175            android:exported="true"
-175-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:133:13-36
+175-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:133:13-36
 176            android:windowSoftInputMode="adjustResize|stateHidden" />
-176-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:134:13-67
+176-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:134:13-67
 177        <activity
-177-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:136:9-138:54
+177-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:136:9-138:54
 178            android:name="com.finance.ui.key.filter.KeyFilterActivity"
-178-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:136:19-66
+178-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:136:19-66
 179            android:exported="true"
-179-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:137:13-36
+179-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:137:13-36
 180            android:windowSoftInputMode="adjustPan" />
-180-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:138:13-52
+180-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:138:13-52
 181        <activity
-181-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:139:9-142:15
+181-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:139:9-142:15
 182            android:name="com.finance.ui.project.detail.ProjectDetailActivity"
-182-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:139:19-74
+182-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:139:19-74
 183            android:exported="true"
-183-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:140:13-36
+183-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:140:13-36
 184            android:windowSoftInputMode="adjustResize|stateHidden" />
-184-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:141:13-67
+184-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:141:13-67
 185        <activity
-185-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:143:9-146:15
+185-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:143:9-146:15
 186            android:name="com.finance.ui.project.ProjectActivity"
-186-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:143:19-61
+186-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:143:19-61
 187            android:exported="true"
-187-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:144:13-36
+187-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:144:13-36
 188            android:windowSoftInputMode="adjustResize|stateHidden" />
-188-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:145:13-67
+188-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:145:13-67
 189        <activity
-189-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:147:9-150:15
+189-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:147:9-150:15
 190            android:name="com.finance.ui.nofication.NotificationActivity"
-190-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:147:19-69
+190-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:147:19-69
 191            android:exported="true"
-191-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:148:13-36
+191-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:148:13-36
 192            android:windowSoftInputMode="adjustResize|stateHidden" />
-192-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:149:13-67
+192-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:149:13-67
 193        <activity
-193-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:151:9-154:15
+193-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:151:9-154:15
 194            android:name="com.finance.ui.task.detail.TaskDetailActivity"
-194-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:151:19-68
+194-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:151:19-68
 195            android:exported="true"
-195-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:152:13-36
+195-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:152:13-36
 196            android:windowSoftInputMode="adjustResize|stateHidden" />
-196-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:153:13-67
+196-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:153:13-67
 197        <activity
-197-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:155:9-158:15
+197-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:155:9-158:15
 198            android:name="com.finance.ui.task.create_or_update.TaskCreateUpdateActivity"
-198-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:155:19-84
+198-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:155:19-84
 199            android:exported="true"
-199-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:156:13-36
+199-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:156:13-36
 200            android:windowSoftInputMode="adjustResize|stateHidden" />
-200-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:157:13-67
+200-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:157:13-67
 201        <activity
-201-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:160:9-163:15
+201-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:160:9-163:15
 202            android:name="com.finance.ui.task.filter.TaskFilterActivity"
-202-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:160:19-68
+202-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:160:19-68
 203            android:exported="true"
-203-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:161:13-36
+203-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:161:13-36
 204            android:windowSoftInputMode="adjustResize|stateHidden" />
-204-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:162:13-67
+204-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:162:13-67
 205        <activity
-205-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:164:9-167:15
+205-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:164:9-167:15
 206            android:name="com.finance.ui.debit.DebitActivity"
-206-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:164:19-57
+206-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:164:19-57
 207            android:exported="true"
-207-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:165:13-36
+207-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:165:13-36
 208            android:windowSoftInputMode="adjustResize|stateHidden" />
-208-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:166:13-67
+208-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:166:13-67
 209        <activity
-209-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:168:9-171:15
+209-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:168:9-171:15
 210            android:name="com.finance.ui.debit.detail.DebitDetailActivity"
-210-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:168:19-70
+210-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:168:19-70
 211            android:exported="true"
-211-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:169:13-36
+211-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:169:13-36
 212            android:windowSoftInputMode="adjustResize|stateHidden" />
-212-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:170:13-67
+212-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:170:13-67
 213        <activity
-213-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:172:9-175:15
+213-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:172:9-175:15
 214            android:name="com.finance.ui.debit.update.DebitUpdateActivity"
-214-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:172:19-70
+214-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:172:19-70
 215            android:exported="true"
-215-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:173:13-36
+215-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:173:13-36
 216            android:windowSoftInputMode="adjustResize|stateHidden" />
-216-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:174:13-67
+216-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:174:13-67
 217        <activity
-217-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:176:9-179:15
+217-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:176:9-179:15
 218            android:name="com.finance.ui.subtask.SubTaskActivity"
-218-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:176:19-61
+218-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:176:19-61
 219            android:exported="true"
-219-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:177:13-36
+219-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:177:13-36
 220            android:windowSoftInputMode="adjustResize|stateHidden" />
-220-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:178:13-67
+220-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:178:13-67
 221        <activity
-221-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:181:9-184:15
+221-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:181:9-184:15
 222            android:name="com.finance.ui.image.ImageActivity"
-222-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:181:19-57
+222-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:181:19-57
 223            android:exported="true"
-223-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:182:13-36
+223-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:182:13-36
 224            android:windowSoftInputMode="adjustResize|stateHidden" />
-224-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:183:13-67
+224-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:183:13-67
 225        <activity
-225-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:185:9-188:15
+225-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:185:9-188:15
 226            android:name="com.finance.ui.task.TaskActivity"
-226-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:185:19-55
+226-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:185:19-55
 227            android:exported="true"
-227-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:186:13-36
+227-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:186:13-36
 228            android:windowSoftInputMode="adjustResize|stateHidden" />
-228-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:187:13-67
+228-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:187:13-67
 229        <activity
-229-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:189:9-192:15
+229-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:189:9-192:15
 230            android:name="com.finance.ui.document.DocumentActivity"
-230-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:189:19-63
+230-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:189:19-63
 231            android:exported="true"
-231-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:190:13-36
+231-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:190:13-36
 232            android:windowSoftInputMode="adjustResize|stateHidden" />
-232-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:191:13-67
+232-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:191:13-67
 233        <activity
-233-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:194:9-197:15
+233-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:194:9-197:15
 234            android:name="com.finance.ui.tag.TagActivity"
-234-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:194:19-53
+234-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:194:19-53
 235            android:exported="true"
-235-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:195:13-36
+235-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:195:13-36
 236            android:windowSoftInputMode="adjustResize|stateHidden" />
-236-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:196:13-67
+236-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:196:13-67
 237        <activity
-237-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:199:9-202:15
+237-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:199:9-202:15
 238            android:name="com.finance.ui.tag.detail.TagDetailActivity"
-238-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:199:19-66
+238-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:199:19-66
 239            android:exported="true"
-239-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:200:13-36
+239-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:200:13-36
 240            android:windowSoftInputMode="adjustResize|stateHidden" />
-240-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:201:13-67
+240-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:201:13-67
 241
 242        <provider
 243            android:name="androidx.core.content.FileProvider"
-243-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:205:13-62
+243-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:205:13-62
 244            android:authorities="com.base.mvvm.provider"
-244-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:206:13-60
+244-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:206:13-60
 245            android:exported="false"
-245-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:207:13-37
+245-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:207:13-37
 246            android:grantUriPermissions="true" >
-246-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:208:13-47
+246-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:208:13-47
 247            <meta-data
-247-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:209:13-211:54
+247-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:209:13-211:54
 248                android:name="android.support.FILE_PROVIDER_PATHS"
-248-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:210:17-67
+248-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:210:17-67
 249                android:resource="@xml/file_paths" />
-249-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:211:17-51
+249-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:211:17-51
 250        </provider>
 251
 252        <activity
@@ -498,11 +498,11 @@
 265            android:grantUriPermissions="true" >
 265-->[com.github.dhaval2404:imagepicker:2.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/70067b7b477636b52a8a60a8e178627a/transformed/jetified-imagepicker-2.1/AndroidManifest.xml:35:13-47
 266            <meta-data
-266-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:209:13-211:54
+266-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:209:13-211:54
 267                android:name="android.support.FILE_PROVIDER_PATHS"
-267-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:210:17-67
+267-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:210:17-67
 268                android:resource="@xml/image_picker_provider_paths" />
-268-->/Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:211:17-51
+268-->/Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:211:17-51
 269        </provider>
 270
 271        <receiver

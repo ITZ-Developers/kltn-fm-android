@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:204:9-212:20
+INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:204:9-212:20
 	android:grantUriPermissions
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:208:13-47
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:208:13-47
 	android:authorities
-		INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:206:13-60
+		INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:206:13-60
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:207:13-37
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:207:13-37
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:205:13-62
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:205:13-62
 manifest
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:2:1-216:12
-INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:2:1-216:12
-INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:2:1-216:12
-INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:2:1-216:12
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:2:1-216:12
+INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:2:1-216:12
+INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:2:1-216:12
+INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:2:1-216:12
 MERGED from [com.github.ddB0515.FlexibleAdapter:flexible-adapter-databinding:5.1.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/5d641fd0b9a4dc69d02d038496f2c27a/transformed/jetified-flexible-adapter-databinding-5.1.1/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.databinding:databinding-adapters:7.1.3] /Users/vantrungiunhim/.gradle/caches/transforms-3/472aaba5409fff857ca3c8587d3cb917/transformed/databinding-adapters-7.1.3/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-ktx:7.1.3] /Users/vantrungiunhim/.gradle/caches/transforms-3/e28b24f92978444a2a8b4f1264b06c13/transformed/jetified-databinding-ktx-7.1.3/AndroidManifest.xml:17:1-24:12
@@ -118,31 +118,31 @@ MERGED from [io.reactivex.rxjava3:rxandroid:3.0.0] /Users/vantrungiunhim/.gradle
 MERGED from [de.hdodenhof:circleimageview:3.1.0] /Users/vantrungiunhim/.gradle/caches/transforms-3/237f6517223999fbad38160db9c48c8b/transformed/jetified-circleimageview-3.1.0/AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.davideas:FlipView:1.2.0] /Users/vantrungiunhim/.gradle/caches/transforms-3/13d9e908a8ef5baefed82af72ad0a3dd/transformed/jetified-FlipView-1.2.0/AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.yukuku:ambilwarna:2.0.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/f82e2f45f8d3a943e76f98a7f1c5b5df/transformed/jetified-ambilwarna-2.0.1/AndroidManifest.xml:2:1-12:12
-INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:2:1-216:12
-INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:2:1-216:12
-INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:2:1-216:12
+INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:2:1-216:12
+INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:2:1-216:12
+INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:2:1-216:12
 	package
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:3:5-26
-		INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:3:5-26
+		INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:2:1-216:12
-		INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:2:1-216:12
+		INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:2:1-216:12
-		INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:2:1-216:12
+		INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:2:11-69
 uses-feature#android.hardware.camera
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:6:5-8:36
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:6:5-8:36
 	android:required
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:8:9-33
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:8:9-33
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:7:9-47
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:7:9-47
 uses-permission#android.permission.INTERNET
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:10:5-66
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:10:5-66
 MERGED from [com.google.android.gms:play-services-measurement:18.0.3] /Users/vantrungiunhim/.gradle/caches/transforms-3/57cb60ebf5f5e3835ffa29a188f8eb17/transformed/jetified-play-services-measurement-18.0.3/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement:18.0.3] /Users/vantrungiunhim/.gradle/caches/transforms-3/57cb60ebf5f5e3835ffa29a188f8eb17/transformed/jetified-play-services-measurement-18.0.3/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.3] /Users/vantrungiunhim/.gradle/caches/transforms-3/90d6a868c034afaa63ef9dca749f9572/transformed/jetified-play-services-measurement-impl-18.0.3/AndroidManifest.xml:23:5-67
@@ -158,9 +158,9 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.3] /U
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/vantrungiunhim/.gradle/caches/transforms-3/432ba29fc4a54c3155be6867913a3d41/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:26:5-67
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/vantrungiunhim/.gradle/caches/transforms-3/432ba29fc4a54c3155be6867913a3d41/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:26:5-67
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:10:22-64
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:10:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:11:5-79
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:11:5-79
 MERGED from [com.google.android.gms:play-services-measurement:18.0.3] /Users/vantrungiunhim/.gradle/caches/transforms-3/57cb60ebf5f5e3835ffa29a188f8eb17/transformed/jetified-play-services-measurement-18.0.3/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement:18.0.3] /Users/vantrungiunhim/.gradle/caches/transforms-3/57cb60ebf5f5e3835ffa29a188f8eb17/transformed/jetified-play-services-measurement-18.0.3/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.3] /Users/vantrungiunhim/.gradle/caches/transforms-3/90d6a868c034afaa63ef9dca749f9572/transformed/jetified-play-services-measurement-impl-18.0.3/AndroidManifest.xml:24:5-79
@@ -176,29 +176,29 @@ MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /User
 MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/vantrungiunhim/.gradle/caches/transforms-3/c542c1552ee3c6e86da4edffaa199060/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:22:5-79
 MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/vantrungiunhim/.gradle/caches/transforms-3/c542c1552ee3c6e86da4edffaa199060/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:22:5-79
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:11:22-76
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:11:22-76
 uses-permission#android.permission.CAMERA
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:14:5-65
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:14:5-65
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:14:22-62
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:14:22-62
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:15:5-80
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:15:5-80
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:15:22-77
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:15:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:16:5-81
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:16:5-81
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:16:22-78
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:16:22-78
 uses-permission#android.permission.READ_MEDIA_IMAGES
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:17:5-76
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:17:5-76
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:17:22-73
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:17:22-73
 uses-permission#android.permission.MANAGE_EXTERNAL_STORAGE
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:18:5-82
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:18:5-82
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:18:22-79
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:18:22-79
 application
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:21:5-214:19
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:21:5-214:19
 MERGED from [com.github.dhaval2404:imagepicker:2.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/70067b7b477636b52a8a60a8e178627a/transformed/jetified-imagepicker-2.1/AndroidManifest.xml:21:5-40:19
 MERGED from [com.github.dhaval2404:imagepicker:2.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/70067b7b477636b52a8a60a8e178627a/transformed/jetified-imagepicker-2.1/AndroidManifest.xml:21:5-40:19
 MERGED from [com.google.android.material:material:1.3.0] /Users/vantrungiunhim/.gradle/caches/transforms-3/c281f6918629763881dd59856923bc8f/transformed/material-1.3.0/AndroidManifest.xml:22:5-20
@@ -264,363 +264,363 @@ MERGED from [de.hdodenhof:circleimageview:3.1.0] /Users/vantrungiunhim/.gradle/c
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/8fbba3367b5dd1021478c2c7b7b914c7/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:26:9-35
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:26:9-35
 	android:label
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:24:9-41
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:24:9-41
 	android:hardwareAccelerated
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:30:9-43
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:30:9-43
 	android:roundIcon
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:25:9-54
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:25:9-54
 	android:icon
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:23:9-43
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:23:9-43
 	android:allowBackup
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:22:9-35
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:22:9-35
 	android:theme
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:28:9-50
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:28:9-50
 	android:networkSecurityConfig
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:27:9-69
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:27:9-69
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:29:9-40
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:29:9-40
 activity#com.finance.ui.login.LoginActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:32:9-39:20
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:32:9-39:20
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:34:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:34:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:33:13-51
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:33:13-51
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:35:13-38:29
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:35:13-38:29
 action#android.intent.action.MAIN
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:36:17-69
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:36:17-69
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:36:25-66
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:36:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:37:17-77
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:37:17-77
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:37:27-74
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:37:27-74
 activity#com.finance.ui.password.forget.ForgetPasswordActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:40:9-43:20
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:40:9-43:20
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:42:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:42:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:41:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:41:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:40:19-76
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:40:19-76
 activity#com.finance.ui.password.reset.ResetPasswordActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:44:9-47:20
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:44:9-47:20
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:46:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:46:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:45:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:45:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:44:19-74
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:44:19-74
 activity#com.finance.ui.key.infor.KeyInfoActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:48:9-50:20
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:48:9-50:20
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:49:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:49:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:48:19-63
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:48:19-63
 activity#com.finance.ui.key.group.details.KeyGroupDetailsActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:51:9-54:20
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:51:9-54:20
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:53:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:53:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:52:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:52:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:51:19-79
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:51:19-79
 activity#com.finance.ui.key.group.KeyGroupActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:55:9-57:20
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:55:9-57:20
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:56:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:56:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:55:19-64
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:55:19-64
 activity#com.finance.ui.key.details.KeyDetailsActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:58:9-61:20
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:58:9-61:20
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:60:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:60:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:59:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:59:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:58:19-68
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:58:19-68
 activity#com.finance.ui.department.DepartmentActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:62:9-64:20
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:62:9-64:20
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:63:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:63:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:62:19-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:62:19-67
 activity#com.finance.ui.category.CategoryActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:65:9-67:20
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:65:9-67:20
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:66:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:66:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:65:19-63
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:65:19-63
 activity#com.finance.ui.department.details.DepartmentDetailActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:68:9-71:20
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:68:9-71:20
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:70:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:70:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:69:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:69:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:68:19-81
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:68:19-81
 activity#com.finance.ui.category.details.CategoryDetailsActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:72:9-75:20
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:72:9-75:20
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:74:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:74:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:73:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:73:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:72:19-78
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:72:19-78
 activity#com.finance.ui.main.MainActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:76:9-79:20
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:76:9-79:20
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:78:13-52
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:78:13-52
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:77:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:77:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:76:19-55
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:76:19-55
 activity#com.finance.ui.fragment.account.update.UpdateProfileActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:80:9-83:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:80:9-83:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:82:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:82:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:81:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:81:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:80:19-83
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:80:19-83
 activity#com.finance.ui.fragment.statistics.detail.StaticsDetailActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:84:9-87:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:84:9-87:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:86:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:86:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:85:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:85:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:84:19-86
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:84:19-86
 activity#com.finance.ui.transaction.detail.TransactionDetailActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:88:9-91:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:88:9-91:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:90:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:90:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:89:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:89:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:88:19-82
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:88:19-82
 activity#com.finance.ui.transaction.create_or_update.TransactionCreateUpdateActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:92:9-95:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:92:9-95:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:94:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:94:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:93:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:93:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:92:19-98
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:92:19-98
 activity#com.finance.ui.transaction.group.TransactionGroupActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:96:9-99:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:96:9-99:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:98:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:98:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:97:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:97:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:96:19-80
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:96:19-80
 activity#com.finance.ui.transaction.group.detail.TransactionGroupDetailActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:100:9-103:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:100:9-103:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:102:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:102:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:101:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:101:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:100:19-93
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:100:19-93
 activity#com.finance.ui.service.ServiceActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:104:9-107:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:104:9-107:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:106:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:106:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:105:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:105:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:104:19-61
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:104:19-61
 activity#com.finance.ui.service.detail.ServiceDetailActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:108:9-111:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:108:9-111:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:110:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:110:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:109:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:109:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:108:19-74
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:108:19-74
 activity#com.finance.ui.service.group.ServiceGroupActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:112:9-115:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:112:9-115:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:114:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:114:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:113:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:113:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:112:19-72
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:112:19-72
 activity#com.finance.ui.service.group.detail.ServiceGroupDetailActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:116:9-119:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:116:9-119:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:118:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:118:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:117:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:117:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:116:19-85
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:116:19-85
 activity#com.finance.ui.password.change.ChangePasswordActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:120:9-123:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:120:9-123:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:122:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:122:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:121:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:121:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:120:19-76
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:120:19-76
 activity#com.finance.ui.service.schedule.ServiceScheduleActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:124:9-127:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:124:9-127:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:126:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:126:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:125:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:125:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:124:19-78
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:124:19-78
 activity#com.finance.ui.organization.OrganizationActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:128:9-131:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:128:9-131:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:130:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:130:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:129:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:129:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:128:19-71
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:128:19-71
 activity#com.finance.ui.organization.detail.OrganizationDetailActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:132:9-135:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:132:9-135:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:134:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:134:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:133:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:133:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:132:19-84
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:132:19-84
 activity#com.finance.ui.key.filter.KeyFilterActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:136:9-138:54
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:136:9-138:54
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:138:13-52
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:138:13-52
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:137:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:137:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:136:19-66
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:136:19-66
 activity#com.finance.ui.project.detail.ProjectDetailActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:139:9-142:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:139:9-142:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:141:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:141:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:140:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:140:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:139:19-74
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:139:19-74
 activity#com.finance.ui.project.ProjectActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:143:9-146:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:143:9-146:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:145:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:145:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:144:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:144:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:143:19-61
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:143:19-61
 activity#com.finance.ui.nofication.NotificationActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:147:9-150:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:147:9-150:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:149:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:149:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:148:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:148:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:147:19-69
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:147:19-69
 activity#com.finance.ui.task.detail.TaskDetailActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:151:9-154:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:151:9-154:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:153:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:153:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:152:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:152:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:151:19-68
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:151:19-68
 activity#com.finance.ui.task.create_or_update.TaskCreateUpdateActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:155:9-158:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:155:9-158:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:157:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:157:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:156:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:156:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:155:19-84
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:155:19-84
 activity#com.finance.ui.task.filter.TaskFilterActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:160:9-163:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:160:9-163:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:162:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:162:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:161:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:161:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:160:19-68
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:160:19-68
 activity#com.finance.ui.debit.DebitActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:164:9-167:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:164:9-167:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:166:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:166:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:165:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:165:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:164:19-57
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:164:19-57
 activity#com.finance.ui.debit.detail.DebitDetailActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:168:9-171:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:168:9-171:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:170:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:170:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:169:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:169:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:168:19-70
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:168:19-70
 activity#com.finance.ui.debit.update.DebitUpdateActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:172:9-175:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:172:9-175:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:174:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:174:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:173:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:173:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:172:19-70
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:172:19-70
 activity#com.finance.ui.subtask.SubTaskActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:176:9-179:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:176:9-179:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:178:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:178:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:177:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:177:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:176:19-61
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:176:19-61
 activity#com.finance.ui.image.ImageActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:181:9-184:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:181:9-184:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:183:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:183:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:182:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:182:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:181:19-57
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:181:19-57
 activity#com.finance.ui.task.TaskActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:185:9-188:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:185:9-188:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:187:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:187:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:186:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:186:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:185:19-55
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:185:19-55
 activity#com.finance.ui.document.DocumentActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:189:9-192:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:189:9-192:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:191:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:191:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:190:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:190:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:189:19-63
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:189:19-63
 activity#com.finance.ui.tag.TagActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:194:9-197:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:194:9-197:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:196:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:196:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:195:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:195:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:194:19-53
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:194:19-53
 activity#com.finance.ui.tag.detail.TagDetailActivity
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:199:9-202:15
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:199:9-202:15
 	android:windowSoftInputMode
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:201:13-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:201:13-67
 	android:exported
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:200:13-36
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:200:13-36
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:199:19-66
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:199:19-66
 uses-sdk
-INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
-INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
 MERGED from [com.github.ddB0515.FlexibleAdapter:flexible-adapter-databinding:5.1.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/5d641fd0b9a4dc69d02d038496f2c27a/transformed/jetified-flexible-adapter-databinding-5.1.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.ddB0515.FlexibleAdapter:flexible-adapter-databinding:5.1.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/5d641fd0b9a4dc69d02d038496f2c27a/transformed/jetified-flexible-adapter-databinding-5.1.1/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.databinding:databinding-adapters:7.1.3] /Users/vantrungiunhim/.gradle/caches/transforms-3/472aaba5409fff857ca3c8587d3cb917/transformed/databinding-adapters-7.1.3/AndroidManifest.xml:20:5-22:41
@@ -827,22 +827,22 @@ MERGED from [com.github.davideas:FlipView:1.2.0] /Users/vantrungiunhim/.gradle/c
 MERGED from [com.github.davideas:FlipView:1.2.0] /Users/vantrungiunhim/.gradle/caches/transforms-3/13d9e908a8ef5baefed82af72ad0a3dd/transformed/jetified-FlipView-1.2.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.yukuku:ambilwarna:2.0.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/f82e2f45f8d3a943e76f98a7f1c5b5df/transformed/jetified-ambilwarna-2.0.1/AndroidManifest.xml:8:5-10:41
 MERGED from [com.github.yukuku:ambilwarna:2.0.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/f82e2f45f8d3a943e76f98a7f1c5b5df/transformed/jetified-ambilwarna-2.0.1/AndroidManifest.xml:8:5-10:41
-INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
-INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:209:13-211:54
+ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:209:13-211:54
 	android:resource
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:211:17-51
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:211:17-51
 	android:name
-		ADDED from /Users/vantrungiunhim/Documents/android/kltn/Finance-Android/app/src/main/AndroidManifest.xml:210:17-67
+		ADDED from /Users/vantrungiunhim/Documents/android/kltn-fm-android/app/src/main/AndroidManifest.xml:210:17-67
 queries
 ADDED from [com.github.dhaval2404:imagepicker:2.1] /Users/vantrungiunhim/.gradle/caches/transforms-3/70067b7b477636b52a8a60a8e178627a/transformed/jetified-imagepicker-2.1/AndroidManifest.xml:9:5-19:15
 intent#action:name:android.media.action.IMAGE_CAPTURE
