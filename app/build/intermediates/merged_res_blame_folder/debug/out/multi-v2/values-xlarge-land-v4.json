@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/vantrungiunhim/Documents/android/KTLN/kltn-fm-android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-xlarge-land-v4/values-xlarge-land-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/vantrungiunhim/.gradle/caches/transforms-3/f82e2f45f8d3a943e76f98a7f1c5b5df/transformed/jetified-ambilwarna-2.0.1/res/values-xlarge-land/values-xlarge-land.xml",
+                    "from": {
+                        "startLines": "4,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,226",
+                        "endColumns": "52,51",
+                        "endOffsets": "221,273"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,108",
+                        "endColumns": "52,51",
+                        "endOffsets": "103,155"
+                    }
+                }
+            ]
+        }
+    ]
+}

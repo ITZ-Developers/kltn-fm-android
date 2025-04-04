@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                  
+
+    
+                 
+                     
+                                                               
+                 
+                    
+                                                              
+                                                       
+                                          
+           
+
+    <RelativeLayout
+        android:id="@+id/layout_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+         android:tag="layout/activity_document_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:bind="http://schemas.android.com/tools">
+        <include
+            android:id="@+id/layout_header"
+            layout="@layout/layout_header_title"
+                                                  
+                          
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout_header"
+            >
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcv_documents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_7sdp"
+                />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+         

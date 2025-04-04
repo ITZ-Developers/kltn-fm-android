@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                              
+                                                        
+
+    
+                 
+                          
+                            
+                 
+                               
+                            
+                                                    
+                                                   
+           
+    <RelativeLayout
+        android:id="@+id/layout_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="layout/item_tag_kind_0"                                                                  
+        android:layout_marginEnd="@dimen/_12sdp"
+          xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_bold"
+            android:textSize="@dimen/_13ssp"
+            android:tag="binding_1"                                                           
+            android:text="tagName"                      
+            android:paddingVertical="@dimen/_7sdp"
+            android:paddingHorizontal="@dimen/_15sdp"
+            />
+
+    </RelativeLayout>
+
+         

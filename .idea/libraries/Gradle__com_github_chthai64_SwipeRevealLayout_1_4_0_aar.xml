@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.chthai64:SwipeRevealLayout:1.4.0@aar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/4394652badfbcce87faf62abeb630981/transformed/jetified-SwipeRevealLayout-1.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/4394652badfbcce87faf62abeb630981/transformed/jetified-SwipeRevealLayout-1.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/4394652badfbcce87faf62abeb630981/transformed/jetified-SwipeRevealLayout-1.4.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.chthai64/SwipeRevealLayout/1.4.0/607b18f8ff5a5af139f0db6a0d070c5be5b91b82/SwipeRevealLayout-1.4.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.chthai64/SwipeRevealLayout/1.4.0/7531b2413b24680f73c7232018ab437d8b636aea/SwipeRevealLayout-1.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                  
+
+    
+                 
+                     
+                                                                       
+                 
+                    
+                                                                      
+                                                       
+                                          
+           
+
+    <RelativeLayout
+        android:id="@+id/layout_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+         android:tag="layout/activity_organization_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:bind="http://schemas.android.com/tools">
+        <include
+            android:id="@+id/layout_header"
+            layout="@layout/layout_header_title"
+                                                            
+                          
+            />
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout_header"
+            android:background="@color/color_bg_tran"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_organizations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    />
+            </RelativeLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <include
+            android:id="@+id/layout_no_data"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+                                                                                                                                                                                
+            layout="@layout/layout_empty_data"
+            android:layout_centerInParent="true"
+            />
+
+        <include
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+                                                                              
+            android:id="@+id/layout_invalid_key"
+            layout="@layout/layout_invalid_key"
+            android:layout_centerInParent="true"
+                                             
+            />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/btn_add"
+            android:tag="binding_1"                          
+                                                                                                                                                   
+            android:layout_gravity="end|bottom"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            style="@style/AppButtonGlobal"
+            >
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+
+    </RelativeLayout>
+         
