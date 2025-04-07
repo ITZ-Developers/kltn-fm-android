@@ -39,7 +39,7 @@ public class KeyGroupDetailsViewModel extends BaseViewModel {
 
     public void getKeyGroupDetails(Long id){
         showLoading();
-        compositeDisposable.add(repository.getApiService().getKeyGroupDetails(id)
+        compositeDisposable.add(repository.getApiService().getGroupKey(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .retryWhen(throwable ->

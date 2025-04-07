@@ -188,7 +188,11 @@ public interface ApiService {
                                                                                    @Query("size") Integer pageSize);
     @GET("/v1/key-information-group/list?sort=createdDate,desc")
     Observable<ResponseWrapper<ResponseListObj<KeyGroupResponse>>> getKeyGroupList(@Query("isPaged") Integer isPaged);
-
+    @GET("/v1/key-information-group/list")
+    Observable<ResponseWrapper<ResponseListObj<KeyGroupResponse>>> getGroupKeys(@Query("page") Integer page,
+                                                                                                  @Query("size") Integer size,
+                                                                                                  @Query("isPaged") Integer isPaged,
+                                                                                                  @Query("sort") String sort);
     //Group Transaction
     //--GET ALL
     @GET("/v1/transaction-group/list")
@@ -213,7 +217,7 @@ public interface ApiService {
     Observable<ResponseStatus> deleteGroupTransaction(@Path("id") Long id);
 
     @GET("/v1/key-information-group/get/{id}")
-    Observable<ResponseWrapper<KeyGroupResponse>> getKeyGroupDetails(@Path("id") Long id);
+    Observable<ResponseWrapper<KeyGroupResponse>> getGroupKey(@Path("id") Long id);
     @POST("/v1/key-information-group/create")
     Observable<ResponseStatus> createKeyGroup(@Body KeyGroupCreateRequest request);
     @PUT("/v1/key-information-group/update")

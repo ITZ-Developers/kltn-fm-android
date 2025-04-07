@@ -12,7 +12,10 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.databinding.Observable;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.finance.BR;
+import com.finance.MVVMApplication;
 import com.finance.R;
 import com.finance.databinding.ActivityLoginBinding;
 import com.finance.di.component.ActivityComponent;
@@ -44,6 +47,8 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
         if (token != null && !token.isEmpty() && !token.equals("NULL"))
         {
             Timber.d(token);
+            DecodedJWT decodedJWT = JWT.decode(token);
+            MVVMApplication.setPermissions(viewModel.getAuthorities(decodedJWT));
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();

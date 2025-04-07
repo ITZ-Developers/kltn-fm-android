@@ -14,6 +14,7 @@ import com.finance.ui.document.DocumentActivity;
 import com.finance.ui.image.ImageActivity;
 import com.finance.ui.key.filter.KeyFilterActivity;
 
+import com.finance.ui.key.group.KeyGroupActivity;
 import com.finance.ui.nofication.NotificationActivity;
 import com.finance.ui.organization.OrganizationActivity;
 import com.finance.ui.organization.detail.OrganizationDetailActivity;
@@ -41,7 +42,6 @@ import com.finance.ui.fragment.statistics.detail.StaticsDetailActivity;
 import com.finance.ui.service.group.ServiceGroupActivity;
 import com.finance.ui.service.group.detail.ServiceGroupDetailActivity;
 import com.finance.ui.key.details.KeyDetailsActivity;
-import com.finance.ui.key.group.KeyGroupActivity;
 import com.finance.ui.key.group.details.KeyGroupDetailsActivity;
 import com.finance.ui.login.LoginActivity;
 import com.finance.ui.main.MainActivity;

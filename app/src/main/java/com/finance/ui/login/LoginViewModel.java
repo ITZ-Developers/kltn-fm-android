@@ -112,7 +112,7 @@ public class LoginViewModel extends BaseViewModel {
                         }));
     }
 
-    private List<String> getAuthorities(DecodedJWT decodedJWT) {
+    public List<String> getAuthorities(DecodedJWT decodedJWT) {
         Claim authoritiesClaim = decodedJWT.getClaim("authorities");
         if (authoritiesClaim == null || authoritiesClaim.asList(String.class) == null) {
             return Collections.emptyList();
