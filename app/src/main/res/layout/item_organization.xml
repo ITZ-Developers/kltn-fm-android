@@ -16,7 +16,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <com.chauthai.swipereveallayout.SwipeRevealLayout
+        <com.finance.ui.swipe.SwipeRevealLayout
             android:id="@+id/swipeRevealLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -98,7 +98,7 @@
                         />
                 </RelativeLayout>
             </FrameLayout>
-        </com.chauthai.swipereveallayout.SwipeRevealLayout>
+        </com.finance.ui.swipe.SwipeRevealLayout>
     </FrameLayout>
 
 </layout>

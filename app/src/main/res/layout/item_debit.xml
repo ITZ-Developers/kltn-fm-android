@@ -16,7 +16,7 @@
         <variable name="permissionDelete" type="Boolean" />
     </data>
 
-    <com.chauthai.swipereveallayout.SwipeRevealLayout
+    <com.finance.ui.swipe.SwipeRevealLayout
         android:id="@+id/swipe_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -163,5 +163,5 @@
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.chauthai.swipereveallayout.SwipeRevealLayout>
+    </com.finance.ui.swipe.SwipeRevealLayout>
 </layout>

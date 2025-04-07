@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chauthai.swipereveallayout.ViewBinderHelper;
+import com.finance.ui.swipe.ViewBinderHelper;
 import com.finance.MVVMApplication;
 import com.finance.R;
 import com.finance.constant.Constants;

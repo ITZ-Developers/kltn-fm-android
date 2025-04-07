@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chauthai.swipereveallayout.ViewBinderHelper;
+import com.finance.ui.swipe.ViewBinderHelper;
 import com.finance.MVVMApplication;
 import com.finance.constant.Constants;
 import com.finance.data.model.api.response.account.Permission;

@@ -15,7 +15,7 @@
             name="secretKey"
             type="String" />
     </data>
-    <com.chauthai.swipereveallayout.SwipeRevealLayout
+    <com.finance.ui.swipe.SwipeRevealLayout
         android:id="@+id/swipeRevealLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -152,6 +152,6 @@
 
             </RelativeLayout>
         </FrameLayout>
-    </com.chauthai.swipereveallayout.SwipeRevealLayout>
+    </com.finance.ui.swipe.SwipeRevealLayout>
 
 </layout>

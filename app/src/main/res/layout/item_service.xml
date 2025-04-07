@@ -20,7 +20,7 @@
         <import type="com.finance.constant.Constants"/>
     </data>
 
-        <com.chauthai.swipereveallayout.SwipeRevealLayout
+        <com.finance.ui.swipe.SwipeRevealLayout
             android:layout_marginBottom="@dimen/_3sdp"
             android:id="@+id/swipeRevealLayout"
             android:layout_width="match_parent"
@@ -166,6 +166,6 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </FrameLayout>
-        </com.chauthai.swipereveallayout.SwipeRevealLayout>
+        </com.finance.ui.swipe.SwipeRevealLayout>
 
 </layout>

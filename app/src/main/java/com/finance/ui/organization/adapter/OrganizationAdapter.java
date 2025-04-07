@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chauthai.swipereveallayout.ViewBinderHelper;
+import com.finance.ui.swipe.ViewBinderHelper;
 import com.finance.data.model.api.response.organization.OrganizationResponse;
 import com.finance.databinding.ItemOrganizationBinding;
 import com.finance.utils.AESUtils;
