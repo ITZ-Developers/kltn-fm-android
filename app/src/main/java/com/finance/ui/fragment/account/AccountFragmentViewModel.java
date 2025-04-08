@@ -29,6 +29,7 @@ import com.finance.ui.nofication.NotificationActivity;
 import com.finance.ui.organization.OrganizationActivity;
 import com.finance.ui.password.change.ChangePasswordActivity;
 import com.finance.ui.project.ProjectActivity;
+import com.finance.ui.scanner.WebQRCodeRequest;
 import com.finance.ui.service.group.ServiceGroupActivity;
 import com.finance.ui.tag.TagActivity;
 import com.finance.ui.transaction.group.TransactionGroupActivity;
@@ -91,6 +92,37 @@ public class    AccountFragmentViewModel extends BaseFragmentViewModel {
                                 Objects.requireNonNull(profile.get()).setBirthDate(
                                         DateUtils.convertFromUTCToDefaultApi(Objects.requireNonNull(profile.get()).getBirthDate()));
                                 filePath.setValue(Objects.requireNonNull(profile.get()).getAvatarPath());
+                            }else{
+                                showErrorMessage(response.getMessage());
+                            }
+                            hideLoading();
+                        },
+                        throwable -> {
+                            hideLoading();
+                            showErrorMessage(throwable.getMessage());
+                        }
+                ));
+    }
+
+
+    public void verifyQrcode(String message){
+        showLoading();
+        compositeDisposable.add(repository.getApiService().verifyQrcode(new WebQRCodeRequest(message))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .retryWhen(throwable ->
+                        throwable.flatMap((Function<Throwable, ObservableSource<?>>) throwable1 -> {
+                            if (NetworkUtils.checkNetworkError(throwable1)) {
+                                return application.showDialogNoInternetAccess();
+                            }else{
+                                return Observable.error(throwable1);
+                            }
+                        })
+                )
+                .subscribe(
+                        response -> {
+                            if(response.isResult()){
+                               showSuccessMessage("Xác thực đăng nhập web thành công");
                             }else{
                                 showErrorMessage(response.getMessage());
                             }

@@ -74,4 +74,7 @@
     <color name="blue_notification">#fafcff</color>
     <color name="color_light_orange">#ED6C6E4D</color>
     <color name="color_read_more">#929292</color>
+    <color name="qr_code_bg">#ffffff</color>
+    <color name="qr_code_color">#1677FF</color>
+    <color name="qr_code_stroke">#1677FF</color>
 </resources>

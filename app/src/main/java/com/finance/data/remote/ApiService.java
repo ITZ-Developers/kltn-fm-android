@@ -65,6 +65,7 @@ import com.finance.data.model.api.response.tag.TagResponse;
 import com.finance.data.model.api.response.task.TaskResponse;
 import com.finance.data.model.api.response.transaction.TransactionResponse;
 import com.finance.data.model.api.response.transaction.group.TransactionGroupResponse;
+import com.finance.ui.scanner.WebQRCodeRequest;
 
 import io.reactivex.rxjava3.core.Observable;
 import okhttp3.MultipartBody;
@@ -403,5 +404,8 @@ public interface ApiService {
     Observable<ResponseStatus> deleteTag(@Path("id") Long id);
     @GET("v1/tag/get/{id}")
     Observable<ResponseWrapper<TagResponse>> getDetailTag(@Path("id") Long id);
+
+    @POST("/v1/account/verify-login-qr-code")
+    Observable<ResponseStatus> verifyQrcode(@Body WebQRCodeRequest request);
 
 }

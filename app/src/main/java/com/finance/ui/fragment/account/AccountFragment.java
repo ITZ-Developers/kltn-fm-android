@@ -8,11 +8,14 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -31,15 +34,28 @@ import com.finance.di.component.FragmentComponent;
 import com.finance.ui.base.BaseFragment;
 import com.finance.ui.dialog.DownLoadDialog;
 import com.finance.ui.fragment.account.update.UpdateProfileActivity;
+import com.finance.ui.scanner.CustomScanner;
+import com.finance.ui.scanner.WebQRCodeRequest;
 import com.finance.utils.BindingUtils;
 import com.finance.utils.DateUtils;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.NotFoundException;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.Result;
+import com.google.zxing.common.HybridBinarizer;
+import com.journeyapps.barcodescanner.ScanContract;
+import com.journeyapps.barcodescanner.ScanOptions;
 
 import org.json.JSONObject;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Date;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -243,7 +259,112 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding, Accoun
         }
     }
 
+    private int scanType;
+    private static final int REQUEST_OPEN_SCAN_QRCODE = 2309;
+    private static final int REQUEST_OPEN_SCAN_QRCODE_FROM_PC = 2139;
 
+    private void scanQrCodeFromGallery(){
+        Intent pickIntent = new Intent(Intent.ACTION_PICK);
+        pickIntent.setDataAndType( android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
 
+        galleryI.launch(pickIntent);
+    }
 
+    private final ActivityResultLauncher<ScanOptions> scan = registerForActivityResult(new ScanContract(), result -> {
+        if (scanType == REQUEST_OPEN_SCAN_QRCODE) {
+            Timber.d("Handle request from mobile");
+            if (result.getOriginalIntent()!=null && result.getOriginalIntent().getExtras() != null && result.getOriginalIntent().getExtras().getBoolean("gallery")) {
+                scanQrCodeFromGallery();
+            } else {
+                handleQRCode(result.getContents());
+            }
+        } else if (scanType == REQUEST_OPEN_SCAN_QRCODE_FROM_PC) {
+            Timber.d("Handle request from pc");
+            handleQRCodeFromPC(result.getContents());
+        }
+    });
+
+    private final ActivityResultLauncher<Intent> galleryI = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        if  (result.getData() == null){
+            return;
+        }
+        Uri uri = result.getData().getData();
+        try
+        {
+            InputStream inputStream = getActivity().getContentResolver().openInputStream(uri);
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            if (bitmap == null)
+            {
+                Log.e("TAG", "uri is not a bitmap," + uri.toString());
+                return;
+            }
+            int width = bitmap.getWidth(), height = bitmap.getHeight();
+            int[] pixels = new int[width * height];
+            bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+            bitmap.recycle();
+            bitmap = null;
+            RGBLuminanceSource source = new RGBLuminanceSource(width, height, pixels);
+            BinaryBitmap bBitmap = new BinaryBitmap(new HybridBinarizer(source));
+            MultiFormatReader reader = new MultiFormatReader();
+            try
+            {
+                Result resultX = reader.decode(bBitmap);
+                handleQRCode(resultX.getText());
+            }
+            catch (NotFoundException e)
+            {
+                viewModel.showErrorMessage(getString(R.string.qr_code_not_found_gallery));
+            }
+        }
+        catch (FileNotFoundException e)
+        {
+            viewModel.showErrorMessage(getString(R.string.gallery_open_error));
+        }
+    });
+
+    private void handleQRCode(String result){
+        if (result == null) {
+            viewModel.showErrorMessage(getString(R.string.scan_qr_code_cancelled));
+//            openScanQRCode(REQUEST_OPEN_SCAN_QRCODE);
+        } else {
+            try {
+                doVerifyQRCode(result);
+            } catch (IndexOutOfBoundsException e) {
+                viewModel.showErrorMessage(getString(R.string.qr_code_wrong_format));
+            }
+        }
+    }
+
+    private void doVerifyQRCode(String message) {
+        Timber.d("Verify QR Code");
+        Timber.d(message);
+        String[] parts = message.split(";");
+        // TODO
+        viewModel.verifyQrcode(message);
+    }
+
+    private void handleQRCodeFromPC(String result){
+        viewModel.showSuccessMessage(getString(R.string.scan_qr_success));
+        sendQRCodeToWebView(result);
+    }
+    private void sendQRCodeToWebView(String qrCode ){
+        Timber.d("Send to qrcode pc: %s", qrCode);
+        WebQRCodeRequest webQRCodeRequest = new WebQRCodeRequest(qrCode);
+    }
+
+    public void openScanQRCode(int requestOpenScanQrcode) {
+        scanType = requestOpenScanQrcode;
+        ScanOptions integrator = new ScanOptions();
+        integrator.setCaptureActivity(CustomScanner.class);
+        integrator.setDesiredBarcodeFormats(ScanOptions.QR_CODE);
+        integrator.setCameraId(0);  // Use a specific camera of the device
+        integrator.setPrompt("");
+        integrator.setBeepEnabled(false);
+        integrator.setBarcodeImageEnabled(true);
+        scan.launch(integrator);
+    }
+
+    public void scanQrCode() {
+        openScanQRCode(REQUEST_OPEN_SCAN_QRCODE);
+    }
 }
