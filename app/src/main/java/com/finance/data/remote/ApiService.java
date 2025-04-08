@@ -94,7 +94,7 @@ public interface ApiService {
     //--Update profile
     @PUT("v1/account/update-profile-admin")
     Observable<ResponseStatus> updateProfile(@Body UpdateProfileRequest request);
-    @GET("v1/file/download/{folder}/{fileName}")
+    @GET("v1/media/download/{folder}/{fileName}")
 
     //Download file
     Observable<ResponseBody> downloadFile(
@@ -103,7 +103,7 @@ public interface ApiService {
 
     //Upload file
     @Multipart
-    @POST("v1/file/upload")
+    @POST("v1/media/upload")
     Observable<ResponseWrapper<AvatarPathResponse>> uploadFile(@Part("type") RequestBody type, @Part MultipartBody.Part file);
 
     //Fragment Home

@@ -146,7 +146,7 @@ public class Constants {
 
     public static final String KEY_GROUP_ID = "key_group_id";
     public static final String KEY_GROUP = "keyGroup";
-    public static final String FILE_DOWNLOAD = "v1/file/download";
+    public static final String FILE_DOWNLOAD = "v1/media/download/";
     public static final String TRANSACTION_ID = "transaction_id";
     public static final String SERVICE_ID = "service_id";
     public static final String FROM_NOTIFICATION = "from_notification";
