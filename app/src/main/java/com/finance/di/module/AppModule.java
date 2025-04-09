@@ -9,6 +9,7 @@ import com.finance.data.AppRepository;
 import com.finance.data.Repository;
 import com.finance.data.prefs.AppPreferencesService;
 import com.finance.data.prefs.PreferencesService;
+import com.finance.data.remote.ApiMediaService;
 import com.finance.data.remote.ApiService;
 import com.finance.data.remote.AuthInterceptor;
 import com.finance.di.qualifier.ApiInfo;
@@ -16,6 +17,7 @@ import com.finance.di.qualifier.PreferenceInfo;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -59,12 +61,6 @@ public class AppModule {
         return appRepository;
     }
 
-    @Provides
-    @ApiInfo
-    @Singleton
-    String provideBaseUrl() {
-        return BuildConfig.TENANT_URL;
-    }
 
     @Provides
     @Singleton
@@ -89,6 +85,31 @@ public class AppModule {
     }
 
     @Provides
+    @ApiInfo
+    @Singleton
+    String provideBaseUrl() {
+        return BuildConfig.TENANT_URL;
+    }
+
+    @Provides
+    @Named("media")
+    @Singleton
+    String provideMediaUrl() {
+        return BuildConfig.MEDIA_URL;
+    }
+
+    @Provides
+    @Named("retrofitMedia")
+    @Singleton
+    public Retrofit retrofitMediaBuild(OkHttpClient client, @Named("media") String masterUrl) {
+        return new Retrofit.Builder()
+                .client(client)
+                .baseUrl(masterUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+                .build();
+    }
+    @Provides
     @Singleton
     public Retrofit retrofitBuild(OkHttpClient client, @ApiInfo String url) {
         return new Retrofit.Builder()
@@ -104,5 +125,12 @@ public class AppModule {
     public ApiService apiService(Retrofit retrofit) {
         return retrofit.create(ApiService.class);
     }
+
+    @Provides
+    @Singleton
+    public ApiMediaService apiMasterService(@Named("retrofitMedia") Retrofit retrofit) {
+        return retrofit.create(ApiMediaService.class);
+    }
+
 
 }

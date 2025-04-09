@@ -103,7 +103,7 @@ public class UpdateProfileViewModel extends BaseViewModel {
 
     public void doUploadAvatar(MultipartBody.Part imagePart){
         RequestBody type = RequestBody.create("AVATAR", MediaType.parse("multipart/form-data"));
-        compositeDisposable.add(repository.getApiService().uploadFile(type, imagePart)
+        compositeDisposable.add(repository.getApiMediaService().uploadFile(type, imagePart)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .retryWhen(throwable ->

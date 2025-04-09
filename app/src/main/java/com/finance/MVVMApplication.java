@@ -225,6 +225,7 @@ public class MVVMApplication  extends Application{
                 .subscribeOn(Schedulers.io())
                 .subscribe(o -> {
                     KittyRealtimeEvent kittyRealtimeEvent = (KittyRealtimeEvent) currentActivity;
+                    // Check if the message is lock device
                     if (kittyRealtimeEvent == null) return;
                     if (o != null && lastMessage != null && o.getCmd().equals(lastMessage.getCmd())) {
                         if (o.getSubCmd() != null && o.getSubCmd().equals(lastMessage.getSubCmd())) {
@@ -232,8 +233,15 @@ public class MVVMApplication  extends Application{
                             this.lastMessage = null;
                         }
                     }
-                    Timber.tag("CMDSS").d(o.getCmd());
-                    // Check if the message is lock device
+                    if (o != null && Objects.equals(o.getCmd(), Command.COMMAND_CLIENT_PING)) {
+                        // Check if the current activity is login activity
+                        if (currentActivity != null && currentActivity instanceof LoginActivity)
+                            return;
+                        if (o.getResponseCode() == 400) {
+                            currentActivity.runOnUiThread(this::lockDevice);
+                        }
+                        return;
+                    }
                     if (o != null && Objects.equals(o.getCmd(), Command.COMMAND_LOCK_DEVICE)) {
                         // Check if the current activity is login activity
                         if (currentActivity != null && currentActivity instanceof LoginActivity)

@@ -234,7 +234,7 @@ public class ProjectDetailViewModel extends BaseViewModel {
 
     public void uploadLogo(MultipartBody.Part imagePart){
         RequestBody type = RequestBody.create( "LOGO", MediaType.parse("multipart/form-data"));
-        compositeDisposable.add(repository.getApiService().uploadFile(type, imagePart)
+        compositeDisposable.add(repository.getApiMediaService().uploadFile(type, imagePart)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .retryWhen(throwable ->

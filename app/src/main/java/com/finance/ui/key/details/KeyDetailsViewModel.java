@@ -418,7 +418,7 @@ public class KeyDetailsViewModel extends BaseViewModel {
     public void doUploadFile(MultipartBody.Part imagePart){
         showLoading();
         RequestBody type = RequestBody.create("DOCUMENT", MediaType.parse("multipart/form-data"));
-        compositeDisposable.add(repository.getApiService().uploadFile(type, imagePart)
+        compositeDisposable.add(repository.getApiMediaService().uploadFile(type, imagePart)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .retryWhen(throwable ->

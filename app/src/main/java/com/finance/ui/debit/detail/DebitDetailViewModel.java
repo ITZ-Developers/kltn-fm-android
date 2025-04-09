@@ -66,7 +66,7 @@ public class DebitDetailViewModel extends BaseViewModel {
         String folder = parts[1];
         String fileName = parts[2];
         String mineType = FileUtils.getMimeType(fileName);
-        compositeDisposable.add(repository.getApiService().downloadFile(folder, fileName)
+        compositeDisposable.add(repository.getApiMediaService().downloadFile(folder, fileName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

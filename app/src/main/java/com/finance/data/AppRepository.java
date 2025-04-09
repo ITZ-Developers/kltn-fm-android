@@ -3,6 +3,7 @@ package com.finance.data;
 
 import com.finance.data.model.api.response.account.AccountResponse;
 import com.finance.data.prefs.PreferencesService;
+import com.finance.data.remote.ApiMediaService;
 import com.finance.data.remote.ApiService;
 
 import javax.inject.Inject;
@@ -10,11 +11,13 @@ import javax.inject.Inject;
 public class AppRepository implements Repository {
 
     private final ApiService mApiService;
+    private final ApiMediaService mApiMediaService;
     private final PreferencesService mPreferencesHelper;
 
     @Inject
-    public AppRepository(ApiService apiService, PreferencesService mPreferencesHelper) {
+    public AppRepository(ApiService apiService, ApiMediaService apiMediaService, PreferencesService mPreferencesHelper) {
         this.mApiService = apiService;
+        this.mApiMediaService = apiMediaService;
         this.mPreferencesHelper = mPreferencesHelper;
     }
 
@@ -47,6 +50,11 @@ public class AppRepository implements Repository {
     @Override
     public ApiService getApiService(){
         return mApiService;
+    }
+
+    @Override
+    public ApiMediaService getApiMediaService() {
+        return mApiMediaService;
     }
 
 }
