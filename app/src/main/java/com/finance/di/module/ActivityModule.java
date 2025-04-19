@@ -12,6 +12,8 @@ import com.finance.di.scope.ActivityScope;
 import com.finance.ui.base.BaseActivity;
 import com.finance.ui.category.CategoryViewModel;
 import com.finance.ui.category.details.CategoryDetailsViewModel;
+import com.finance.ui.chat.ChatViewModel;
+import com.finance.ui.chat.detail.ChatDetailViewModel;
 import com.finance.ui.debit.DebitViewModel;
 import com.finance.ui.debit.detail.DebitDetailViewModel;
 import com.finance.ui.debit.update.DebitUpdateViewModel;
@@ -397,6 +399,22 @@ public class ActivityModule {
         Supplier<TagDetailViewModel> supplier = () -> new TagDetailViewModel(repository, (MVVMApplication)application);
         ViewModelProviderFactory<TagDetailViewModel> factory = new ViewModelProviderFactory<>(TagDetailViewModel.class, supplier);
         return new ViewModelProvider(activity, factory).get(TagDetailViewModel.class);
+    }
+
+    @Provides
+    @ActivityScope
+    ChatViewModel provideChatViewModel(Repository repository, Context application) {
+        Supplier<ChatViewModel> supplier = () -> new ChatViewModel(repository, (MVVMApplication)application);
+        ViewModelProviderFactory<ChatViewModel> factory = new ViewModelProviderFactory<>(ChatViewModel.class, supplier);
+        return new ViewModelProvider(activity, factory).get(ChatViewModel.class);
+    }
+
+    @Provides
+    @ActivityScope
+    ChatDetailViewModel provideChatDetailViewModel(Repository repository, Context application) {
+        Supplier<ChatDetailViewModel> supplier = () -> new ChatDetailViewModel(repository, (MVVMApplication)application);
+        ViewModelProviderFactory<ChatDetailViewModel> factory = new ViewModelProviderFactory<>(ChatDetailViewModel.class, supplier);
+        return new ViewModelProvider(activity, factory).get(ChatDetailViewModel.class);
     }
 
 }

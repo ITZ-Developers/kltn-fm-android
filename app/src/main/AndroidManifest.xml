@@ -201,6 +201,16 @@
             android:windowSoftInputMode="adjustResize|stateHidden"
             />
 
+        <activity android:name=".ui.chat.ChatActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            />
+
+        <activity android:name=".ui.chat.detail.ChatDetailActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

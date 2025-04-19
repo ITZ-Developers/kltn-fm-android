@@ -77,4 +77,8 @@
     <color name="qr_code_bg">#ffffff</color>
     <color name="qr_code_color">#1677FF</color>
     <color name="qr_code_stroke">#1677FF</color>
+    <color name="sent_bubble_color">#0584fe</color>
+    <color name="received_bubble_color">#f0f0f0</color>
+    <color name="text_received_color">#000000</color>
+    <color name="text_sent_color">#ffffff</color>
 </resources>

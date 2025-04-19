@@ -310,6 +310,5 @@ public class DebitActivity extends BaseActivity<ActivityDebitBinding, DebitViewM
         } else {
             super.onBackPressed();
         }
-
     }
 }

@@ -539,5 +539,7 @@
     <string name="verify_qr_code_error">Có lỗi xảy ra khi xác thực mã QR</string>
     <string name="qr_code_not_found_gallery">Không tìm thấy mã QR trong hình</string>
     <string name="gallery_open_error">Không thể mở hình</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="chat">Chat</string>
 
 </resources>

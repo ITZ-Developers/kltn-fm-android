@@ -5,6 +5,8 @@ import com.finance.di.module.ActivityModule;
 import com.finance.di.scope.ActivityScope;
 import com.finance.ui.category.CategoryActivity;
 import com.finance.ui.category.details.CategoryDetailsActivity;
+import com.finance.ui.chat.ChatActivity;
+import com.finance.ui.chat.detail.ChatDetailActivity;
 import com.finance.ui.debit.DebitActivity;
 import com.finance.ui.debit.detail.DebitDetailActivity;
 import com.finance.ui.debit.update.DebitUpdateActivity;
@@ -96,4 +98,6 @@ public interface ActivityComponent {
     void inject(DocumentActivity activity);
     void inject(TagActivity activity);
     void inject(TagDetailActivity activity);
+    void inject(ChatActivity activity);
+    void inject(ChatDetailActivity activity);
 }

@@ -249,4 +249,76 @@
         <item name="android:layout_width">@dimen/_10sdp</item>
     </style>
 
+
+    <style name="CustomCardStyle" parent="Widget.MaterialComponents.CardView">
+        <!-- Custom attributes -->
+    </style>
+
+    <!-- Top message in sent sequence -->
+    <style name="ShapeAppearance.App.ChatBubble.Sent.Top" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">4dp</item>
+    </style>
+
+    <!-- Middle message in sent sequence -->
+    <style name="ShapeAppearance.App.ChatBubble.Sent.Middle" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">4dp</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">4dp</item>
+    </style>
+
+    <!-- Bottom message in sent sequence -->
+    <style name="ShapeAppearance.App.ChatBubble.Sent.Bottom" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">4dp</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <!-- LEFT SIDE (RECEIVED) BUBBLES -->
+
+    <!-- Top message in received sequence -->
+    <style name="ShapeAppearance.App.ChatBubble.Received.Top" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">4dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+
+    <!-- Middle message in received sequence -->
+    <style name="ShapeAppearance.App.ChatBubble.Received.Middle" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSizeTopLeft">4dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">4dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+
+    <!-- Bottom message in received sequence -->
+    <style name="ShapeAppearance.App.ChatBubble.Received.Bottom" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSizeTopLeft">4dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+
+    <!-- SINGLE MESSAGE (STANDALONE) -->
+    <!-- Single sent message (not part of a sequence) -->
+    <style name="ShapeAppearance.App.ChatBubble.Sent.Single" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <!-- Single received message (not part of a sequence) -->
+    <style name="ShapeAppearance.App.ChatBubble.Received.Single" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+
 </resources>
