@@ -116,12 +116,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) binding.cardView.getLayoutParams();
             if (isSent) {
                 params.gravity = Gravity.END;
-                params.setMarginStart(64); // Leave space on the left
-                params.setMarginEnd(8);    // Small margin on the right
+                params.setMarginEnd(8);
             } else {
                 params.gravity = Gravity.START;
-                params.setMarginStart(8);  // Small margin on the left
-                params.setMarginEnd(64);   // Leave space on the right
+                params.setMarginStart(8);
             }
             binding.cardView.setLayoutParams(params);
 

@@ -250,10 +250,6 @@
     </style>
 
 
-    <style name="CustomCardStyle" parent="Widget.MaterialComponents.CardView">
-        <!-- Custom attributes -->
-    </style>
-
     <!-- Top message in sent sequence -->
     <style name="ShapeAppearance.App.ChatBubble.Sent.Top" parent="ShapeAppearance.MaterialComponents.MediumComponent">
         <item name="cornerSizeTopLeft">16dp</item>
