@@ -32,6 +32,7 @@ import com.finance.data.model.api.request.privatekey.PrivateKeyRequest;
 import com.finance.databinding.FragmentAccountBinding;
 import com.finance.di.component.FragmentComponent;
 import com.finance.ui.base.BaseFragment;
+import com.finance.ui.chat.ChatActivity;
 import com.finance.ui.dialog.DownLoadDialog;
 import com.finance.ui.fragment.account.update.UpdateProfileActivity;
 import com.finance.ui.scanner.CustomScanner;
@@ -362,6 +363,11 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding, Accoun
         integrator.setBeepEnabled(false);
         integrator.setBarcodeImageEnabled(true);
         scan.launch(integrator);
+    }
+
+    public void navigateToChatActivity() {
+        Intent intent = new Intent(getActivity(), ChatActivity.class);
+        startActivity(intent);
     }
 
     public void scanQrCode() {

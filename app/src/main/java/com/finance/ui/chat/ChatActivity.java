@@ -77,21 +77,6 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String editSearch = viewBinding.edtSearch.getText().toString();
                 viewModel.isSearchEmpty.set(editSearch);
-
-//                List<DebitResponse> debitResponseFilters = new ArrayList<>();
-//                if (debits == null || debits.isEmpty()){
-//                    return;
-//                }
-//
-//                for (DebitResponse debitResponse : debits){
-//                    if (debitResponse.getName().toLowerCase().contains(editSearch.toLowerCase())){
-//                        debitResponseFilters.add(debitResponse);
-//                    }
-//                }
-//                adapter.setListDebitResponse(debitResponseFilters);
-//                adapter.notifyDataSetChanged();
-//
-//                viewModel.totalElements.set(debitResponseFilters.size());
             }
 
             @Override
