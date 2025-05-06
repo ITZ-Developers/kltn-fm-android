@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Message {
+public class MessageResponse {
     public static final int TYPE_TOP = 0;
     public static final int TYPE_MIDDLE = 1;
     public static final int TYPE_BOTTOM = 2;
@@ -22,7 +22,7 @@ public class Message {
     private String senderId;
     private int state;
 
-    public Message(String senderId, String name, String content, long timestamp) {
+    public MessageResponse(String senderId, String name, String content, long timestamp) {
         this.senderId = senderId;
         this.name = name;
         this.content = content;

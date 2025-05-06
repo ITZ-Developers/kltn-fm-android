@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -658,13 +659,22 @@ public class TransactionCreateUpdateActivity extends BaseActivity<ActivityTransa
         btnGallery.setOnClickListener(v -> {
             // Gallery option clicked
             dialog.dismiss();
-            if (ContextCompat.checkSelfPermission(TransactionCreateUpdateActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                    != PackageManager.PERMISSION_GRANTED
-            ) {
-                ActivityCompat.requestPermissions(TransactionCreateUpdateActivity.this,
-                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, Constants.STORAGE_REQUEST);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{Manifest.permission.READ_MEDIA_IMAGES}, Constants.STORAGE_REQUEST);
+                } else {
+                    openGallery();
+                }
             } else {
-                openGallery();
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, Constants.STORAGE_REQUEST);
+                } else {
+                    openGallery();
+                }
             }
 
         });

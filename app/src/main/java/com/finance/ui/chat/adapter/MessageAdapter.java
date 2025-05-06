@@ -14,21 +14,20 @@ import com.finance.R;
 import com.finance.databinding.ItemMessageBinding;
 import com.google.android.material.shape.ShapeAppearanceModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
 
-    private List<Message> messageList;
+    private List<MessageResponse> messageList;
     private final String currentUserId;
 
-    public MessageAdapter(List<Message> messages,String currentUserId) {
+    public MessageAdapter(List<MessageResponse> messages, String currentUserId) {
         this.messageList = messages;
         this.currentUserId = currentUserId;
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setMessages(List<Message> messages) {
+    public void setMessages(List<MessageResponse> messages) {
         this.messageList = messages;
         notifyDataSetChanged();
     }
@@ -42,7 +41,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
     @Override
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
-        Message message = messageList.get(position);
+        MessageResponse message = messageList.get(position);
         holder.bind(message, position, messageList, currentUserId);
     }
 
@@ -58,7 +57,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             this.binding = binding;
         }
 
-        public void bind(Message message, int position, List<Message> messages, String currentUserId) {
+        public void bind(MessageResponse message, int position, List<MessageResponse> messages, String currentUserId) {
             // Determine if message is sent by current user
             boolean isSent = message.getSenderId().equals(currentUserId);
 
@@ -133,11 +132,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 //            }
         }
 
-        private boolean isTopMessage(int position, List<Message> messages) {
+        private boolean isTopMessage(int position, List<MessageResponse> messages) {
             return position == 0 || !messages.get(position).getSenderId().equals(messages.get(position - 1).getSenderId());
         }
 
-        private boolean isBottomMessage(int position, List<Message> messages) {
+        private boolean isBottomMessage(int position, List<MessageResponse> messages) {
             return position == messages.size() - 1 || !messages.get(position).getSenderId().equals(messages.get(position + 1).getSenderId());
         }
     }

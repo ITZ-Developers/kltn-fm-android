@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="item"
+            type="com.finance.ui.chat.ChatResponse"/>
+        <import type="android.view.View"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_5sdp"
+        >
+        <ImageView
+            android:id="@+id/img_user"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:src="@drawable/ic_user_default"
+            android:layout_margin="@dimen/_3sdp"
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/img_user"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_centerVertical="true"
+            >
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_semibold"
+                android:text="@{item.name, default=`No name`}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                android:maxWidth="@dimen/_200sdp"
+                />
+
+            <LinearLayout
+                android:id="@+id/layout_message_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_name"
+                >
+                <TextView
+                    android:id="@+id/tv_last_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_medium"
+                    android:text="@{item.lastMessage, default=`No message`}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:maxWidth="@dimen/_150sdp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_medium"
+                    android:text="@{`· ` + item.time, default=`· No time`}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:maxWidth="@dimen/_200sdp"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@{item.state == 0 ? @drawable/ic_read : @drawable/ic_unread}"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_15sdp"
+            />
+
+    </RelativeLayout>
+</layout>
