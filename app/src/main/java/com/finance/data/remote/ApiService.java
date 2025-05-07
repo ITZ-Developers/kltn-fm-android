@@ -397,4 +397,7 @@ public interface ApiService {
     @POST("/v1/account/verify-login-qr-code")
     Observable<ResponseStatus> verifyQrcode(@Body WebQRCodeRequest request);
 
+    @GET("v1/chat-room/list?isPaged=0")
+    Observable<ResponseWrapper<ResponseListObj<TagResponse>>> getTags(@Query("kind") Integer kind);
+
 }
