@@ -9,21 +9,17 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.style.StyleSpan;
-
 import androidx.annotation.Nullable;
 import androidx.databinding.Observable;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 import com.finance.BR;
 import com.finance.R;
-import com.finance.data.model.api.response.debit.DebitResponse;
 import com.finance.databinding.ActivityChatBinding;
 import com.finance.di.component.ActivityComponent;
 import com.finance.ui.base.BaseActivity;
 import com.finance.ui.chat.detail.ChatDetailActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewModel> {
     @Override
@@ -46,23 +42,31 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
         super.onCreate(savedInstanceState);
 
         setupSearch();
-        List<ChatResponse> sampleChats = new ArrayList<>();
-        sampleChats.add(new ChatResponse("1", "David", "Hi there!", "9:40 AM", 0, R.drawable.ic_user_default));
-        sampleChats.add(new ChatResponse("2", "John", "How are you?", "9:45 AM", 1, R.drawable.ic_user_default));
-        sampleChats.add(new ChatResponse("3", "Alice", "Let's meet up!", "10:00 AM", 0, R.drawable.ic_user_default));
-        sampleChats.add(new ChatResponse("4", "Bob", "See you later!", "10:15 AM", 1, R.drawable.ic_user_default));
-        sampleChats.add(new ChatResponse("5", "Charlie", "Good morning!", "10:30 AM", 0, R.drawable.ic_user_default));
-        sampleChats.add(new ChatResponse("6", "Eve", "Happy birthday!", "10:45 AM", 1, R.drawable.ic_user_default));
 
-        ChatAdapter chatAdapter = new ChatAdapter(sampleChats, chat -> {
+        ChatRoomAdapter chatRoomAdapter = new ChatRoomAdapter(new ArrayList<>(), chat -> {
             // Handle click
             Intent intent = new Intent(this, ChatDetailActivity.class);
             ChatDetailActivity.CHAT_RESPONSE = chat;
             startActivity(intent);
 
         });
+
+        viewModel.getAllChatRooms();
+
+        observeChatRoomList(chatRoomAdapter);
+
         viewBinding.rcvChat.setLayoutManager(new LinearLayoutManager(this));
-        viewBinding.rcvChat.setAdapter(chatAdapter);
+        viewBinding.rcvChat.setAdapter(chatRoomAdapter);
+    }
+
+    private void observeChatRoomList(ChatRoomAdapter chatRoomAdapter) {
+        viewModel.chatRoomLiveData.observe(this, chatRooms -> {
+            if (chatRooms == null) {
+                return;
+            }
+            chatRoomAdapter.setChatList(chatRooms);
+            chatRoomAdapter.notifyDataSetChanged();
+        });
     }
 
     private void setupSearch() {

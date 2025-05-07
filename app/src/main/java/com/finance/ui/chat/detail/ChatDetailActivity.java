@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.finance.BR;
 import com.finance.R;
+import com.finance.data.model.api.response.chat.ChatRoomResponse;
 import com.finance.databinding.ActivityChatDetailBinding;
 import com.finance.di.component.ActivityComponent;
 import com.finance.ui.base.BaseActivity;
-import com.finance.ui.chat.ChatResponse;
 import com.finance.ui.chat.adapter.MessageResponse;
 import com.finance.ui.chat.adapter.MessageAdapter;
 
@@ -21,7 +21,7 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
 
     private MessageAdapter adapter;
     private List<MessageResponse> messageList;
-    public static ChatResponse CHAT_RESPONSE;
+    public static ChatRoomResponse CHAT_RESPONSE;
 
     @Override
     public int getLayoutId() {

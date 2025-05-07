@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class AccountChatResponse {
     public String address;
     public String avatarPath;
-    public ZonedDateTime birthDate;
+    public String birthDate;
     public DepartmentChat department;
     public String email;
     public String fullName;

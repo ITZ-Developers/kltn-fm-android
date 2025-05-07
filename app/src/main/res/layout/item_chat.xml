@@ -3,7 +3,7 @@
     <data>
         <variable
             name="item"
-            type="com.finance.ui.chat.ChatResponse"/>
+            type="com.finance.data.model.api.response.chat.ChatRoomResponse"/>
         <import type="android.view.View"/>
     </data>
 
@@ -49,7 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato_medium"
-                    android:text="@{item.lastMessage, default=`No message`}"
+                    android:text="@{item.lastMessage.content, default=`No message`}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12ssp"
                     android:maxWidth="@dimen/_150sdp"
@@ -62,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato_medium"
-                    android:text="@{`· ` + item.time, default=`· No time`}"
+                    android:text="@{`· ` + item.createdDate, default=`· No time`}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12ssp"
                     android:maxWidth="@dimen/_200sdp"
@@ -73,7 +73,7 @@
         <ImageView
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
-            android:src="@{item.state == 0 ? @drawable/ic_read : @drawable/ic_unread}"
+            android:src="@{item.status == 0 ? @drawable/ic_read : @drawable/ic_unread}"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/_15sdp"

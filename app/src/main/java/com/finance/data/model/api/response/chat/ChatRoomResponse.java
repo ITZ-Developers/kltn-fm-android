@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ChatRoomResponse {
     private String avatar;
-    private ZonedDateTime createdDate;
+    private String createdDate;
     private int id;
     private int kind;
     private MessageResponse lastMessage;
-    private ZonedDateTime modifiedDate;
+    private String modifiedDate;
     private String name;
     private String otherAvatar;
     private String otherFullName;

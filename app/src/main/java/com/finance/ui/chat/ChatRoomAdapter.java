@@ -1,7 +1,5 @@
 package com.finance.ui.chat;
 
-import static android.os.Build.VERSION_CODES.R;
-
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -11,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.bumptech.glide.Glide;
+import com.finance.data.model.api.response.chat.ChatRoomResponse;
 import com.finance.databinding.ItemChatBinding;
-import com.finance.utils.BindingUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,23 +20,23 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder> {
-    private List<ChatResponse> chatList;
+public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatViewHolder> {
+    private List<ChatRoomResponse> chatList;
     private OnChatClickListener listener;
 
-    public ChatAdapter(List<ChatResponse> chatList, OnChatClickListener listener) {
+    public ChatRoomAdapter(List<ChatRoomResponse> chatList, OnChatClickListener listener) {
         this.chatList = new ArrayList<>();
         this.chatList.addAll(chatList);
         this.listener = listener;
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setChatList(List<ChatResponse> chatList) {
+    public void setChatList(List<ChatRoomResponse> chatList) {
         this.chatList = chatList;
         notifyDataSetChanged();
     }
 
-    public void addChat(ChatResponse chat) {
+    public void addChat(ChatRoomResponse chat) {
         this.chatList.add(chat);
         notifyItemInserted(chatList.size() - 1);
     }
@@ -58,7 +56,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
-        ChatResponse chat = chatList.get(position);
+        ChatRoomResponse chat = chatList.get(position);
         holder.bind(chat);
     }
 
@@ -82,7 +80,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
             });
         }
 
-        public void bind(ChatResponse chat) {
+        public void bind(ChatRoomResponse chat) {
             binding.setItem(chat);
 //            BindingUtils.setImageUrl(binding.imgUser, chat.getAvatar());
             Glide.with(binding.imgUser.getContext())
@@ -91,11 +89,11 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
             binding.executePendingBindings();
             // Có thể thêm logic để hiển thị trạng thái tin nhắn dựa vào chat.getState()
             // Ví dụ: nếu state = 1 thì hiển thị biểu tượng đã đọc, state = 0 thì hiển thị chưa đọc
-            // Hoặc có thể cài đặt hình ảnh người dùng nếu có URL trong ChatResponse
+            // Hoặc có thể cài đặt hình ảnh người dùng nếu có URL trong ChatRoomResponse
         }
     }
 
     public interface OnChatClickListener {
-        void onChatClick(ChatResponse chat);
+        void onChatClick(ChatRoomResponse chat);
     }
 }

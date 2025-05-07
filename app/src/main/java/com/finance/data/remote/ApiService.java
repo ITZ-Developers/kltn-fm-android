@@ -47,6 +47,7 @@ import com.finance.data.model.api.response.account.AvatarPathResponse;
 import com.finance.data.model.api.response.account.ResetPassword;
 import com.finance.data.model.api.response.category.CateResponse;
 import com.finance.data.model.api.response.category.CategoryResponse;
+import com.finance.data.model.api.response.chat.ChatRoomResponse;
 import com.finance.data.model.api.response.debit.DebitResponse;
 import com.finance.data.model.api.response.department.DepartmentResponse;
 import com.finance.data.model.api.response.key.KeyGroupResponse;
@@ -398,6 +399,6 @@ public interface ApiService {
     Observable<ResponseStatus> verifyQrcode(@Body WebQRCodeRequest request);
 
     @GET("v1/chat-room/list?isPaged=0")
-    Observable<ResponseWrapper<ResponseListObj<TagResponse>>> getTags(@Query("kind") Integer kind);
+    Observable<ResponseWrapper<ResponseListObj<ChatRoomResponse>>> getChatRooms();
 
 }

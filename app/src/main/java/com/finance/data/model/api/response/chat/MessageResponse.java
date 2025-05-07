@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class MessageResponse {
     private String content;
-    private ZonedDateTime createdDate;
+    private String createdDate;
     private String document;
     private int id;
     private List<MessageReaction> messageReactions;
-    private ZonedDateTime modifiedDate;
+    private String modifiedDate;
     private AccountChatResponse sender;
     private int status;
 }
