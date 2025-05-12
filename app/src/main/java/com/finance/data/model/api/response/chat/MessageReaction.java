@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 public class MessageReaction {
     public AccountChatResponse account;
     public String createdDate;
-    public int id;
-    public int kind;
+    public Long id;
+    public Integer kind;
     public String modifiedDate;
-    public int status;
+    public Integer status;
 }

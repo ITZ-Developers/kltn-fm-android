@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 public class ChatRoomResponse {
     private String avatar;
     private String createdDate;
-    private int id;
-    private int kind;
+    private Long id;
+    private Long kind;
     private MessageResponse lastMessage;
     private String modifiedDate;
     private String name;
@@ -22,7 +22,7 @@ public class ChatRoomResponse {
     private String otherFullName;
     private AccountChatResponse owner;
     private String settings;
-    private int status;
-    private int totalMembers;
-    private int totalUnreadMessages;
+    private Integer status;
+    private Integer totalMembers;
+    private Integer totalUnreadMessages;
 }

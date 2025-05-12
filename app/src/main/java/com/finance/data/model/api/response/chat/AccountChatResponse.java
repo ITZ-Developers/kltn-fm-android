@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AccountChatResponse {
+    public Long id;
     public String address;
     public String avatarPath;
     public String birthDate;
@@ -17,13 +18,12 @@ public class AccountChatResponse {
     public String email;
     public String fullName;
     public Group group;
-    public int id;
-    public boolean isFaceIdRegistered;
-    public boolean isSuperAdmin;
-    public int kind;
+    public Boolean isFaceIdRegistered;
+    public Boolean isSuperAdmin;
+    public Integer kind;
     public String phone;
     public String publicKey;
     public String secretKey;
-    public int status;
+    public Integer status;
     public String username;
 }

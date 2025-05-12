@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.finance.data.model.api.response.chat.ChatRoomResponse;
 import com.finance.databinding.ItemChatBinding;
+import com.finance.utils.BindingUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,9 @@ import lombok.Setter;
 public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatViewHolder> {
     private List<ChatRoomResponse> chatList;
     private OnChatClickListener listener;
+    @Getter
+    @Setter
+    private String secretKey;
 
     public ChatRoomAdapter(List<ChatRoomResponse> chatList, OnChatClickListener listener) {
         this.chatList = new ArrayList<>();
@@ -82,10 +86,8 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatVi
 
         public void bind(ChatRoomResponse chat) {
             binding.setItem(chat);
-//            BindingUtils.setImageUrl(binding.imgUser, chat.getAvatar());
-            Glide.with(binding.imgUser.getContext())
-                    .load(chat.getAvatar())
-                    .into(binding.imgUser);
+            BindingUtils.setImageUrl(binding.imgUser, chat.getAvatar());
+            binding.setSecretKey(secretKey);
             binding.executePendingBindings();
             // Có thể thêm logic để hiển thị trạng thái tin nhắn dựa vào chat.getState()
             // Ví dụ: nếu state = 1 thì hiển thị biểu tượng đã đọc, state = 0 thì hiển thị chưa đọc

@@ -14,14 +14,17 @@ import androidx.databinding.Observable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.finance.BR;
 import com.finance.R;
+import com.finance.data.SecretKey;
 import com.finance.databinding.ActivityChatBinding;
 import com.finance.di.component.ActivityComponent;
 import com.finance.ui.base.BaseActivity;
 import com.finance.ui.chat.detail.ChatDetailActivity;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewModel> {
+    ChatRoomAdapter chatRoomAdapter;
     @Override
     public int getLayoutId() {
         return R.layout.activity_chat;
@@ -40,16 +43,19 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setupSearch();
+        setupAdapter();
+        setupSwipeFreshLayout();
+    }
 
-        ChatRoomAdapter chatRoomAdapter = new ChatRoomAdapter(new ArrayList<>(), chat -> {
+    private void setupAdapter() {
+        chatRoomAdapter = new ChatRoomAdapter(new ArrayList<>(), chat -> {
             // Handle click
             Intent intent = new Intent(this, ChatDetailActivity.class);
             ChatDetailActivity.CHAT_RESPONSE = chat;
             startActivity(intent);
-
         });
+        chatRoomAdapter.setSecretKey(SecretKey.getInstance().getKey());
 
         viewModel.getAllChatRooms();
 
@@ -106,6 +112,26 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
 
     public void deleteEditSearch(){
         viewBinding.edtSearch.setText("");
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void setupSwipeFreshLayout() {
+        viewBinding.swipeLayout.setEnabled(true);
+        viewBinding.swipeLayout.setOnRefreshListener(() -> {
+            if (checkSecretKeyValid()){
+                chatRoomAdapter.setChatList(new ArrayList<>());
+                viewModel.getAllChatRooms();
+                viewBinding.swipeLayout.setRefreshing(false);
+            } else
+            {
+                if (chatRoomAdapter != null){
+                    chatRoomAdapter.setChatList(new ArrayList<>());
+                    chatRoomAdapter.notifyDataSetChanged();
+                }
+                viewBinding.swipeLayout.setRefreshing(false);
+                this.showInputKey();
+            }
+        });
     }
 
     @Override

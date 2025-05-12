@@ -5,6 +5,9 @@
             name="item"
             type="com.finance.data.model.api.response.chat.ChatRoomResponse"/>
         <import type="android.view.View"/>
+        <import type="com.finance.utils.AESUtils"/>
+        <variable name="secretKey"
+            type="String"/>
     </data>
 
     <RelativeLayout
@@ -49,9 +52,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato_medium"
-                    android:text="@{item.lastMessage.content, default=`No message`}"
+
+                    android:text="@{AESUtils.decrypt(secretKey, item.lastMessage.content, false), default=`No message`}"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp"
+                    android:textSize="@dimen/_10ssp"
                     android:maxWidth="@dimen/_150sdp"
                     android:maxLines="1"
                     android:ellipsize="end"
@@ -62,9 +66,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato_medium"
-                    android:text="@{`· ` + item.createdDate, default=`· No time`}"
+                    android:text="@{` · ` + item.createdDate, default=`· No time`}"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp"
+                    android:textSize="@dimen/_9ssp"
                     android:maxWidth="@dimen/_200sdp"
                     />
             </LinearLayout>

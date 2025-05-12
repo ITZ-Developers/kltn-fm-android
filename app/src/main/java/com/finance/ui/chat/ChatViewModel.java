@@ -59,7 +59,7 @@ public class ChatViewModel extends BaseViewModel {
                             hideLoading();
                         }, throwable -> {
                             hideLoading();
-                            Timber.e(throwable);
+                            Timber.tag("Chataactiiwqdq").e(throwable);
                             showErrorMessage(application.getResources().getString(R.string.no_internet));
                         }
                 ));
