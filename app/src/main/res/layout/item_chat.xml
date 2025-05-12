@@ -29,6 +29,7 @@
             android:layout_toEndOf="@id/img_user"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_30sdp"
             >
             <TextView
                 android:id="@+id/tv_name"

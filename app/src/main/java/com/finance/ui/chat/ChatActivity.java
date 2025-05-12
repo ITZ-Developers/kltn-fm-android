@@ -21,7 +21,6 @@ import com.finance.ui.base.BaseActivity;
 import com.finance.ui.chat.detail.ChatDetailActivity;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewModel> {
     ChatRoomAdapter chatRoomAdapter;
