@@ -25,7 +25,7 @@ public class ChatViewModel extends BaseViewModel {
     public ObservableField<String> isSearchEmpty = new ObservableField<>("");
 
     public ObservableField<Boolean> isSearch = new ObservableField<>(false);
-
+    public List<ChatRoomResponse> chatRoomList = new ArrayList<>();
     public MutableLiveData<List<ChatRoomResponse>> chatRoomLiveData = new MutableLiveData<>(new ArrayList<>());
 
     public ChatViewModel(Repository repository, MVVMApplication application) {

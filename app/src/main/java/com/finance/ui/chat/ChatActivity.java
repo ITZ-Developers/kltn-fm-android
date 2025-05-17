@@ -15,12 +15,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.finance.BR;
 import com.finance.R;
 import com.finance.data.SecretKey;
+import com.finance.data.model.api.response.chat.ChatRoomResponse;
 import com.finance.databinding.ActivityChatBinding;
 import com.finance.di.component.ActivityComponent;
 import com.finance.ui.base.BaseActivity;
 import com.finance.ui.chat.detail.ChatDetailActivity;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewModel> {
     ChatRoomAdapter chatRoomAdapter;
@@ -43,8 +46,30 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupSearch();
-        setupAdapter();
         setupSwipeFreshLayout();
+        checkPrivateKey();
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void checkPrivateKey() {
+        viewModel.validKey.observe(this,valid->{
+            if(valid){
+                viewModel.isValidKey.set(true);
+                //Default data
+                setupAdapter();
+                chatRoomAdapter.setChatList(new ArrayList<>());
+                chatRoomAdapter.setSecretKey(SecretKey.getInstance().getKey());
+                chatRoomAdapter.notifyDataSetChanged();
+                viewModel.getAllChatRooms();
+            }else {
+                viewModel.isValidKey.set(false);
+                if (chatRoomAdapter != null){
+                    chatRoomAdapter.setChatList(new ArrayList<>());
+                    chatRoomAdapter.notifyDataSetChanged();
+                }
+                showInputKey();
+            }
+        });
     }
 
     private void setupAdapter() {
@@ -55,21 +80,19 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
             startActivity(intent);
         });
         chatRoomAdapter.setSecretKey(SecretKey.getInstance().getKey());
-
-        viewModel.getAllChatRooms();
-
         observeChatRoomList(chatRoomAdapter);
-
         viewBinding.rcvChat.setLayoutManager(new LinearLayoutManager(this));
         viewBinding.rcvChat.setAdapter(chatRoomAdapter);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void observeChatRoomList(ChatRoomAdapter chatRoomAdapter) {
         viewModel.chatRoomLiveData.observe(this, chatRooms -> {
             if (chatRooms == null) {
                 return;
             }
-            chatRoomAdapter.setChatList(chatRooms);
+            viewModel.chatRoomList = chatRooms;
+            chatRoomAdapter.setChatList(viewModel.chatRoomList);
             chatRoomAdapter.notifyDataSetChanged();
         });
     }
@@ -86,6 +109,14 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String editSearch = viewBinding.edtSearch.getText().toString();
                 viewModel.isSearchEmpty.set(editSearch);
+                List<ChatRoomResponse> filteredList = new ArrayList<>();
+                for (ChatRoomResponse chat : viewModel.chatRoomList) {
+                    if (chat.getName().toLowerCase().contains(editSearch.toLowerCase())) {
+                        filteredList.add(chat);
+                    }
+                }
+                chatRoomAdapter.setChatList(filteredList);
+                chatRoomAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -95,11 +126,17 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
         });
 
         viewModel.isSearch.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onPropertyChanged(Observable sender, int propertyId) {
                 if (Boolean.TRUE.equals(viewModel.isSearch.get())){
                     viewBinding.edtSearch.requestFocus();
                     showKeyboard();
+                } else {
+                    viewBinding.edtSearch.clearFocus();
+                    hideKeyboard();
+                    chatRoomAdapter.setChatList(viewModel.chatRoomList);
+                    chatRoomAdapter.notifyDataSetChanged();
                 }
             }
         });
@@ -118,7 +155,6 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
         viewBinding.swipeLayout.setEnabled(true);
         viewBinding.swipeLayout.setOnRefreshListener(() -> {
             if (checkSecretKeyValid()){
-                chatRoomAdapter.setChatList(new ArrayList<>());
                 viewModel.getAllChatRooms();
                 viewBinding.swipeLayout.setRefreshing(false);
             } else
@@ -136,9 +172,9 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
     @Override
     public void onBackPressed() {
         if (Boolean.TRUE.equals(viewModel.isSearch.get())){
+            hideKeyboard();
             viewModel.isShowSearch();
             deleteEditSearch();
-            hideKeyboard();
         } else {
             super.onBackPressed();
         }
