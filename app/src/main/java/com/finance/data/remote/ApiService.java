@@ -43,11 +43,11 @@ import com.finance.data.model.api.request.transaction.group.GroupTransactionCrea
 import com.finance.data.model.api.request.transaction.group.GroupTransactionUpdateRequest;
 import com.finance.data.model.api.response.account.AccountResponse;
 import com.finance.data.model.api.response.account.AccountUserId;
-import com.finance.data.model.api.response.account.AvatarPathResponse;
 import com.finance.data.model.api.response.account.ResetPassword;
 import com.finance.data.model.api.response.category.CateResponse;
 import com.finance.data.model.api.response.category.CategoryResponse;
 import com.finance.data.model.api.response.chat.ChatRoomResponse;
+import com.finance.data.model.api.response.chat.chatdetail.ChatDetailResponse;
 import com.finance.data.model.api.response.debit.DebitResponse;
 import com.finance.data.model.api.response.department.DepartmentResponse;
 import com.finance.data.model.api.response.key.KeyGroupResponse;
@@ -69,17 +69,13 @@ import com.finance.data.model.api.response.transaction.group.TransactionGroupRes
 import com.finance.ui.scanner.WebQRCodeRequest;
 
 import io.reactivex.rxjava3.core.Observable;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
-import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -401,4 +397,9 @@ public interface ApiService {
     @GET("v1/chat-room/list?isPaged=0")
     Observable<ResponseWrapper<ResponseListObj<ChatRoomResponse>>> getChatRooms();
 
+    @GET("v1/message/list")
+    Observable<ResponseWrapper<ResponseListObj<ChatDetailResponse>>> getChatDetail(
+            @Query("chatRoomId") Long chatRoomId,
+            @Query("isPaged") int isPaged
+    );
 }

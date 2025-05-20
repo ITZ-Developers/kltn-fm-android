@@ -34,6 +34,7 @@ public class ChatRoomResponse {
     private Integer status;
     private Integer totalMembers;
     private Integer totalUnreadMessages;
+    private String lastLogin;
 
     public String getCreatedDate() {
         try {

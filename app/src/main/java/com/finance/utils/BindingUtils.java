@@ -2,15 +2,20 @@ package com.finance.utils;
 
 import android.widget.ImageView;
 
+import androidx.databinding.BindingAdapter;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.finance.BuildConfig;
 import com.finance.R;
 import com.finance.constant.Constants;
 
+import dagger.Binds;
+
 
 public final class BindingUtils {
 
+    @BindingAdapter("image_src")
     public static void setImageUrl(ImageView view, String url) {
         if (url == null){
             view.setImageResource(R.drawable.bg_ava);

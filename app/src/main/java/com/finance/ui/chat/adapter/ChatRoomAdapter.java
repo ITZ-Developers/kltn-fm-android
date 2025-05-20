@@ -1,4 +1,4 @@
-package com.finance.ui.chat;
+package com.finance.ui.chat.adapter;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.bumptech.glide.Glide;
 import com.finance.data.model.api.response.chat.ChatRoomResponse;
 import com.finance.databinding.ItemChatBinding;
 import com.finance.utils.BindingUtils;

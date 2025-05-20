@@ -11,23 +11,30 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.finance.R;
+import com.finance.data.SecretKey;
+import com.finance.data.model.api.response.chat.chatdetail.ChatDetailResponse;
 import com.finance.databinding.ItemMessageBinding;
+import com.finance.utils.AESUtils;
+import com.finance.utils.BindingUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
 
-    private List<MessageResponse> messageList;
-    private final String currentUserId;
+    private List<ChatDetailResponse> messageList;
 
-    public MessageAdapter(List<MessageResponse> messages, String currentUserId) {
+    public String secretKey;
+
+    public MessageAdapter(List<ChatDetailResponse> messages) {
         this.messageList = messages;
-        this.currentUserId = currentUserId;
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setMessages(List<MessageResponse> messages) {
+    public void setMessages(List<ChatDetailResponse> messages) {
         this.messageList = messages;
         notifyDataSetChanged();
     }
@@ -41,8 +48,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
     @Override
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
-        MessageResponse message = messageList.get(position);
-        holder.bind(message, position, messageList, currentUserId);
+        ChatDetailResponse message = messageList.get(position);
+        holder.bind(message, position, messageList);
     }
 
     @Override
@@ -57,9 +64,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             this.binding = binding;
         }
 
-        public void bind(MessageResponse message, int position, List<MessageResponse> messages, String currentUserId) {
+        public void bind(ChatDetailResponse message, int position, List<ChatDetailResponse> messages) {
             // Determine if message is sent by current user
-            boolean isSent = message.getSenderId().equals(currentUserId);
+            boolean isSent = message.getIsSender();
 
             // Determine position in sequence
             boolean isTop = isTopMessage(position, messages);
@@ -90,6 +97,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                     itemView.getContext(), 0, shapeAppearanceRes
             ).build();
 
+
+
             binding.cardView.setShapeAppearanceModel(shapeAppearanceModel);
 
             // Set bubble color based on sent/received
@@ -101,7 +110,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             );
 
             // Set the message text
-            binding.textViewMessage.setText(message.getContent());
+            binding.textViewMessage.setText(AESUtils.decrypt(SecretKey.getInstance().getKey(), message.getContent()));
+
 
             // Set text color based on message type
             binding.textViewMessage.setTextColor(
@@ -132,12 +142,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 //            }
         }
 
-        private boolean isTopMessage(int position, List<MessageResponse> messages) {
-            return position == 0 || !messages.get(position).getSenderId().equals(messages.get(position - 1).getSenderId());
+        private boolean isTopMessage(int position, List<ChatDetailResponse> messages) {
+            return position == 0 || !messages.get(position).getSender().getId().equals(messages.get(position - 1).getSender().getId());
         }
 
-        private boolean isBottomMessage(int position, List<MessageResponse> messages) {
-            return position == messages.size() - 1 || !messages.get(position).getSenderId().equals(messages.get(position + 1).getSenderId());
+        private boolean isBottomMessage(int position, List<ChatDetailResponse> messages) {
+            return position == messages.size() - 1 || !messages.get(position).getSender().getId().equals(messages.get(position + 1).getSender().getId());
         }
     }
 }

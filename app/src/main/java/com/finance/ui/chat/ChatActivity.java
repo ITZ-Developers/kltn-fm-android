@@ -19,11 +19,11 @@ import com.finance.data.model.api.response.chat.ChatRoomResponse;
 import com.finance.databinding.ActivityChatBinding;
 import com.finance.di.component.ActivityComponent;
 import com.finance.ui.base.BaseActivity;
+import com.finance.ui.chat.adapter.ChatRoomAdapter;
 import com.finance.ui.chat.detail.ChatDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewModel> {
     ChatRoomAdapter chatRoomAdapter;
@@ -76,7 +76,7 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
         chatRoomAdapter = new ChatRoomAdapter(new ArrayList<>(), chat -> {
             // Handle click
             Intent intent = new Intent(this, ChatDetailActivity.class);
-            ChatDetailActivity.CHAT_RESPONSE = chat;
+            ChatDetailActivity.CHAT_ROOM_RESPONSE = chat;
             startActivity(intent);
         });
         chatRoomAdapter.setSecretKey(SecretKey.getInstance().getKey());
