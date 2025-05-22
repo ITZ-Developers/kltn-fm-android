@@ -238,6 +238,18 @@ public abstract class BaseActivity<B extends ViewDataBinding, V extends BaseView
         }
     }
 
+    public String encrypt(String text) throws Exception {
+        if(text == null){
+            return "";
+        }
+        String secretKey = SecretKey.getInstance().getKey();
+        if(secretKey!= null){
+            return AESUtils.encrypt(secretKey,text,false);
+        }else {
+            return text;
+        }
+    }
+
     public void getMKey(String privateKey){
         viewModel.showLoading();
         viewModel.compositeDisposable.add(viewModel.getMyKey()

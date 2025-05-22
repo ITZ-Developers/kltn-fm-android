@@ -8,13 +8,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.finance.BR;
 import com.finance.R;
+import com.finance.data.model.api.request.chat.MessageSendRequest;
 import com.finance.data.model.api.response.chat.ChatRoomResponse;
 import com.finance.databinding.ActivityChatDetailBinding;
 import com.finance.di.component.ActivityComponent;
 import com.finance.ui.base.BaseActivity;
 import com.finance.ui.chat.adapter.MessageAdapter;
+import com.finance.utils.AESUtils;
 
 import java.util.ArrayList;
+
+import timber.log.Timber;
 
 public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding, ChatDetailViewModel> {
 
@@ -39,11 +43,29 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         viewModel.chatRoomCurrent.set(CHAT_ROOM_RESPONSE);
         setupAdapter();
         viewModel.getChatDetail(CHAT_ROOM_RESPONSE.getId());
         observeMessages();
+
+        viewModel.editTextSend.addOnPropertyChangedCallback(new androidx.databinding.Observable.OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(androidx.databinding.Observable sender, int propertyId) {
+                if (viewModel.editTextSend.get() != null && !viewModel.editTextSend.get().isEmpty()) {
+                    viewModel.isTyping.set(true);
+                } else  {
+                    viewModel.isTyping.set(false);
+                }
+            }
+        });
+
+        viewBinding.imgSend.setOnClickListener(v -> {
+            try {
+                sendMessage();
+            } catch (Exception e) {
+                Timber.e(e, "Error sending message");
+            }
+        });
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -64,6 +86,13 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
 
     public void deleteEditSearch(){
         viewBinding.edtSearch.setText("");
+    }
+
+    public void sendMessage() throws Exception {
+        String content = encrypt(viewModel.editTextSend.get());
+        String document = encrypt(viewModel.documentSend.get());
+        MessageSendRequest messageSendRequest = new MessageSendRequest(CHAT_ROOM_RESPONSE.getId(), content, document);
+        viewModel.sendMessage(messageSendRequest);
     }
 
     @Override

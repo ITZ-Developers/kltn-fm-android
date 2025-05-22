@@ -9,8 +9,11 @@ import com.finance.MVVMApplication;
 import com.finance.R;
 import com.finance.constant.Constants;
 import com.finance.data.Repository;
+import com.finance.data.model.api.request.chat.MessageSendRequest;
 import com.finance.data.model.api.response.chat.ChatRoomResponse;
 import com.finance.data.model.api.response.chat.chatdetail.ChatDetailResponse;
+import com.finance.data.socket.Command;
+import com.finance.data.socket.dto.Message;
 import com.finance.ui.base.BaseViewModel;
 import com.finance.utils.NetworkUtils;
 
@@ -35,8 +38,12 @@ public class ChatDetailViewModel extends BaseViewModel {
     public ObservableField<String> isSearchEmpty = new ObservableField<>("");
     public ObservableField<Boolean> isSearch = new ObservableField<>(false);
     public ObservableField<ChatRoomResponse> chatRoomCurrent = new ObservableField<>(new ChatRoomResponse());
+    public ObservableField<String> editTextSend = new ObservableField<>("");
+    public ObservableField<Boolean> isTyping = new ObservableField<>(false);
 
     public MutableLiveData<List<ChatDetailResponse>> chatDetailLiveData = new MutableLiveData<>(new ArrayList<>());
+
+    public ObservableField<String> documentSend = new ObservableField<>("");
 
 
     public ChatDetailViewModel(Repository repository, MVVMApplication application) {
@@ -100,5 +107,60 @@ public class ChatDetailViewModel extends BaseViewModel {
                             showErrorMessage(application.getResources().getString(R.string.no_internet));
                         }
                 ));
+    }
+
+    public void sendMessage(MessageSendRequest request){
+        showLoading();
+        compositeDisposable.add(repository.getApiService().createMessage(request)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .retryWhen(throwable ->
+                        throwable.flatMap((Function<Throwable, ObservableSource<?>>) throwable1 -> {
+                            if (NetworkUtils.checkNetworkError(throwable1)) {
+                                hideLoading();
+                                return application.showDialogNoInternetAccess();
+                            }else{
+                                return Observable.error(throwable1);
+                            }
+                        })
+                )
+                .subscribe(
+                        response -> {
+                            if (response.isResult()) {
+                                editTextSend.set("");
+                                documentSend.set("");
+                                showSuccessMessage("Tạo thành công tin nhắn");
+                            }
+                            hideLoading();
+                        }, throwable -> {
+                            hideLoading();
+                            Timber.tag("ChatDetailViewModel").e(throwable);
+                            showErrorMessage(application.getResources().getString(R.string.no_internet));
+                        }
+                ));
+    }
+
+    @Override
+    public void messageReceived(Message message) {
+        super.messageReceived(message);
+        if(message != null && message.getResponseCode() == 200) {
+            switch (message.getCmd()) {
+                case Command.COMMAND_CLIENT_PING:
+                case Command.COMMAND_CLIENT_INFO:
+                    break;
+                case Command.CMD_NEW_MESSAGE:
+                case Command.CMD_MESSAGE_UPDATED:
+                    getChatDetail(chatRoomCurrent.get().getId());
+                    break;
+
+            }
+        }else if(message != null && message.getResponseCode() == 400){
+            switch (message.getCmd()) {
+                case Command.CMD_MESSAGE_UPDATED:
+
+            }
+        }else {
+            application.getCurrentActivity().runOnUiThread(this::hideLoading);
+        }
     }
 }

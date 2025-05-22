@@ -4,14 +4,10 @@ import static java.util.Base64.*;
 
 import android.os.Build;
 import android.util.Base64;
-import android.util.Log;
 
-import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidParameterException;
 import java.security.NoSuchAlgorithmException;
-import java.util.zip.Deflater;
-import java.util.zip.DeflaterOutputStream;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -21,32 +17,35 @@ import javax.crypto.spec.SecretKeySpec;
 import timber.log.Timber;
 
 public class AESUtils {
-    public static String encrypt(String secretKey, String inputStr, boolean zipEnable) {
-        try {
-            Cipher cipher = Cipher.getInstance("AES");
-            SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), "AES");
-            cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
-            byte[] inputBytes = inputStr.getBytes(StandardCharsets.UTF_8);
-            byte[] outputBytes = cipher.doFinal(inputBytes);
-
-            if(zipEnable){
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                Deflater deflater = new Deflater();
-                DeflaterOutputStream zip = new DeflaterOutputStream(stream, deflater);
-                zip.write(outputBytes);
-                zip.close();
-                deflater.end();
-                byte[] outDeflater = stream.toByteArray();
-                return Base64.encodeToString(outDeflater, Base64.DEFAULT);
-            }else{
-                return Base64.encodeToString(outputBytes, Base64.DEFAULT);
-
-            }
-        } catch (Exception  ex) {
-            Timber.d(ex);
+    public static String encrypt(String secretKey, String inputStr, boolean b) throws Exception {
+        if (inputStr == null || secretKey == null) {
+            throw new IllegalArgumentException("Input string and secret key must not be null");
         }
-        return null;
+
+        // Validate key length (AES requires 16, 24, or 32 bytes)
+        byte[] keyBytes = secretKey.getBytes(StandardCharsets.UTF_8);
+        if (keyBytes.length != 16 && keyBytes.length != 24 && keyBytes.length != 32) {
+            throw new IllegalArgumentException("Invalid key length: must be 16, 24, or 32 bytes");
+        }
+
+        try {
+            // Initialize cipher with AES/ECB/PKCS5Padding to match CryptoJS
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(keyBytes, "AES");
+            cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
+
+            // Encrypt the input
+            byte[] inputBytes = inputStr.getBytes(StandardCharsets.UTF_8);
+            byte[] encryptedBytes = cipher.doFinal(inputBytes);
+
+            // Encode to Base64 without line breaks
+            return Base64.encodeToString(encryptedBytes, Base64.NO_WRAP);
+        } catch (Exception e) {
+            Timber.e(e, "Encryption failed");
+            throw new Exception("Encryption failed", e);
+        }
     }
+
 
     public static String decrypt(String secretKey, String encryptedStr, boolean zipEnable) {
         if(encryptedStr == null){

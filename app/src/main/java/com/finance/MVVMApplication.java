@@ -8,6 +8,7 @@ import android.app.Application;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 
+import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -44,6 +45,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import es.dmoral.toasty.Toasty;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -223,6 +225,7 @@ public class MVVMApplication  extends Application{
 
         compositeDisposable.add(kittyService.message()
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(o -> {
                     KittyRealtimeEvent kittyRealtimeEvent = (KittyRealtimeEvent) currentActivity;
                     // Check if the message is lock device

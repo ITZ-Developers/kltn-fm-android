@@ -12,10 +12,14 @@ import com.finance.MVVMApplication;
 import com.finance.R;
 import com.finance.data.Repository;
 import com.finance.data.model.api.request.login.LoginRequest;
+import com.finance.data.socket.Command;
+import com.finance.data.socket.dto.Message;
 import com.finance.ui.base.BaseViewModel;
 import com.finance.ui.main.MainActivity;
 import com.finance.utils.NetworkUtils;
+import com.google.gson.reflect.TypeToken;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;

@@ -197,31 +197,37 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/layout_title"
-
+            android:layout_above="@id/layout_send_message"
             />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_send_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:orientation="horizontal"
             android:layout_marginBottom="@dimen/_3sdp"
+            android:background="@color/white"
+            android:paddingVertical="@dimen/_5sdp"
             >
 
             <ImageView
                 android:id="@+id/img_image"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:src="@drawable/ic_image"
+                android:src="@drawable/ic_pin"
+                android:padding="@dimen/_5sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="@{vm.isTyping ? View.GONE : View.VISIBLE}"
                 />
 
             <EditText
                 android:id="@+id/edt_send_message"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_30sdp"
+                android:text="@={vm.editTextSend}"
                 style="@style/EditTextChat"
                 app:layout_constraintStart_toEndOf="@+id/img_image"
                 app:layout_constraintEnd_toStartOf="@+id/img_send"
@@ -231,9 +237,9 @@
                 />
             <ImageView
                 android:id="@+id/img_send"
-                android:layout_width="@dimen/_30sdp"
+                android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:src="@drawable/ic_image"
+                android:src="@drawable/ic_send"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"

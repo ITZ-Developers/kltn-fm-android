@@ -68,6 +68,7 @@
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:background">@drawable/bg_edit_txt_custom</item>
+        <item name="android:paddingHorizontal">@dimen/_7sdp</item>
     </style>
 
 

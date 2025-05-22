@@ -9,6 +9,7 @@ import com.finance.data.model.api.request.account.ChangePasswordRequest;
 import com.finance.data.model.api.request.account.UpdateProfileRequest;
 import com.finance.data.model.api.request.category.CategoryCreateRequest;
 import com.finance.data.model.api.request.category.CategoryUpdateRequest;
+import com.finance.data.model.api.request.chat.MessageSendRequest;
 import com.finance.data.model.api.request.debit.DebitApproveRequest;
 import com.finance.data.model.api.request.debit.DebitUpdateRequest;
 import com.finance.data.model.api.request.department.DepartmentCreateRequest;
@@ -402,4 +403,7 @@ public interface ApiService {
             @Query("chatRoomId") Long chatRoomId,
             @Query("isPaged") int isPaged
     );
+
+    @POST("v1/message/create")
+    Observable<ResponseStatus> createMessage(@Body MessageSendRequest request);
 }

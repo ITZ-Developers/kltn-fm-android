@@ -17,7 +17,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class BaseViewModel extends ViewModel {
-
     public CompositeDisposable compositeDisposable;
     protected final ObservableBoolean mIsLoading = new ObservableBoolean();
     protected final MutableLiveData<ToastMessage> mErrorMessage = new MutableLiveData<>();
