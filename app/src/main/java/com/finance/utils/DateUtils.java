@@ -8,6 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import timber.log.Timber;
@@ -169,6 +170,19 @@ public class DateUtils {
         int second = calendar.get(Calendar.SECOND);
 
         return String.format("%02d-%02d-%02d_%02d-%02d-%02d",hour, minute, second, day, month + 1, year );
+    }
+
+    public static String formatDateTimeMessage(String inputDateTime) {
+        try {
+            SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault());
+            Date date = inputFormat.parse(inputDateTime);
+
+            SimpleDateFormat outputFormat = new SimpleDateFormat("HH:mm dd/MM/yyyy", Locale.getDefault());
+            return outputFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return inputDateTime;
+        }
     }
 
 }

@@ -1,7 +1,5 @@
 package com.finance.ui.chat.detail;
 
-import android.os.Build;
-
 import androidx.databinding.ObservableField;
 import androidx.lifecycle.MutableLiveData;
 
@@ -9,9 +7,11 @@ import com.finance.MVVMApplication;
 import com.finance.R;
 import com.finance.constant.Constants;
 import com.finance.data.Repository;
+import com.finance.data.model.api.request.chat.MessageReactionRequest;
 import com.finance.data.model.api.request.chat.MessageSendRequest;
+import com.finance.data.model.api.request.chat.MessageUpdateRequest;
 import com.finance.data.model.api.response.chat.ChatRoomResponse;
-import com.finance.data.model.api.response.chat.chatdetail.ChatDetailResponse;
+import com.finance.data.model.api.response.chat.detail.ChatDetailResponse;
 import com.finance.data.socket.Command;
 import com.finance.data.socket.dto.Message;
 import com.finance.ui.base.BaseViewModel;
@@ -19,8 +19,6 @@ import com.finance.utils.NetworkUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,8 +40,10 @@ public class ChatDetailViewModel extends BaseViewModel {
     public ObservableField<Boolean> isTyping = new ObservableField<>(false);
 
     public MutableLiveData<List<ChatDetailResponse>> chatDetailLiveData = new MutableLiveData<>(new ArrayList<>());
-
+    public List<ChatDetailResponse> listMessages = new ArrayList<>();
     public ObservableField<String> documentSend = new ObservableField<>("");
+
+    public ObservableField<String> textSearch = new ObservableField<>("");
 
 
     public ChatDetailViewModel(Repository repository, MVVMApplication application) {
@@ -81,7 +81,6 @@ public class ChatDetailViewModel extends BaseViewModel {
     }
 
     public void getChatDetail(Long id){
-        showLoading();
         compositeDisposable.add(repository.getApiService().getChatDetail(id, 0)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -129,7 +128,93 @@ public class ChatDetailViewModel extends BaseViewModel {
                             if (response.isResult()) {
                                 editTextSend.set("");
                                 documentSend.set("");
-                                showSuccessMessage("Tạo thành công tin nhắn");
+                            }
+                            hideLoading();
+                        }, throwable -> {
+                            hideLoading();
+                            Timber.tag("ChatDetailViewModel").e(throwable);
+                            showErrorMessage(application.getResources().getString(R.string.no_internet));
+                        }
+                ));
+    }
+
+    public void editMessage (MessageUpdateRequest request){
+        showLoading();
+        compositeDisposable.add(repository.getApiService().updateMessage(request)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .retryWhen(throwable ->
+                        throwable.flatMap((Function<Throwable, ObservableSource<?>>) throwable1 -> {
+                            if (NetworkUtils.checkNetworkError(throwable1)) {
+                                hideLoading();
+                                return application.showDialogNoInternetAccess();
+                            }else{
+                                return Observable.error(throwable1);
+                            }
+                        })
+                )
+                .subscribe(
+                        response -> {
+                            if (response.isResult()) {
+                                showSuccessMessage(application.getResources().getString(R.string.message_edited));
+                            }
+                            hideLoading();
+                        }, throwable -> {
+                            hideLoading();
+                            Timber.tag("ChatDetailViewModel").e(throwable);
+                            showErrorMessage(application.getResources().getString(R.string.no_internet));
+                        }
+                ));
+    }
+
+    public void removeMessage (Long id){
+        showLoading();
+        compositeDisposable.add(repository.getApiService().removeMessage(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .retryWhen(throwable ->
+                        throwable.flatMap((Function<Throwable, ObservableSource<?>>) throwable1 -> {
+                            if (NetworkUtils.checkNetworkError(throwable1)) {
+                                hideLoading();
+                                return application.showDialogNoInternetAccess();
+                            }else{
+                                return Observable.error(throwable1);
+                            }
+                        })
+                )
+                .subscribe(
+                        response -> {
+                            if (response.isResult()) {
+                                showSuccessMessage(application.getResources().getString(R.string.message_removed));
+                            }
+                            hideLoading();
+                        }, throwable -> {
+                            hideLoading();
+                            Timber.tag("ChatDetailViewModel").e(throwable);
+                            showErrorMessage(application.getResources().getString(R.string.no_internet));
+                        }
+                ));
+    }
+
+    public void reactMessage(MessageReactionRequest request){
+        showLoading();
+        compositeDisposable.add(repository.getApiService().reactMessage(request)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .retryWhen(throwable ->
+                        throwable.flatMap((Function<Throwable, ObservableSource<?>>) throwable1 -> {
+                            if (NetworkUtils.checkNetworkError(throwable1)) {
+                                hideLoading();
+                                return application.showDialogNoInternetAccess();
+                            }else{
+                                return Observable.error(throwable1);
+                            }
+                        })
+                )
+                .subscribe(
+                        response -> {
+                            if (response.isResult()) {
+                                Timber.tag("ChatDetailViewModel").d("Message reaction updated successfully");
                             }
                             hideLoading();
                         }, throwable -> {

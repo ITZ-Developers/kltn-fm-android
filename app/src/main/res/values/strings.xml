@@ -425,6 +425,7 @@
     <string name="all_text">Tất cả</string>
     <string name="text_remind_confirm_delete_transaction">Hành động xóa sẽ không hoàn tác được.\nBạn chắc chắn xóa giao dịch này?</string>
     <string name="text_remind_confirm_delete">Hành động xóa sẽ không hoàn tác được.\nBạn chắc chắn không?</string>
+    <string name="text_remind_confirm_remove">Hành động thu hồi sẽ không hoàn tác được.\nBạn chắc chắn không?</string>
     <string name="confirm_delete">Xác nhận xóa</string>
     <string name="that">này?</string>
     <string name="approve_2">Duyệt</string>
@@ -541,5 +542,18 @@
     <string name="gallery_open_error">Không thể mở hình</string>
     <string name="search">Tìm kiếm</string>
     <string name="chat">Chat</string>
+    <string name="edited">Đã chỉnh sửa</string>
+    <string name="text_removed">Tin nhắn đã bị thu hồi</string>
+    <string name="remove">Thu hồi</string>
+
+    <string name="emoji_like">&#x1F44D;</string>
+    <string name="emoji_love">&#x2764;</string>
+    <string name="emoji_cry">&#x1F62D;</string>
+    <string name="emoji_happy">&#x263A;&#xFE0F;</string>
+    <string name="emoji_smile">&#x1F602;</string>
+    <string name="update_message">Chỉnh sửa tin nhắn</string>
+    <string name="message_edited">Cập nhật thành công!</string>
+    <string name="message_removed">Thu hồi tin nhắn thành công!</string>
+    <string name="no_data">Không có dữ liệu</string>
 
 </resources>

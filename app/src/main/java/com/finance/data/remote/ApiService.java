@@ -9,7 +9,9 @@ import com.finance.data.model.api.request.account.ChangePasswordRequest;
 import com.finance.data.model.api.request.account.UpdateProfileRequest;
 import com.finance.data.model.api.request.category.CategoryCreateRequest;
 import com.finance.data.model.api.request.category.CategoryUpdateRequest;
+import com.finance.data.model.api.request.chat.MessageReactionRequest;
 import com.finance.data.model.api.request.chat.MessageSendRequest;
+import com.finance.data.model.api.request.chat.MessageUpdateRequest;
 import com.finance.data.model.api.request.debit.DebitApproveRequest;
 import com.finance.data.model.api.request.debit.DebitUpdateRequest;
 import com.finance.data.model.api.request.department.DepartmentCreateRequest;
@@ -48,7 +50,7 @@ import com.finance.data.model.api.response.account.ResetPassword;
 import com.finance.data.model.api.response.category.CateResponse;
 import com.finance.data.model.api.response.category.CategoryResponse;
 import com.finance.data.model.api.response.chat.ChatRoomResponse;
-import com.finance.data.model.api.response.chat.chatdetail.ChatDetailResponse;
+import com.finance.data.model.api.response.chat.detail.ChatDetailResponse;
 import com.finance.data.model.api.response.debit.DebitResponse;
 import com.finance.data.model.api.response.department.DepartmentResponse;
 import com.finance.data.model.api.response.key.KeyGroupResponse;
@@ -406,4 +408,12 @@ public interface ApiService {
 
     @POST("v1/message/create")
     Observable<ResponseStatus> createMessage(@Body MessageSendRequest request);
+    @PUT("v1/message/update")
+    Observable<ResponseStatus> updateMessage(@Body MessageUpdateRequest request);
+
+    @DELETE("v1/message/delete/{id}")
+    Observable<ResponseStatus> removeMessage(@Path("id") Long id);
+
+    @POST("v1/message-reaction/react")
+    Observable<ResponseStatus> reactMessage(@Body MessageReactionRequest request);
 }

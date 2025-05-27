@@ -17,7 +17,7 @@ import javax.crypto.spec.SecretKeySpec;
 import timber.log.Timber;
 
 public class AESUtils {
-    public static String encrypt(String secretKey, String inputStr, boolean b) throws Exception {
+    public static String encrypt(String secretKey, String inputStr, boolean b)  {
         if (inputStr == null || secretKey == null) {
             throw new IllegalArgumentException("Input string and secret key must not be null");
         }
@@ -42,8 +42,8 @@ public class AESUtils {
             return Base64.encodeToString(encryptedBytes, Base64.NO_WRAP);
         } catch (Exception e) {
             Timber.e(e, "Encryption failed");
-            throw new Exception("Encryption failed", e);
         }
+        return secretKey;
     }
 
 

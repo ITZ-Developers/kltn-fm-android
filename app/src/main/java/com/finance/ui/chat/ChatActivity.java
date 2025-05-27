@@ -9,13 +9,19 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.style.StyleSpan;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.Observable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.finance.BR;
 import com.finance.R;
+import com.finance.constant.Constants;
 import com.finance.data.SecretKey;
 import com.finance.data.model.api.response.chat.ChatRoomResponse;
+import com.finance.data.model.api.response.transaction.TransactionResponse;
 import com.finance.databinding.ActivityChatBinding;
 import com.finance.di.component.ActivityComponent;
 import com.finance.ui.base.BaseActivity;
@@ -24,9 +30,26 @@ import com.finance.ui.chat.detail.ChatDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewModel> {
     ChatRoomAdapter chatRoomAdapter;
+    private final ActivityResultLauncher<Intent> activityResultLauncher = getIntentActivityResultLauncher();
+
+    @NonNull
+    private ActivityResultLauncher<Intent> getIntentActivityResultLauncher() {
+        return
+                registerForActivityResult(
+                        new ActivityResultContracts.StartActivityForResult(),
+                        activityResult -> {
+                            int result = activityResult.getResultCode();
+                            if (result == RESULT_OK){
+                                viewModel.getAllChatRooms();
+                            }
+                        }
+                );
+    }
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_chat;
@@ -77,7 +100,7 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
             // Handle click
             Intent intent = new Intent(this, ChatDetailActivity.class);
             ChatDetailActivity.CHAT_ROOM_RESPONSE = chat;
-            startActivity(intent);
+            activityResultLauncher.launch(intent);
         });
         chatRoomAdapter.setSecretKey(SecretKey.getInstance().getKey());
         observeChatRoomList(chatRoomAdapter);
@@ -168,6 +191,8 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
             }
         });
     }
+
+
 
     @Override
     public void onBackPressed() {

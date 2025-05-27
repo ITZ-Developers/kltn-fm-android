@@ -238,7 +238,7 @@ public abstract class BaseActivity<B extends ViewDataBinding, V extends BaseView
         }
     }
 
-    public String encrypt(String text) throws Exception {
+    public String encrypt(String text) {
         if(text == null){
             return "";
         }

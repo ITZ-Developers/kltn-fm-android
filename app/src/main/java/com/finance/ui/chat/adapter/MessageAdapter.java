@@ -3,25 +3,30 @@ package com.finance.ui.chat.adapter;
 import android.annotation.SuppressLint;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.finance.R;
 import com.finance.data.SecretKey;
-import com.finance.data.model.api.response.chat.chatdetail.ChatDetailResponse;
+import com.finance.data.model.api.response.chat.AccountChatResponse;
+import com.finance.data.model.api.response.chat.MessageReaction;
+import com.finance.data.model.api.response.chat.detail.ChatDetailResponse;
 import com.finance.databinding.ItemMessageBinding;
 import com.finance.utils.AESUtils;
-import com.finance.utils.BindingUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
-
-import lombok.Getter;
-import lombok.Setter;
+import java.util.Map;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
 
@@ -29,8 +34,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
     public String secretKey;
 
-    public MessageAdapter(List<ChatDetailResponse> messages) {
+    public OnMessageClickListener listener;
+    public interface OnMessageClickListener {
+        void onMessageLongClick(ChatDetailResponse message, int position);
+        void onReactionClick(List<MessageReaction> reactions, MessageReaction reaction);
+    }
+
+    public MessageAdapter(List<ChatDetailResponse> messages, OnMessageClickListener listener) {
         this.messageList = messages;
+        this.listener = listener;
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -50,6 +62,30 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
         ChatDetailResponse message = messageList.get(position);
         holder.bind(message, position, messageList);
+        holder.itemView.setOnLongClickListener(v -> {
+            if (listener != null) {
+                listener.onMessageLongClick(message, position);
+            }
+            return false;
+        });
+
+        if (message.getMessageReactions() != null && !message.getMessageReactions().isEmpty()) {
+            holder.binding.listReactions.setVisibility(View.VISIBLE);
+            holder.binding.listReactions.setLayoutManager(
+                    new LinearLayoutManager(holder.itemView.getContext(), LinearLayoutManager.HORIZONTAL, false)
+            );
+            MessageReactionAdapter reactionAdapter = new MessageReactionAdapter(getListMessageReactionsByKind(message), new MessageReactionAdapter.OnReactionClickListener() {
+                @Override
+                public void onReactionClick(MessageReaction reaction, int position) {
+                    if (listener != null) {
+                        listener.onReactionClick(getListMessageReactionsByKind(message), reaction);
+                    }
+                }
+            });
+            holder.binding.listReactions.setAdapter(reactionAdapter);
+        } else {
+            holder.binding.listReactions.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -59,6 +95,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
     public static class MessageViewHolder extends RecyclerView.ViewHolder {
         ItemMessageBinding binding;
+
         public MessageViewHolder(@NonNull ItemMessageBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
@@ -109,9 +146,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                     )
             );
 
-            // Set the message text
-            binding.textViewMessage.setText(AESUtils.decrypt(SecretKey.getInstance().getKey(), message.getContent()));
+            binding.setItem(message);
 
+            // Set the message text
+            if (message.getIsDeleted()) {
+                binding.textViewMessage.setText(R.string.text_removed);
+            } else {
+                binding.textViewMessage.setText(message.getContent());
+            }
 
             // Set text color based on message type
             binding.textViewMessage.setTextColor(
@@ -132,6 +174,26 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             }
             binding.cardView.setLayoutParams(params);
 
+            ConstraintLayout.LayoutParams textParams = (ConstraintLayout.LayoutParams) binding.textViewMessage.getLayoutParams();
+            if (isSent) {
+                textParams.startToStart = ConstraintLayout.LayoutParams.UNSET;
+                textParams.endToEnd = ConstraintLayout.LayoutParams.PARENT_ID;
+            } else {
+                textParams.endToEnd = ConstraintLayout.LayoutParams.UNSET;
+                textParams.startToStart = ConstraintLayout.LayoutParams.PARENT_ID;
+            }
+            binding.textViewMessage.setLayoutParams(textParams);
+
+            LinearLayout.LayoutParams paramsEdited = (LinearLayout.LayoutParams) binding.tvIsEdited.getLayoutParams();
+            if (isSent) {
+                paramsEdited.gravity = Gravity.END;
+                paramsEdited.setMarginEnd(8);
+            } else {
+                paramsEdited.gravity = Gravity.START;
+                paramsEdited.setMarginStart(8);
+            }
+            binding.tvIsEdited.setLayoutParams(paramsEdited);
+
             // Set vertical spacing between bubble groups
 //            if (isTop) {
 //                params.topMargin = (int) itemView.getContext().getResources()
@@ -150,4 +212,28 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             return position == messages.size() - 1 || !messages.get(position).getSender().getId().equals(messages.get(position + 1).getSender().getId());
         }
     }
+
+    public static List<MessageReaction> getListMessageReactionsByKind(ChatDetailResponse currentItem) {
+        List<MessageReaction> listMessageReactions = new ArrayList<>(currentItem.getMessageReactions());
+        Map<Integer, MessageReaction> reactionMap = new LinkedHashMap<>();
+        for (MessageReaction reaction : listMessageReactions) {
+            Integer kind = reaction.getKind();
+            if (reactionMap.containsKey(kind)) {
+                MessageReaction existingReaction = reactionMap.get(kind);
+                existingReaction.setTotalReactions(existingReaction.getTotalReactions() + 1);
+                existingReaction.getAccountReactions().add(existingReaction.getAccount());
+            } else {
+                MessageReaction newReaction = new MessageReaction();
+                newReaction.setKind(reaction.getKind());
+                newReaction.setTotalReactions(1);
+                List<AccountChatResponse> accounts = new ArrayList<>();
+                accounts.add(reaction.getAccount());
+                newReaction.setAccountReactions(accounts);
+                reactionMap.put(kind, newReaction);
+            }
+        }
+        return new ArrayList<>(reactionMap.values());
+    }
+
+
 }

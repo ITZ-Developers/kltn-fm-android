@@ -1,6 +1,7 @@
-package com.finance.data.model.api.response.chat.chatdetail;
+package com.finance.data.model.api.response.chat.detail;
 
 import com.finance.data.model.api.response.chat.AccountChatResponse;
+import com.finance.data.model.api.response.chat.MessageReaction;
 
 import java.util.List;
 
@@ -27,4 +28,7 @@ public class ChatDetailResponse {
     private List<AccountChatResponse> seenMembers;
     private Boolean isDeleted;
     private Boolean isUpdated;
+    private List<MessageReaction> messageReactions;
+    private String document;
+    private Integer positionInChat;
 }
