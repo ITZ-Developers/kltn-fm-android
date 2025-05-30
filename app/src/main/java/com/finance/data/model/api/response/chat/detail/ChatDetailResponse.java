@@ -1,8 +1,13 @@
 package com.finance.data.model.api.response.chat.detail;
 
+import com.finance.data.model.api.ApiModelUtils;
 import com.finance.data.model.api.response.chat.AccountChatResponse;
 import com.finance.data.model.api.response.chat.MessageReaction;
+import com.finance.data.model.api.response.document.DocumentResponse;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -31,4 +36,13 @@ public class ChatDetailResponse {
     private List<MessageReaction> messageReactions;
     private String document;
     private Integer positionInChat;
+
+    public List<DocumentResponse> getDocumentFile() {
+        if (document == null || document.isEmpty()) {
+            return null;
+        }
+        Gson gson = new Gson();
+        Type listType = new TypeToken<List<DocumentResponse>>() {}.getType();
+        return gson.fromJson(document, listType);
+    }
 }

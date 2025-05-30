@@ -1,24 +1,43 @@
 package com.finance.ui.chat.detail;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.finance.BR;
 import com.finance.R;
+import com.finance.constant.Constants;
 import com.finance.data.model.api.request.chat.MessageReactionRequest;
 import com.finance.data.model.api.request.chat.MessageSendRequest;
 import com.finance.data.model.api.request.chat.MessageUpdateRequest;
 import com.finance.data.model.api.response.chat.ChatRoomResponse;
 import com.finance.data.model.api.response.chat.MessageReaction;
 import com.finance.data.model.api.response.chat.detail.ChatDetailResponse;
+import com.finance.data.model.api.response.document.DocumentResponse;
 import com.finance.databinding.ActivityChatDetailBinding;
 import com.finance.di.component.ActivityComponent;
 import com.finance.ui.base.BaseActivity;
@@ -28,10 +47,19 @@ import com.finance.ui.dialog.EditMessageDialog;
 import com.finance.ui.dialog.ListReactionsDialog;
 import com.finance.ui.dialog.MessageOptionsDialog;
 import com.finance.ui.dialog.RemoveMessageDialog;
+import com.finance.ui.image.ImageActivity;
+import com.finance.ui.transaction.create_or_update.TransactionCreateUpdateActivity;
+import com.finance.utils.BindingUtils;
+import com.finance.utils.FileUtils;
+import com.finance.utils.PdfDownloaderUtils;
+import com.finance.utils.RealPathUtil;
+import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import timber.log.Timber;
 
 public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding, ChatDetailViewModel> {
@@ -85,6 +113,10 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
                 Timber.e(e, "Error sending message");
             }
         });
+
+        getDocumentAfterUpload();
+
+
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -95,6 +127,7 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
                 for (int i = 0; i < viewModel.listMessages.size(); i++) {
                     ChatDetailResponse message = viewModel.listMessages.get(i);
                     message.setContent(decrypt(message.getContent()));
+                    message.setDocument(decrypt(message.getDocument()));
                     message.setPositionInChat(i);
                 }
                 adapter.setMessages(viewModel.listMessages);
@@ -140,13 +173,11 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
 
                             @Override
                             public void onEditMessage(ChatDetailResponse message, int position) {
-                                // Xử lý chỉnh sửa tin nhắn
                                 showEditMessageDialog(message, position);
                             }
 
                             @Override
                             public void onRecallMessage(ChatDetailResponse message, int position) {
-                                // Xử lý thu hồi tin nhắn
                                 showRecallConfirmDialog(message, position);
                             }
                         }
@@ -161,6 +192,30 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
                         reactions
                 );
                 dialog.show();
+            }
+
+            @Override
+            public void onDocumentClick(DocumentResponse document, int position) {
+                if (document.isImageFile()) {
+                    Intent intent = new Intent(ChatDetailActivity.this, ImageActivity.class);
+                    intent.putExtra(Constants.IMAGE_URL, document.getUrl());
+                    intent.putExtra(Constants.IMAGE_NAME, document.getName());
+                    ChatDetailActivity.this.startActivity(intent);
+                } else if (document.isPdfFile()) {
+                    viewModel.showLoading();
+                    PdfDownloaderUtils downloader = new PdfDownloaderUtils(ChatDetailActivity.this, BindingUtils.getImageUrl(document.getUrl()));
+                    downloader.downloadPdf(document.getName());
+                    downloader.registerDownloadCompleteReceiver(new BroadcastReceiver() {
+                        @Override
+                        public void onReceive(Context context, Intent intent) {
+                            downloader.download(context, intent);
+                            viewModel.hideLoading();
+                        }
+                    });
+                } else {
+                    Toast.makeText(ChatDetailActivity.this, R.string.unsupported_file_type, Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
         viewBinding.rcvMessage.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true));
@@ -280,6 +335,142 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == Constants.STORAGE_REQUEST) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openGallery();
+            } else {
+                Toast.makeText(this, R.string.not_permission_gallery, Toast.LENGTH_SHORT).show();
+            }
+        } else if (requestCode == Constants.CAMERA_REQUEST) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openCamera();
+            } else {
+                Toast.makeText(this, R.string.not_permission_camera, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public void showDialogChooseFile() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_file_picker);
+        Window window = dialog.getWindow();
+        if (window == null) {
+            return;
+        }
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        WindowManager.LayoutParams windowAttributes = window.getAttributes();
+        windowAttributes.gravity  = android.view.Gravity.CENTER;
+        window.setAttributes(windowAttributes);
+        RelativeLayout btnGallery = dialog.findViewById(R.id.btn_galery);
+        RelativeLayout btnCamera = dialog.findViewById(R.id.btn_camera);
+        btnGallery.setOnClickListener(v -> {
+            // Gallery option clicked
+            dialog.dismiss();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{Manifest.permission.READ_MEDIA_IMAGES}, Constants.STORAGE_REQUEST);
+                } else {
+                    openGallery();
+                }
+            } else {
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, Constants.STORAGE_REQUEST);
+                } else {
+                    openGallery();
+                }
+            }
+
+        });
+        btnCamera.setOnClickListener(v -> {
+            // Camera option clicked
+            dialog.dismiss();
+            if (ContextCompat.checkSelfPermission(ChatDetailActivity.this, Manifest.permission.CAMERA)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(ChatDetailActivity.this,
+                        new String[]{Manifest.permission.CAMERA}, Constants.CAMERA_REQUEST);
+            } else {
+                openCamera();
+            }
+        });
+        dialog.show();
+    }
+
+    private void openGallery() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("*/*");
+        String[] mimeTypes = {
+                "application/pdf",
+                "image/*"};
+        intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+        activityResultLauncher.launch(intent);
+    }
+    private final ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                    Uri selectedImageUri = result.getData().getData();
+                    String filePath = FileUtils.getFileFromUri(selectedImageUri, this);
+                    //Get file name and type
+                    String filename = filePath.substring(filePath.lastIndexOf("/") + 1);
+                    //Pass them to current document
+                    viewModel.currentDocument = new DocumentResponse();
+                    viewModel.currentDocument.setName(filename);
+                    MultipartBody.Part imagePart = FileUtils.filePathToMultipartBodyPart(filePath, "file");
+                    //Call API to upload image
+                    viewModel.doUploadFile(imagePart);
+                }
+            });
+
+    private void openCamera() {
+        ImagePicker.with(ChatDetailActivity.this)
+                .cameraOnly()
+                .cropSquare()
+                .start();
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ImagePicker.REQUEST_CODE) {
+            if (resultCode == RESULT_OK && data != null) {
+                Uri selectedImageUri = data.getData();
+                viewModel.currentDocument = new DocumentResponse();
+                String filePath = RealPathUtil.getRealPath(this, selectedImageUri);
+                String filename = filePath.substring(filePath.lastIndexOf("/") + 1);
+                viewModel.currentDocument.setName(filename);
+                MultipartBody.Part imagePart = FileUtils.uriToMultipartBodyPart(selectedImageUri, "file", this);
+                // Call API to upload image
+                viewModel.doUploadFile(imagePart);
+            }
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void getDocumentAfterUpload() {
+        viewModel.filePathDocuments.observe(this, filePath -> {
+            if (filePath !=null && !filePath.isEmpty()){
+                viewModel.currentDocument.setUrl(filePath);
+                viewModel.documentSend.set(filePath);
+                viewModel.documentSend.set(encrypt(filePath));
+                List<DocumentResponse> listDocument = new ArrayList<>();
+                listDocument.add(viewModel.currentDocument);
+                Gson gson = new Gson();
+                String json = gson.toJson(listDocument);
+                MessageSendRequest messageSendRequest = new MessageSendRequest(
+                        CHAT_ROOM_RESPONSE.getId(),
+                        encrypt(json)
+                );
+                viewModel.sendMessage(messageSendRequest);
+            }
+        });
+    }
 
     @Override
     public void onBackPressed() {

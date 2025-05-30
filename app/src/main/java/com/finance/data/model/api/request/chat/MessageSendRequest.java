@@ -5,10 +5,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class MessageSendRequest {
     Long chatRoomId;
     String content;
     String document;
+
+    public MessageSendRequest(){
+
+    }
+    public MessageSendRequest(Long chatRoomId, String document) {
+        this.chatRoomId = chatRoomId;
+        this.document = document;
+    }
+    public MessageSendRequest(Long chatRoomId, String content, String document) {
+        this.chatRoomId = chatRoomId;
+        this.content = content;
+        this.document = document;
+    }
 }

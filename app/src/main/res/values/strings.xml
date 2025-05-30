@@ -555,5 +555,6 @@
     <string name="message_edited">Cập nhật thành công!</string>
     <string name="message_removed">Thu hồi tin nhắn thành công!</string>
     <string name="no_data">Không có dữ liệu</string>
+    <string name="unsupported_file_type">Không hỗ trợ</string>
 
 </resources>

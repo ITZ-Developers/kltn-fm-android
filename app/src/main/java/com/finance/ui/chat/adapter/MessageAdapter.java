@@ -1,11 +1,11 @@
 package com.finance.ui.chat.adapter;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -15,12 +15,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.finance.R;
-import com.finance.data.SecretKey;
+import com.finance.constant.Constants;
 import com.finance.data.model.api.response.chat.AccountChatResponse;
 import com.finance.data.model.api.response.chat.MessageReaction;
 import com.finance.data.model.api.response.chat.detail.ChatDetailResponse;
+import com.finance.data.model.api.response.document.DocumentResponse;
 import com.finance.databinding.ItemMessageBinding;
-import com.finance.utils.AESUtils;
+import com.finance.ui.image.ImageActivity;
+import com.finance.utils.BindingUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 
 import java.util.ArrayList;
@@ -38,6 +40,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     public interface OnMessageClickListener {
         void onMessageLongClick(ChatDetailResponse message, int position);
         void onReactionClick(List<MessageReaction> reactions, MessageReaction reaction);
+        void onDocumentClick(DocumentResponse document, int position);
     }
 
     public MessageAdapter(List<ChatDetailResponse> messages, OnMessageClickListener listener) {
@@ -86,6 +89,32 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         } else {
             holder.binding.listReactions.setVisibility(View.GONE);
         }
+
+        if (message.getDocument() != null) {
+            holder.binding.listDocuments.setVisibility(View.VISIBLE);
+            DocumentChatAdapter documentAdapter = new DocumentChatAdapter(holder.itemView.getContext(), message.getDocumentFile(), new DocumentChatAdapter.OnDocumentClickListener() {
+                @Override
+                public void onDocumentClick(DocumentResponse document, int position) {
+                    if (listener != null) {
+                        listener.onDocumentClick(document, position);
+                    }
+                }
+
+                @Override
+                public void onDocumentLongClick(DocumentResponse document, int position) {
+                    if (listener != null) {
+                        listener.onMessageLongClick(message, position);
+                    }
+                }
+            });
+            holder.binding.listDocuments.setLayoutManager(
+                    new LinearLayoutManager(holder.itemView.getContext(), LinearLayoutManager.VERTICAL, false)
+            );
+            holder.binding.listDocuments.setAdapter(documentAdapter);
+        } else {
+            holder.binding.listDocuments.setVisibility(View.GONE);
+        }
+
     }
 
     @Override
@@ -102,15 +131,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         }
 
         public void bind(ChatDetailResponse message, int position, List<ChatDetailResponse> messages) {
+
             // Determine if message is sent by current user
             boolean isSent = message.getIsSender();
-
             // Determine position in sequence
             boolean isTop = isTopMessage(position, messages);
             boolean isBottom = isBottomMessage(position, messages);
-
             // Get the appropriate shape appearance resource
             int shapeAppearanceRes;
+            binding.imgSender.setVisibility(View.INVISIBLE);
             if (isSent) {
                 if (isTop) {
                     shapeAppearanceRes = R.style.ShapeAppearance_App_ChatBubble_Sent_Top;
@@ -122,6 +151,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             } else {
                 if (isTop) {
                     shapeAppearanceRes = R.style.ShapeAppearance_App_ChatBubble_Received_Top;
+                    binding.imgSender.setVisibility(View.VISIBLE);
+                    BindingUtils.setImageUrl(binding.imgSender, message.getSender().getAvatarPath());
                 } else if (isBottom) {
                     shapeAppearanceRes = R.style.ShapeAppearance_App_ChatBubble_Received_Bottom;
                 } else {
@@ -133,8 +164,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             ShapeAppearanceModel shapeAppearanceModel = ShapeAppearanceModel.builder(
                     itemView.getContext(), 0, shapeAppearanceRes
             ).build();
-
-
 
             binding.cardView.setShapeAppearanceModel(shapeAppearanceModel);
 
@@ -164,12 +193,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             );
 
             // Position the bubble on the right or left side
-            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) binding.cardView.getLayoutParams();
+            ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) binding.cardView.getLayoutParams();
             if (isSent) {
-                params.gravity = Gravity.END;
+                params.endToEnd =  ConstraintLayout.LayoutParams.PARENT_ID;
+                params.startToEnd = ConstraintLayout.LayoutParams.UNSET;
                 params.setMarginEnd(8);
             } else {
-                params.gravity = Gravity.START;
+                params.endToEnd = ConstraintLayout.LayoutParams.UNSET;
+                params.startToEnd = binding.imgSender.getId();
                 params.setMarginStart(8);
             }
             binding.cardView.setLayoutParams(params);
@@ -190,26 +221,17 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                 paramsEdited.setMarginEnd(8);
             } else {
                 paramsEdited.gravity = Gravity.START;
-                paramsEdited.setMarginStart(8);
+                paramsEdited.setMarginStart(100);
             }
             binding.tvIsEdited.setLayoutParams(paramsEdited);
-
-            // Set vertical spacing between bubble groups
-//            if (isTop) {
-//                params.topMargin = (int) itemView.getContext().getResources()
-//                        .getDimension(R.dimen.chat_bubble_group_spacing);
-//            } else {
-//                params.topMargin = (int) itemView.getContext().getResources()
-//                        .getDimension(R.dimen.chat_bubble_spacing);
-//            }
-        }
-
-        private boolean isTopMessage(int position, List<ChatDetailResponse> messages) {
-            return position == 0 || !messages.get(position).getSender().getId().equals(messages.get(position - 1).getSender().getId());
         }
 
         private boolean isBottomMessage(int position, List<ChatDetailResponse> messages) {
-            return position == messages.size() - 1 || !messages.get(position).getSender().getId().equals(messages.get(position + 1).getSender().getId());
+            return position == 0 || (messages.get(position).getIsSender() != messages.get(position - 1).getIsSender());
+        }
+
+        private boolean isTopMessage(int position, List<ChatDetailResponse> messages) {
+            return position == messages.size() - 1 || (messages.get(position).getIsSender() != messages.get(position + 1).getIsSender());
         }
     }
 

@@ -12,6 +12,7 @@ import com.finance.data.model.api.request.chat.MessageSendRequest;
 import com.finance.data.model.api.request.chat.MessageUpdateRequest;
 import com.finance.data.model.api.response.chat.ChatRoomResponse;
 import com.finance.data.model.api.response.chat.detail.ChatDetailResponse;
+import com.finance.data.model.api.response.document.DocumentResponse;
 import com.finance.data.socket.Command;
 import com.finance.data.socket.dto.Message;
 import com.finance.ui.base.BaseViewModel;
@@ -29,6 +30,9 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.ObservableSource;
 import io.reactivex.rxjava3.functions.Function;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import timber.log.Timber;
 
 public class ChatDetailViewModel extends BaseViewModel {
@@ -44,7 +48,9 @@ public class ChatDetailViewModel extends BaseViewModel {
     public ObservableField<String> documentSend = new ObservableField<>("");
 
     public ObservableField<String> textSearch = new ObservableField<>("");
-
+    public DocumentResponse currentDocument = new DocumentResponse();
+    public Integer currentDocumentPosition = -1;
+    public MutableLiveData<String> filePathDocuments = new MutableLiveData<>("");
 
     public ChatDetailViewModel(Repository repository, MVVMApplication application) {
         super(repository, application);
@@ -223,6 +229,39 @@ public class ChatDetailViewModel extends BaseViewModel {
                             showErrorMessage(application.getResources().getString(R.string.no_internet));
                         }
                 ));
+    }
+
+    public void doUploadFile(MultipartBody.Part imagePart){
+        showLoading();
+        RequestBody type = RequestBody.create("DOCUMENT", MediaType.parse("multipart/form-data"));
+        compositeDisposable.add(repository.getApiMediaService().uploadFile(type, imagePart)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .retryWhen(throwable ->
+                        throwable.flatMap((Function<Throwable, ObservableSource<?>>) throwable1 -> {
+                            if (NetworkUtils.checkNetworkError(throwable1)) {
+                                return application.showDialogNoInternetAccess();
+                            }else{
+                                return Observable.error(throwable1);
+                            }
+                        })
+                )
+                .subscribe(
+                        response -> {
+                            if(response.isResult() && response.getData() != null){
+                                filePathDocuments.setValue(response.getData().getFilePath());
+                            }else{
+                                showErrorMessage(response.getMessage());
+                            }
+                            hideLoading();
+                        },
+                        throwable -> {
+                            hideLoading();
+                            Timber.e(throwable);
+                            showErrorMessage(throwable.getMessage());
+                        }
+                )
+        );
     }
 
     @Override
