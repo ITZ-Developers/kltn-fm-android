@@ -172,6 +172,7 @@
             </FrameLayout>
 
             <LinearLayout
+                android:id="@+id/layout_search_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -186,6 +187,25 @@
                     android:layout_width="@dimen/_23sdp"
                     android:layout_height="@dimen/_23sdp"
                     android:src="@drawable/ic_search"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/layout_search_icon"
+                android:visibility="@{!vm.isSearch  ? View.VISIBLE : View.GONE}"
+                android:onClick="@{() -> a.showDialogUpdateDialog()}"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                >
+                <ImageView
+                    android:id="@+id/img_update_info"
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:src="@drawable/ic_update"
                     android:layout_gravity="center"
                     />
             </LinearLayout>

@@ -3,6 +3,8 @@ package com.finance.data.model.api.response.chat;
 
 import android.os.Build;
 
+import com.finance.data.model.api.ApiModelUtils;
+
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -75,6 +77,17 @@ public class ChatRoomResponse {
             }
         } catch (Exception e) {
             return "Invalid date format";
+        }
+    }
+
+    public SettingChat getSettingChat() {
+        if (settings == null || settings.isEmpty()) {
+            return new SettingChat();
+        }
+        try {
+            return ApiModelUtils.fromJson(settings, SettingChat.class);
+        } catch (Exception e) {
+            return new SettingChat();
         }
     }
 }

@@ -50,8 +50,6 @@ import timber.log.Timber;
 
 public class UpdateProfileActivity extends BaseActivity<ActivityProfileUpdateBinding, UpdateProfileViewModel> {
 
-
-
     @Override
     public int getLayoutId() {
         return R.layout.activity_profile_update;

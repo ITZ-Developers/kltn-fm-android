@@ -81,4 +81,18 @@
     <color name="received_bubble_color">#f0f0f0</color>
     <color name="text_received_color">#000000</color>
     <color name="text_sent_color">#ffffff</color>
+
+    <color name="primary_color">#007AFF</color>
+    <color name="primary_dark">#0056CC</color>
+    <color name="dialog_background">#1E2028</color>
+    <color name="primary_text_color">#FFFFFF</color>
+    <color name="secondary_text_color">#8E8E93</color>
+    <color name="hint_text_color">#6D6D80</color>
+    <color name="avatar_background">#2C2C2E</color>
+    <color name="border_color">#3A3A3C</color>
+    <color name="edittext_background">#2C2C2E</color>
+    <color name="edittext_border">#3A3A3C</color>
+    <color name="button_secondary_bg">#2C2C2E</color>
+    <color name="error_color">#FF3B30</color>
+    <color name="sub_title">#696969</color>
 </resources>

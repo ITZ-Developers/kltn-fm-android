@@ -7,6 +7,8 @@ import com.finance.MVVMApplication;
 import com.finance.R;
 import com.finance.constant.Constants;
 import com.finance.data.Repository;
+import com.finance.data.model.api.ApiModelUtils;
+import com.finance.data.model.api.request.chat.ChatRoomUpdateRequest;
 import com.finance.data.model.api.request.chat.MessageReactionRequest;
 import com.finance.data.model.api.request.chat.MessageSendRequest;
 import com.finance.data.model.api.request.chat.MessageUpdateRequest;
@@ -39,6 +41,7 @@ public class ChatDetailViewModel extends BaseViewModel {
     public ObservableField<Boolean> isValidKey = new ObservableField<>(false);
     public ObservableField<String> isSearchEmpty = new ObservableField<>("");
     public ObservableField<Boolean> isSearch = new ObservableField<>(false);
+    public ObservableField<Boolean> canEdit = new ObservableField<>(false);
     public ObservableField<ChatRoomResponse> chatRoomCurrent = new ObservableField<>(new ChatRoomResponse());
     public ObservableField<String> editTextSend = new ObservableField<>("");
     public ObservableField<Boolean> isTyping = new ObservableField<>(false);
@@ -51,6 +54,10 @@ public class ChatDetailViewModel extends BaseViewModel {
     public DocumentResponse currentDocument = new DocumentResponse();
     public Integer currentDocumentPosition = -1;
     public MutableLiveData<String> filePathDocuments = new MutableLiveData<>("");
+    public MutableLiveData<String> filePathEditImage = new MutableLiveData<>("");
+    public Boolean isEditingGroup = false;
+    public ObservableField<String> avatarGroupUpdate = new ObservableField<>("");
+
 
     public ChatDetailViewModel(Repository repository, MVVMApplication application) {
         super(repository, application);
@@ -58,6 +65,10 @@ public class ChatDetailViewModel extends BaseViewModel {
 
     public void isShowSearch() {
         isSearch.set(Boolean.FALSE.equals(isSearch.get()));
+    }
+
+    public void setCanEdit() {
+        canEdit.set(Boolean.FALSE.equals(canEdit.get()));
     }
 
     public String getStatus(String lastLoginStr) {
@@ -104,6 +115,35 @@ public class ChatDetailViewModel extends BaseViewModel {
                         response -> {
                             if (response.isResult()) {
                                 chatDetailLiveData.setValue(response.getData().getContent());
+                            }
+                            hideLoading();
+                        }, throwable -> {
+                            hideLoading();
+                            Timber.tag("ChatDetailViewModel").e(throwable);
+                            showErrorMessage(application.getResources().getString(R.string.no_internet));
+                        }
+                ));
+    }
+
+    public void getChatRoomDetail(Long id) {
+        showLoading();
+        compositeDisposable.add(repository.getApiService().getChatRoomDetail(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .retryWhen(throwable ->
+                        throwable.flatMap((Function<Throwable, ObservableSource<?>>) throwable1 -> {
+                            if (NetworkUtils.checkNetworkError(throwable1)) {
+                                hideLoading();
+                                return application.showDialogNoInternetAccess();
+                            }else{
+                                return Observable.error(throwable1);
+                            }
+                        })
+                )
+                .subscribe(
+                        response -> {
+                            if (response.isResult()) {
+                                chatRoomCurrent.set(response.getData());
                             }
                             hideLoading();
                         }, throwable -> {
@@ -249,7 +289,11 @@ public class ChatDetailViewModel extends BaseViewModel {
                 .subscribe(
                         response -> {
                             if(response.isResult() && response.getData() != null){
-                                filePathDocuments.setValue(response.getData().getFilePath());
+                                if (isEditingGroup) {
+                                    filePathEditImage.setValue(response.getData().getFilePath());
+                                } else {
+                                    filePathDocuments.setValue(response.getData().getFilePath());
+                                }
                             }else{
                                 showErrorMessage(response.getMessage());
                             }
@@ -263,6 +307,38 @@ public class ChatDetailViewModel extends BaseViewModel {
                 )
         );
     }
+
+    public void updateChatRoom(ChatRoomUpdateRequest request) {
+        showLoading();
+        compositeDisposable.add(repository.getApiService().updateChatRoom(request)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .retryWhen(throwable ->
+                        throwable.flatMap((Function<Throwable, ObservableSource<?>>) throwable1 -> {
+                            if (NetworkUtils.checkNetworkError(throwable1)) {
+                                hideLoading();
+                                return application.showDialogNoInternetAccess();
+                            }else{
+                                return Observable.error(throwable1);
+                            }
+                        })
+                )
+                .subscribe(
+                        response -> {
+                            if (response.isResult()) {
+                                showSuccessMessage(application.getResources().getString(R.string.update_success));
+                                getChatRoomDetail(chatRoomCurrent.get().getId());
+                            }
+                            hideLoading();
+                        }, throwable -> {
+                            hideLoading();
+                            Timber.tag("ChatDetailViewModel").e(throwable);
+                            showErrorMessage(application.getResources().getString(R.string.no_internet));
+                        }
+                ));
+    }
+
+
 
     @Override
     public void messageReceived(Message message) {

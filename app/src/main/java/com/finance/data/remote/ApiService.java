@@ -9,6 +9,7 @@ import com.finance.data.model.api.request.account.ChangePasswordRequest;
 import com.finance.data.model.api.request.account.UpdateProfileRequest;
 import com.finance.data.model.api.request.category.CategoryCreateRequest;
 import com.finance.data.model.api.request.category.CategoryUpdateRequest;
+import com.finance.data.model.api.request.chat.ChatRoomUpdateRequest;
 import com.finance.data.model.api.request.chat.MessageReactionRequest;
 import com.finance.data.model.api.request.chat.MessageSendRequest;
 import com.finance.data.model.api.request.chat.MessageUpdateRequest;
@@ -399,6 +400,11 @@ public interface ApiService {
 
     @GET("v1/chat-room/list?isPaged=0")
     Observable<ResponseWrapper<ResponseListObj<ChatRoomResponse>>> getChatRooms();
+
+    @GET("v1/chat-room/get/{id}")
+    Observable<ResponseWrapper<ChatRoomResponse>> getChatRoomDetail(@Path("id") Long id);
+    @PUT("v1/chat-room/update")
+    Observable<ResponseStatus> updateChatRoom(@Body ChatRoomUpdateRequest request);
 
     @GET("v1/message/list")
     Observable<ResponseWrapper<ResponseListObj<ChatDetailResponse>>> getChatDetail(

@@ -31,6 +31,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.finance.BR;
 import com.finance.R;
 import com.finance.constant.Constants;
+import com.finance.data.model.api.request.chat.ChatRoomUpdateRequest;
 import com.finance.data.model.api.request.chat.MessageReactionRequest;
 import com.finance.data.model.api.request.chat.MessageSendRequest;
 import com.finance.data.model.api.request.chat.MessageUpdateRequest;
@@ -47,6 +48,7 @@ import com.finance.ui.dialog.EditMessageDialog;
 import com.finance.ui.dialog.ListReactionsDialog;
 import com.finance.ui.dialog.MessageOptionsDialog;
 import com.finance.ui.dialog.RemoveMessageDialog;
+import com.finance.ui.dialog.UpdateGroupInfoDialog;
 import com.finance.ui.image.ImageActivity;
 import com.finance.ui.transaction.create_or_update.TransactionCreateUpdateActivity;
 import com.finance.utils.BindingUtils;
@@ -111,6 +113,15 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
                 sendMessage();
             } catch (Exception e) {
                 Timber.e(e, "Error sending message");
+            }
+        });
+
+
+        viewModel.filePathEditImage.observe(this, filePath -> {
+            if (filePath != null && !filePath.isEmpty()) {
+                viewModel.avatarGroupUpdate.set(filePath);
+            } else {
+                viewModel.avatarGroupUpdate.set("");
             }
         });
 
@@ -409,6 +420,11 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
         String[] mimeTypes = {
                 "application/pdf",
                 "image/*"};
+        if (viewModel.isEditingGroup) {
+            mimeTypes = new String[]{
+                    "image/*"
+            };
+        }
         intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
         activityResultLauncher.launch(intent);
     }
@@ -446,7 +462,6 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
                 String filename = filePath.substring(filePath.lastIndexOf("/") + 1);
                 viewModel.currentDocument.setName(filename);
                 MultipartBody.Part imagePart = FileUtils.uriToMultipartBodyPart(selectedImageUri, "file", this);
-                // Call API to upload image
                 viewModel.doUploadFile(imagePart);
             }
         }
@@ -470,6 +485,36 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
                 viewModel.sendMessage(messageSendRequest);
             }
         });
+    }
+
+    public void showDialogUpdateDialog() {
+        viewModel.isEditingGroup = true;
+        UpdateGroupInfoDialog dialog = new UpdateGroupInfoDialog(
+                this,
+                viewModel.chatRoomCurrent.get(),
+                viewModel.avatarGroupUpdate,
+                new UpdateGroupInfoDialog.UpdateGroupInfoListener() {
+                    @Override
+                    public void onUpdateGroupInfo(ChatRoomUpdateRequest request) {
+                        if (viewModel.avatarGroupUpdate != null && !viewModel.avatarGroupUpdate.get().isEmpty()) {
+                            request.setAvatar(viewModel.avatarGroupUpdate.get());
+                        } else {
+                            request.setAvatar(viewModel.chatRoomCurrent.get().getAvatar());
+                        }
+                        viewModel.isEditingGroup = false;
+                        viewModel.updateChatRoom(request);
+                    }
+
+                    @Override
+                    public void onSelectGroupImage() {
+                        showDialogChooseFile();
+                    }
+                }
+        );
+        dialog.setOnDismissListener(dialogInterface -> {
+            viewModel.isEditingGroup = false;
+        });
+        dialog.show();
     }
 
     @Override
