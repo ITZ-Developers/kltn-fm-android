@@ -1,8 +1,6 @@
 # Finance Android
 
-This project is the mobile Android application for internal company management. For the backend API repository, refer to the link below:
-
-**API Repository**: [Finance API](https://github.com/ITZ-Developers/Finance-API)
+This project is the mobile Android application for internal company management.
 
 ## Installation
 
