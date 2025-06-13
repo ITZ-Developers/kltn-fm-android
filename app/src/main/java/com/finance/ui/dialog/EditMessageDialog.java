@@ -62,7 +62,7 @@ public class EditMessageDialog extends Dialog {
         Button btnSave = findViewById(R.id.btn_save_edit);
 
         // Set current message content
-        String currentContent = AESUtils.decrypt(SecretKey.getInstance().getKey(), message.getContent());
+        String currentContent =  message.getContent();
         editMessageContent.setText(currentContent);
         editMessageContent.setSelection(currentContent.length());
 

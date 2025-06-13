@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_5sdp"
         >
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_user"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"
@@ -53,8 +53,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato_medium"
-
-                    android:text="@{AESUtils.decrypt(secretKey, item.lastMessage.content, false), default=`No message`}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10ssp"
                     android:maxWidth="@dimen/_150sdp"

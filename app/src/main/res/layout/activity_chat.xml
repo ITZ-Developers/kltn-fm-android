@@ -115,6 +115,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/layout_search_button"
+                android:visibility="@{!vm.isSearch  ? View.VISIBLE : View.GONE}"
+                android:onClick="@{() -> a.createNewChatRoom()}"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_5sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                >
+                <ImageView
+                    android:id="@+id/img_plus"
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:src="@drawable/ic_plus"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
                 android:visibility="@{!vm.isSearch  ? View.VISIBLE : View.GONE}"
                 android:onClick="@{(v) -> vm.isShowSearch()}"

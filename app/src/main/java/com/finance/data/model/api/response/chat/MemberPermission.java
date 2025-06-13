@@ -7,9 +7,9 @@ import lombok.Data;
 @Data
 public class MemberPermission {
     @SerializedName("allow_send_messages")
-    private boolean allowSendMessage = false;
+    private boolean allowSendMessage = true;
     @SerializedName("allow_update_chat_room")
-    private boolean allowUpdateChatRoom = false;
+    private boolean allowUpdateChatRoom = true;
     @SerializedName("allow_invite_members")
-    private boolean allowInviteMembers = false;
+    private boolean allowInviteMembers = true;
 }

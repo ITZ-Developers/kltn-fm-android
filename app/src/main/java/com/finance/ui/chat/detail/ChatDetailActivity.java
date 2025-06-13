@@ -2,7 +2,6 @@ package com.finance.ui.chat.detail;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -14,9 +13,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -27,6 +26,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.finance.BR;
 import com.finance.R;
@@ -35,7 +35,6 @@ import com.finance.data.model.api.request.chat.ChatRoomUpdateRequest;
 import com.finance.data.model.api.request.chat.MessageReactionRequest;
 import com.finance.data.model.api.request.chat.MessageSendRequest;
 import com.finance.data.model.api.request.chat.MessageUpdateRequest;
-import com.finance.data.model.api.response.chat.ChatRoomResponse;
 import com.finance.data.model.api.response.chat.MessageReaction;
 import com.finance.data.model.api.response.chat.detail.ChatDetailResponse;
 import com.finance.data.model.api.response.document.DocumentResponse;
@@ -46,11 +45,11 @@ import com.finance.ui.chat.adapter.MessageAdapter;
 import com.finance.ui.chat.adapter.MessageSearchAdapter;
 import com.finance.ui.dialog.EditMessageDialog;
 import com.finance.ui.dialog.ListReactionsDialog;
+import com.finance.ui.dialog.MemberListDialog;
 import com.finance.ui.dialog.MessageOptionsDialog;
 import com.finance.ui.dialog.RemoveMessageDialog;
 import com.finance.ui.dialog.UpdateGroupInfoDialog;
 import com.finance.ui.image.ImageActivity;
-import com.finance.ui.transaction.create_or_update.TransactionCreateUpdateActivity;
 import com.finance.utils.BindingUtils;
 import com.finance.utils.FileUtils;
 import com.finance.utils.PdfDownloaderUtils;
@@ -68,7 +67,7 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
 
     private MessageAdapter adapter;
     private MessageSearchAdapter searchAdapter;
-    public static ChatRoomResponse CHAT_ROOM_RESPONSE = null;
+    public static Long CHAT_ROOM_ID = -999L;
 
     @Override
     public int getLayoutId() {
@@ -88,15 +87,14 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel.chatRoomCurrent.set(CHAT_ROOM_RESPONSE);
+        viewModel.showLoading();
+        viewModel.getChatRoomDetail(CHAT_ROOM_ID);
+        viewModel.getChatDetail(CHAT_ROOM_ID);
         setupAdapter();
         setupSearchAdapter();
         setupSearch();
-
-        viewModel.showLoading();
-        viewModel.getChatDetail(CHAT_ROOM_RESPONSE.getId());
         observeMessages();
-
+        setupScrollToEndButton();
         viewModel.editTextSend.addOnPropertyChangedCallback(new androidx.databinding.Observable.OnPropertyChangedCallback() {
             @Override
             public void onPropertyChanged(androidx.databinding.Observable sender, int propertyId) {
@@ -108,7 +106,7 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
             }
         });
 
-        viewBinding.imgSend.setOnClickListener(v -> {
+        viewBinding.buttonSend.setOnClickListener(v -> {
             try {
                 sendMessage();
             } catch (Exception e) {
@@ -127,22 +125,129 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
 
         getDocumentAfterUpload();
 
+        viewModel.membersLiveData.observe(this, members -> {
+            if (members != null && !members.isEmpty()) {
+                viewModel.listMemberAdds.clear();
+                viewModel.listMemberAdds.addAll(members);
+                viewModel.isEditingGroup = true;
+                dialog = new MemberListDialog(
+                        this,
+                        viewModel.listMemberAdds,
+                        viewModel.chatRoomCurrent.get().getIsOwner(),
+                        new MemberListDialog.OnDialogActionListener() {
+                            @Override
+                            public void onAddMemberClicked() {
+//                        viewModel.getMembers(1);
+                            }
 
+                            @Override
+                            public void onMemberDeleted(Long id) {
+                                viewModel.removeMember(id);
+                                dialog.dismiss();
+                            }
+                        }
+                );
+                dialog.setOnDismissListener(dialogInterface -> {
+                    viewModel.isEditingGroup = false;
+                });
+                dialog.show();
+            }
+        });
+
+        viewModel.messageLiveDataAdd.observe(this, messageResponse -> {
+            if (messageResponse != null && messageResponse.getId() != null) {
+                addMessage(messageResponse);
+            }
+        });
+
+        viewModel.messageLiveDataUpdate.observe(this, messageResponse -> {
+            if (messageResponse != null && messageResponse.getId() != null) {
+                messageResponse.setDocument(decrypt(messageResponse.getDocument()));
+                messageResponse.setContent(decrypt(messageResponse.getContent()));
+                boolean haveId = false;
+                for (int i = 0; i < viewModel.listMessages.size(); i++) {
+                    ChatDetailResponse message = viewModel.listMessages.get(i);
+                    if (message.getId().equals(messageResponse.getId())) {
+                        messageResponse.setContent(messageResponse.getContent());
+                        messageResponse.setDocument(messageResponse.getDocument());
+                        haveId = true;
+                        adapter.updateMessage(i, messageResponse);
+                        break;
+                    }
+                }
+                if (!haveId) {
+                    messageResponse.setPositionInChat(viewModel.listMessages.size());
+                    adapter.addMessage(messageResponse);
+                }
+            }
+        });
+    }
+
+    private void addMessage(ChatDetailResponse messageResponse) {
+        messageResponse.setDocument(decrypt(messageResponse.getDocument()));
+        messageResponse.setContent(decrypt(messageResponse.getContent()));
+        messageResponse.setPositionInChat(viewModel.listMessages.size());
+        boolean isAtBottom = isAtLastPosition();
+        adapter.addMessage(messageResponse);
+        if (isAtBottom || viewModel.isSending.get()) {
+            viewBinding.buttonScrollToEnd.setVisibility(View.GONE);
+            scrollToPosition(0);
+        } else {
+            viewBinding.buttonScrollToEnd.setVisibility(View.VISIBLE);
+        }
+        viewModel.editTextSend.set("");
+        viewModel.isSending.set(false);
+    }
+
+    private boolean isAtLastPosition() {
+        LinearLayoutManager layoutManager = (LinearLayoutManager) viewBinding.rcvMessage.getLayoutManager();
+        if (layoutManager != null) {
+            int firstVisiblePosition = layoutManager.findFirstCompletelyVisibleItemPosition();
+            return firstVisiblePosition <= 2;
+        }
+        return false;
+    }
+
+    private void setupScrollToEndButton() {
+        viewBinding.buttonScrollToEnd.setOnClickListener(v -> {
+            scrollToPosition(0);
+            viewBinding.buttonScrollToEnd.setVisibility(View.GONE);
+        });
+
+        // Thêm scroll listener để tự động ẩn/hiện button
+        viewBinding.rcvMessage.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                if (isAtLastPosition()) {
+                    viewBinding.buttonScrollToEnd.setVisibility(View.GONE);
+                } else {
+                    // Chỉ hiện button khi có tin nhắn mới và không ở cuối
+                    if (viewBinding.buttonScrollToEnd.getVisibility() == View.VISIBLE) {
+                        viewBinding.buttonScrollToEnd.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        });
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private void observeMessages() {
-        viewModel.chatDetailLiveData.observe(this, chatDetailResponse -> {
-            if (chatDetailResponse != null) {
-                viewModel.listMessages = new ArrayList<>(chatDetailResponse);
-                for (int i = 0; i < viewModel.listMessages.size(); i++) {
-                    ChatDetailResponse message = viewModel.listMessages.get(i);
-                    message.setContent(decrypt(message.getContent()));
-                    message.setDocument(decrypt(message.getDocument()));
+        viewModel.chatDetailLiveData.observe(this, listChatDetailResponses -> {
+            if (listChatDetailResponses != null) {
+                if (listChatDetailResponses.isEmpty()) {
+                    return;
+                }
+                viewModel.listMessages.clear();
+                for (int i = 0; i < listChatDetailResponses.size(); i++) {
+                    ChatDetailResponse message = listChatDetailResponses.get(i);
                     message.setPositionInChat(i);
+                    message.setDocument(decrypt(message.getDocument()));
+                    message.setContent(decrypt(message.getContent()));
+                    viewModel.listMessages.add(message);
                 }
                 adapter.setMessages(viewModel.listMessages);
-                adapter.notifyDataSetChanged();
             }
         });
     }
@@ -288,15 +393,16 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
     }
 
     public void sendMessage() throws Exception {
+        viewModel.isSending.set(true);
         String content = encrypt(viewModel.editTextSend.get());
         String document = encrypt(viewModel.documentSend.get());
-        MessageSendRequest messageSendRequest = new MessageSendRequest(CHAT_ROOM_RESPONSE.getId(), content, document);
+        MessageSendRequest messageSendRequest = new MessageSendRequest(CHAT_ROOM_ID, content, document);
         viewModel.sendMessage(messageSendRequest);
     }
 
     @Override
     protected void onDestroy() {
-        CHAT_ROOM_RESPONSE = null;
+        CHAT_ROOM_ID = null;
         super.onDestroy();
     }
 
@@ -479,7 +585,7 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
                 Gson gson = new Gson();
                 String json = gson.toJson(listDocument);
                 MessageSendRequest messageSendRequest = new MessageSendRequest(
-                        CHAT_ROOM_RESPONSE.getId(),
+                        viewModel.chatRoomCurrent.get().getId(),
                         encrypt(json)
                 );
                 viewModel.sendMessage(messageSendRequest);
@@ -515,6 +621,19 @@ public class ChatDetailActivity  extends BaseActivity<ActivityChatDetailBinding,
             viewModel.isEditingGroup = false;
         });
         dialog.show();
+    }
+
+    MemberListDialog dialog;
+    public void showDialogAddMember() {
+        viewModel.getChatRoomMembers();
+
+    }
+
+
+    @Override
+    public void onConnectionOpened() {
+        super.onConnectionOpened();
+        viewModel.getChatDetail(CHAT_ROOM_ID);
     }
 
     @Override

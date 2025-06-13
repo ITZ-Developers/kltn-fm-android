@@ -8,8 +8,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.finance.R;
 import com.finance.data.model.api.response.chat.ChatRoomResponse;
 import com.finance.databinding.ItemChatBinding;
+import com.finance.utils.AESUtils;
 import com.finance.utils.BindingUtils;
 
 import java.util.ArrayList;
@@ -59,8 +61,20 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatVi
 
     @Override
     public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
-        ChatRoomResponse chat = chatList.get(position);
-        holder.bind(chat);
+        ChatRoomResponse itemCurrent = chatList.get(position);
+        if (itemCurrent.getLastMessage() != null) {
+            if ( itemCurrent.getLastMessage().getIsDeleted() != null && itemCurrent.getLastMessage().getIsDeleted()) {
+                holder.binding.tvLastMessage.setText(holder.binding.getRoot().getContext().getString(R.string.text_removed));
+            } else if (itemCurrent.getLastMessage().getDocument() != null && !itemCurrent.getLastMessage().getDocument().isEmpty()) {
+                holder.binding.tvLastMessage.setText(itemCurrent.getLastMessage().getSender().getFullName() + " " + holder.binding.getRoot().getContext().getString(R.string.text_document));
+            } else {
+                holder.binding.tvLastMessage.setText(AESUtils.decrypt(secretKey, itemCurrent.getLastMessage().getContent(), false));
+            }
+        } else {
+            holder.binding.tvLastMessage.setText(holder.binding.getRoot().getContext().getString(R.string.text_no_message));
+        }
+
+        holder.bind(itemCurrent);
     }
 
     @Override
@@ -88,9 +102,6 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatVi
             BindingUtils.setImageUrl(binding.imgUser, chat.getAvatar());
             binding.setSecretKey(secretKey);
             binding.executePendingBindings();
-            // Có thể thêm logic để hiển thị trạng thái tin nhắn dựa vào chat.getState()
-            // Ví dụ: nếu state = 1 thì hiển thị biểu tượng đã đọc, state = 0 thì hiển thị chưa đọc
-            // Hoặc có thể cài đặt hình ảnh người dùng nếu có URL trong ChatRoomResponse
         }
     }
 

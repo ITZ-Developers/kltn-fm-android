@@ -29,6 +29,29 @@ public class MessageReaction {
 
     public List<AccountChatResponse> accountReactions;
 
+    public Boolean compareTo(MessageReaction other) {
+        if (other == null) {
+            return false;
+        }
+        if (this.id == null || other.getId() == null) {
+            return false;
+        }
+        if (!this.kind.equals(other.getKind())) {
+            return false;
+        }
+        return true;
+    }
+
+    public static Boolean listCompare(List<MessageReaction> otherReactions1, List<MessageReaction> otherReactions2) {
+        if (otherReactions1 == null || otherReactions2.isEmpty()) {
+            return false;
+        }
+        if (otherReactions1.size() != otherReactions2.size()) {
+            return false;
+        }
+        return true;
+    }
+
     public String getEmojiByKind() {
         switch (kind) {
             case 1:

@@ -165,8 +165,8 @@ public class MVVMApplication  extends Application{
     void createScarletInstance(String url) {
         scarletInstance = new Scarlet.Builder().webSocketFactory(
                         newWebSocketFactory(new OkHttpClient.Builder()
-                                .readTimeout(500, TimeUnit.MILLISECONDS)
-                                .writeTimeout(500, TimeUnit.MILLISECONDS)
+                                .readTimeout(4000, TimeUnit.MILLISECONDS)
+                                .writeTimeout(4000, TimeUnit.MILLISECONDS)
                                 .addInterceptor(
                                         new HttpLoggingInterceptor().setLevel(
                                                 HttpLoggingInterceptor.Level.BODY))
@@ -174,7 +174,7 @@ public class MVVMApplication  extends Application{
                 .lifecycle(AndroidLifecycle.ofApplicationForeground(this))
                 .addMessageAdapterFactory(new GsonMessageAdapter.Factory())
                 .addStreamAdapterFactory(new RxJava2StreamAdapterFactory())
-                .backoffStrategy(new ExponentialWithJitterBackoffStrategy(500L,10000L,new Random()))
+                .backoffStrategy(new ExponentialWithJitterBackoffStrategy(10000L,15000L,new Random()))
                 .build();
     }
 
@@ -265,7 +265,7 @@ public class MVVMApplication  extends Application{
 
     @NonNull
     private Disposable ObservablePingSocket() {
-        return Observable.interval(20, 20, TimeUnit.SECONDS)
+        return Observable.interval(20, 40, TimeUnit.SECONDS)
                 .observeOn(Schedulers.io())
                 .subscribe(
                         o -> {
@@ -307,10 +307,10 @@ public class MVVMApplication  extends Application{
     public void lockDevice() {
         Timber.tag("LockDevice").e("Lock device");
         stopPing();
-        appComponent.getRepository().getSharedPreferences().setToken(null);
         Intent intent = new Intent(currentActivity, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         currentActivity.startActivity(intent);
+        appComponent.getRepository().getSharedPreferences().setToken(null);
         currentActivity.finish();
     }
 

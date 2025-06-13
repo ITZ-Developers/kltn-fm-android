@@ -535,7 +535,6 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
      public void checkSecretKey(){
         setSecretKeyListener();
          if(checkSecretKeyValid()){
-
              if(Boolean.FALSE.equals(viewModel.validKey.getValue())){
                  viewModel.validKey.setValue(true);
              }

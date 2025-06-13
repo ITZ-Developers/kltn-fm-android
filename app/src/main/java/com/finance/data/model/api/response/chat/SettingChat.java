@@ -8,5 +8,4 @@ import lombok.Data;
 public class SettingChat {
     @SerializedName("member_permissions")
     private MemberPermission memberPermissions;
-
 }

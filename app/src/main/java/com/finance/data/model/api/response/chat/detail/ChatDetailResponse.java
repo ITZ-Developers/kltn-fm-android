@@ -45,4 +45,23 @@ public class ChatDetailResponse {
         Type listType = new TypeToken<List<DocumentResponse>>() {}.getType();
         return gson.fromJson(document, listType);
     }
+
+    public Boolean compareMessage(ChatDetailResponse otherMessage) {
+        if (otherMessage == null) {
+            return false;
+        }
+        if (this.id == null || otherMessage.getId() == null) {
+            return false;
+        }
+        if (!content.equals(otherMessage.getContent())) {
+            return false;
+        }
+        if (!document.equals(otherMessage.getDocument())) {
+            return false;
+        }
+//        if (!messageReactions.listCompare(otherMessage.getMessageReactions())) {
+//            return false;
+//        }
+        return true;
+    }
 }

@@ -18,19 +18,20 @@ import androidx.databinding.Observable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.finance.BR;
 import com.finance.R;
-import com.finance.constant.Constants;
 import com.finance.data.SecretKey;
+import com.finance.data.model.api.request.chat.ChatRoomCreateGroupRequest;
+import com.finance.data.model.api.request.chat.ChatRoomCreateRequest;
+import com.finance.data.model.api.response.chat.AutoCompleteAccountResponse;
 import com.finance.data.model.api.response.chat.ChatRoomResponse;
-import com.finance.data.model.api.response.transaction.TransactionResponse;
 import com.finance.databinding.ActivityChatBinding;
 import com.finance.di.component.ActivityComponent;
 import com.finance.ui.base.BaseActivity;
 import com.finance.ui.chat.adapter.ChatRoomAdapter;
 import com.finance.ui.chat.detail.ChatDetailActivity;
+import com.finance.ui.dialog.CreateGroupInfoDialog;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewModel> {
     ChatRoomAdapter chatRoomAdapter;
@@ -71,6 +72,16 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
         setupSearch();
         setupSwipeFreshLayout();
         checkPrivateKey();
+        viewModel.membersLiveData.observe(this, members -> {
+            if (members != null && !members.isEmpty()) {
+                viewModel.listMembers.clear();
+                viewModel.listPeoples.clear();
+                viewModel.listMembers.addAll(members);
+                for (AutoCompleteAccountResponse member : members) {
+                    viewModel.listPeoples.add(member.getFullName());
+                }
+            }
+        });
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -83,6 +94,7 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
                 chatRoomAdapter.setChatList(new ArrayList<>());
                 chatRoomAdapter.setSecretKey(SecretKey.getInstance().getKey());
                 chatRoomAdapter.notifyDataSetChanged();
+                viewModel.showLoading();
                 viewModel.getAllChatRooms();
             }else {
                 viewModel.isValidKey.set(false);
@@ -99,7 +111,7 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
         chatRoomAdapter = new ChatRoomAdapter(new ArrayList<>(), chat -> {
             // Handle click
             Intent intent = new Intent(this, ChatDetailActivity.class);
-            ChatDetailActivity.CHAT_ROOM_RESPONSE = chat;
+            ChatDetailActivity.CHAT_ROOM_ID = chat.getId();
             activityResultLauncher.launch(intent);
         });
         chatRoomAdapter.setSecretKey(SecretKey.getInstance().getKey());
@@ -117,6 +129,7 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
             viewModel.chatRoomList = chatRooms;
             chatRoomAdapter.setChatList(viewModel.chatRoomList);
             chatRoomAdapter.notifyDataSetChanged();
+            viewModel.hideLoading();
         });
     }
 
@@ -178,6 +191,7 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
         viewBinding.swipeLayout.setEnabled(true);
         viewBinding.swipeLayout.setOnRefreshListener(() -> {
             if (checkSecretKeyValid()){
+                viewModel.showLoading();
                 viewModel.getAllChatRooms();
                 viewBinding.swipeLayout.setRefreshing(false);
             } else
@@ -192,7 +206,42 @@ public class ChatActivity extends BaseActivity<ActivityChatBinding, ChatViewMode
         });
     }
 
+    private CreateGroupInfoDialog createChatDialog;
+    public void createNewChatRoom() {
+        createChatDialog = new CreateGroupInfoDialog(
+                this,
+                new ChatRoomResponse(),
+                viewModel.avatarPath,
+                viewModel.listMembers,
+                viewModel.listPeoples,
+                new CreateGroupInfoDialog.CreateGroupListener() {
+                    @Override
+                    public void onCreateChat(ChatRoomCreateRequest request) {
+                        viewModel.createChat(request, createChatDialog);
+                    }
 
+                    @Override
+                    public void onCreateGroupChat(ChatRoomCreateGroupRequest request) {
+                        viewModel.createGroupChat(request, createChatDialog);
+                    }
+
+                    @Override
+                    public void onSelectGroup(Integer isGroup) {
+                        if (isGroup == 1) {
+                            viewModel.getMembers(null);
+                        } else {
+                            viewModel.getMembers(1);
+                        }
+                    }
+
+                    @Override
+                    public void onSelectGroupImage() {
+//                        viewModel.selectGroupImage();
+                    }
+                }
+        );
+        createChatDialog.show();
+    }
 
     @Override
     public void onBackPressed() {

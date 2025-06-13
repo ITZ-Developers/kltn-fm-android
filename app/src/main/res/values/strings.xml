@@ -556,5 +556,19 @@
     <string name="message_removed">Thu hồi tin nhắn thành công!</string>
     <string name="no_data">Không có dữ liệu</string>
     <string name="unsupported_file_type">Không hỗ trợ</string>
+    <string name="text_document">đã gửi một tệp đính kèm</string>
+    <string name="text_no_message">Chưa có tin nhắn nào</string>
+    <string name="member">Thành viên</string>
+    <string name="system_not_ready">Hệ thống chưa sẵn sàng, vui lòng nhập key hệ thống!</string>
+    <string name="type_chat">Loại trò chuyện</string>
+
+    <string name="type_chat_1">Nhóm</string>
+    <string name="type_chat_2">Riêng</string>
+    <string name="error_max_member_group">Thành viên nhóm phải lớn hơn 2</string>
+    <string name="error_select_people_group">Chưa chọn người để tạo chat!</string>
+    <string name="error_group_name_empty">Tên nhóm không được để trống!</string>
+    <string name="create_chat_success">Tạo chat thành công!</string>
+    <string name="just_leader_can_send_message">Bạn không có quyền nhắn tin!</string>
+    <string name="member_removed">Xóa thành viên ra khỏi nhóm thành công!</string>
 
 </resources>

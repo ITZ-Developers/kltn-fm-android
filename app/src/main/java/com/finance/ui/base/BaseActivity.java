@@ -47,19 +47,15 @@ import timber.log.Timber;
 
 public abstract class BaseActivity<B extends ViewDataBinding, V extends BaseViewModel>
         extends AppCompatActivity implements KittyRealtimeEvent {
-
     protected B viewBinding;
-
     @Inject
     protected V viewModel;
-
     @Inject
     protected Context application;
 
     @Named("access_token")
     @Inject
     protected String token;
-
     private Dialog progressDialog;
     private BroadcastReceiver globalApplicationReceiver;
     private final IntentFilter filterGlobalApplication = new IntentFilter();
@@ -68,7 +64,6 @@ public abstract class BaseActivity<B extends ViewDataBinding, V extends BaseView
     public abstract @LayoutRes int getLayoutId();
 
     public abstract int getBindingVariable();
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -265,7 +260,14 @@ public abstract class BaseActivity<B extends ViewDataBinding, V extends BaseView
                     }
                     viewModel.hideLoading();
                 },error->{
-                    viewModel.showErrorMessage(getString(R.string.newtwork_error));
+                    if (error instanceof retrofit2.HttpException) {
+                        retrofit2.HttpException httpError = (retrofit2.HttpException) error;
+                        if (httpError.code() == 401) {
+                            viewModel.showErrorMessage(getString(R.string.system_not_ready));
+                        }
+                    } else {
+                        viewModel.showErrorMessage(getString(R.string.newtwork_error));
+                    }
                     Timber.d(error);
                     viewModel.hideLoading();
                 })

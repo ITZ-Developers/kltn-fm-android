@@ -9,6 +9,8 @@ import com.finance.data.model.api.request.account.ChangePasswordRequest;
 import com.finance.data.model.api.request.account.UpdateProfileRequest;
 import com.finance.data.model.api.request.category.CategoryCreateRequest;
 import com.finance.data.model.api.request.category.CategoryUpdateRequest;
+import com.finance.data.model.api.request.chat.ChatRoomCreateGroupRequest;
+import com.finance.data.model.api.request.chat.ChatRoomCreateRequest;
 import com.finance.data.model.api.request.chat.ChatRoomUpdateRequest;
 import com.finance.data.model.api.request.chat.MessageReactionRequest;
 import com.finance.data.model.api.request.chat.MessageSendRequest;
@@ -47,10 +49,13 @@ import com.finance.data.model.api.request.transaction.group.GroupTransactionCrea
 import com.finance.data.model.api.request.transaction.group.GroupTransactionUpdateRequest;
 import com.finance.data.model.api.response.account.AccountResponse;
 import com.finance.data.model.api.response.account.AccountUserId;
+import com.finance.data.model.api.response.chat.AutoCompleteAccountResponse;
+import com.finance.data.model.api.response.chat.ChatRoomMemberResponse;
 import com.finance.data.model.api.response.account.ResetPassword;
 import com.finance.data.model.api.response.category.CateResponse;
 import com.finance.data.model.api.response.category.CategoryResponse;
 import com.finance.data.model.api.response.chat.ChatRoomResponse;
+import com.finance.data.model.api.response.chat.MessageResponse;
 import com.finance.data.model.api.response.chat.detail.ChatDetailResponse;
 import com.finance.data.model.api.response.debit.DebitResponse;
 import com.finance.data.model.api.response.department.DepartmentResponse;
@@ -398,6 +403,9 @@ public interface ApiService {
     @POST("/v1/account/verify-login-qr-code")
     Observable<ResponseStatus> verifyQrcode(@Body WebQRCodeRequest request);
 
+    @GET("v1/account/auto-complete?ignoreCurrentUser=1")
+    Observable<ResponseWrapper<ResponseListObj<AutoCompleteAccountResponse>>> getListAutoCompleteAccount(@Query("ignoreDirectMessageChatRoom") Integer ignoreDirectMessageChatRoom);
+
     @GET("v1/chat-room/list?isPaged=0")
     Observable<ResponseWrapper<ResponseListObj<ChatRoomResponse>>> getChatRooms();
 
@@ -406,14 +414,25 @@ public interface ApiService {
     @PUT("v1/chat-room/update")
     Observable<ResponseStatus> updateChatRoom(@Body ChatRoomUpdateRequest request);
 
+    @POST("v1/chat-room/create-direct-message")
+    Observable<ResponseStatus> createChat(@Body ChatRoomCreateRequest request);
+
+    @POST("v1/chat-room/create-group")
+    Observable<ResponseStatus> createGroupChat(@Body ChatRoomCreateGroupRequest request);
+
     @GET("v1/message/list")
     Observable<ResponseWrapper<ResponseListObj<ChatDetailResponse>>> getChatDetail(
             @Query("chatRoomId") Long chatRoomId,
             @Query("isPaged") int isPaged
     );
 
+    @GET("v1/message/get/{id}")
+    Observable<ResponseWrapper<ChatDetailResponse>> getMessageById(@Path("id") Long id);
+
     @POST("v1/message/create")
     Observable<ResponseStatus> createMessage(@Body MessageSendRequest request);
+
+
     @PUT("v1/message/update")
     Observable<ResponseStatus> updateMessage(@Body MessageUpdateRequest request);
 
@@ -422,4 +441,10 @@ public interface ApiService {
 
     @POST("v1/message-reaction/react")
     Observable<ResponseStatus> reactMessage(@Body MessageReactionRequest request);
+
+    @GET("v1/chat-room-member/list?isPaged=0")
+    Observable<ResponseWrapper<ResponseListObj<ChatRoomMemberResponse>>> getChatRoomMembers(@Query("chatRoomId") Long chatRoomId);
+
+    @DELETE("v1/chat-room-member/delete/{id}")
+    Observable<ResponseStatus> deleteChatRoomMember(@Path("id") Long id);
 }

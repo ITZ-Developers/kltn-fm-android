@@ -77,7 +77,7 @@ public class AuthInterceptor implements Interceptor {
         Response origResponse = chain.proceed(newRequest.build());
         if (origResponse.code() == 403 || origResponse.code() == 401) {
             LogService.i("Error http =====================> code: "+origResponse.code());
-            appPreferences.removeKey(PreferencesService.KEY_BEARER_TOKEN);
+//            appPreferences.removeKey(PreferencesService.KEY_BEARER_TOKEN);
             Intent intent = new Intent();
             intent.setAction(Constants.ACTION_EXPIRED_TOKEN);
             LocalBroadcastManager.getInstance(application.getApplicationContext()).sendBroadcast(intent);

@@ -30,8 +30,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
 
+    @Getter
     private List<ChatDetailResponse> messageList;
 
     public String secretKey;
@@ -54,6 +58,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         notifyDataSetChanged();
     }
 
+    public void addMessage(ChatDetailResponse message) {
+        this.messageList.add(0, message);
+        notifyItemInserted(0);
+    }
+    public void updateMessage(int position, ChatDetailResponse message) {
+        messageList.set(position, message);
+        notifyItemChanged(position);
+    }
+
     @NonNull
     @Override
     public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -65,6 +78,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
         ChatDetailResponse message = messageList.get(position);
         holder.bind(message, position, messageList);
+
+        // onClickListener for message
         holder.itemView.setOnLongClickListener(v -> {
             if (listener != null) {
                 listener.onMessageLongClick(message, position);
@@ -114,7 +129,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         } else {
             holder.binding.listDocuments.setVisibility(View.GONE);
         }
-
     }
 
     @Override
@@ -131,68 +145,24 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         }
 
         public void bind(ChatDetailResponse message, int position, List<ChatDetailResponse> messages) {
-
-            // Determine if message is sent by current user
-            boolean isSent = message.getIsSender();
+            if (message == null || message.getSender() == null) {
+                return;
+            }
+            Boolean isSent = message.getIsSender();
+            binding.setIsSender(message.getIsSender());
+            binding.setItem(message);
             // Determine position in sequence
             boolean isTop = isTopMessage(position, messages);
             boolean isBottom = isBottomMessage(position, messages);
             // Get the appropriate shape appearance resource
-            int shapeAppearanceRes;
             binding.imgSender.setVisibility(View.INVISIBLE);
-            if (isSent) {
-                if (isTop) {
-                    shapeAppearanceRes = R.style.ShapeAppearance_App_ChatBubble_Sent_Top;
-                } else if (isBottom) {
-                    shapeAppearanceRes = R.style.ShapeAppearance_App_ChatBubble_Sent_Bottom;
-                } else {
-                    shapeAppearanceRes = R.style.ShapeAppearance_App_ChatBubble_Sent_Middle;
-                }
-            } else {
-                if (isTop) {
-                    shapeAppearanceRes = R.style.ShapeAppearance_App_ChatBubble_Received_Top;
-                    binding.imgSender.setVisibility(View.VISIBLE);
-                    BindingUtils.setImageUrl(binding.imgSender, message.getSender().getAvatarPath());
-                } else if (isBottom) {
-                    shapeAppearanceRes = R.style.ShapeAppearance_App_ChatBubble_Received_Bottom;
-                } else {
-                    shapeAppearanceRes = R.style.ShapeAppearance_App_ChatBubble_Received_Middle;
-                }
+            if (!isSent && isBottom) {
+                binding.imgSender.setVisibility(View.VISIBLE);
+                BindingUtils.setImageUrl(binding.imgSender, message.getSender().getAvatarPath());
+            } else if (isSent){
+                binding.imgSender.setVisibility(View.GONE);
             }
 
-            // Apply the shape appearance
-            ShapeAppearanceModel shapeAppearanceModel = ShapeAppearanceModel.builder(
-                    itemView.getContext(), 0, shapeAppearanceRes
-            ).build();
-
-            binding.cardView.setShapeAppearanceModel(shapeAppearanceModel);
-
-            // Set bubble color based on sent/received
-            binding.cardView.setCardBackgroundColor(
-                    ContextCompat.getColor(
-                            itemView.getContext(),
-                            isSent ? R.color.sent_bubble_color : R.color.received_bubble_color
-                    )
-            );
-
-            binding.setItem(message);
-
-            // Set the message text
-            if (message.getIsDeleted()) {
-                binding.textViewMessage.setText(R.string.text_removed);
-            } else {
-                binding.textViewMessage.setText(message.getContent());
-            }
-
-            // Set text color based on message type
-            binding.textViewMessage.setTextColor(
-                    ContextCompat.getColor(
-                            itemView.getContext(),
-                            isSent ? R.color.text_sent_color : R.color.text_received_color
-                    )
-            );
-
-            // Position the bubble on the right or left side
             ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) binding.cardView.getLayoutParams();
             if (isSent) {
                 params.endToEnd =  ConstraintLayout.LayoutParams.PARENT_ID;
@@ -256,6 +226,4 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         }
         return new ArrayList<>(reactionMap.values());
     }
-
-
 }

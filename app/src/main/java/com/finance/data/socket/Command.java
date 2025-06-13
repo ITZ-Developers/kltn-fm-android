@@ -8,4 +8,7 @@ public class Command {
     public static final String PROCESS_HASH = "PROCESS_HASH" ;
     public static final String CMD_NEW_MESSAGE = "CMD_NEW_MESSAGE";
     public static final String CMD_MESSAGE_UPDATED = "CMD_MESSAGE_UPDATED";
+    public static final String CMD_CHAT_ROOM_UPDATED = "CMD_CHAT_ROOM_UPDATED";
+    public static final String CMD_CHAT_ROOM_CREATED = "CMD_CHAT_ROOM_CREATED";
+    public static final String CMD_CHAT_ROOM_DELETED = "CMD_CHAT_ROOM_DELETED";
 }

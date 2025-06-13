@@ -78,18 +78,20 @@
                     android:layout_toEndOf="@id/layout_avatar"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_5sdp"
+                    android:onClick="@{()->a.showDialogAddMember()}"
                     >
                     <TextView
                         android:id="@+id/tv_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{vm.chatRoomCurrent.name}"
+                        android:text="@{vm.chatRoomCurrent.name, default = `woijfoiwqjefoiewjfioewjfwoiefjwioefjio`}"
                         android:fontFamily="@font/lato_bold"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:textAllCaps="false"
                         android:layout_marginBottom="@dimen/_3sdp"
+                        android:maxWidth="@dimen/_150sdp"
                         />
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -100,7 +102,7 @@
                             android:id="@+id/tv_state"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{vm.chatRoomCurrent.kind == 2 ? vm.getStatus(vm.chatRoomCurrent.lastLogin) : ``}"
+                            android:text="@{(vm.chatRoomCurrent.kind == 2 &amp;&amp; vm.chatRoomCurrent.lastLogin != null) ? vm.getStatus(vm.chatRoomCurrent.lastLogin) : String.valueOf(vm.chatRoomCurrent.totalMembers + ` ` + @string/member), default = `Thành viên`}"
                             android:fontFamily="@font/lato_medium"
                             android:textSize="@dimen/_8ssp"
                             android:textColor="@color/white"
@@ -177,7 +179,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
-                android:visibility="@{!vm.isSearch  ? View.VISIBLE : View.GONE}"
+                android:visibility="@{!vm.isSearch ? View.VISIBLE : View.GONE}"
                 android:onClick="@{(v) -> vm.isShowSearch()}"
                 android:paddingHorizontal="@dimen/_15sdp"
                 android:paddingVertical="@dimen/_10sdp"
@@ -196,7 +198,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toStartOf="@+id/layout_search_icon"
-                android:visibility="@{!vm.isSearch  ? View.VISIBLE : View.GONE}"
+                android:visibility="@{!vm.isSearch &amp;&amp; vm.chatRoomCurrent.isOwner ? View.VISIBLE : View.GONE}"
                 android:onClick="@{() -> a.showDialogUpdateDialog()}"
                 android:paddingHorizontal="@dimen/_10sdp"
                 android:paddingVertical="@dimen/_10sdp"
@@ -247,52 +249,104 @@
             android:visibility="@{vm.isSearch &amp;&amp; vm.textSearch.empty ? View.VISIBLE : View.GONE}"
             />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/button_scroll_to_end"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_above="@+id/layout_send_message"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_arrow_down"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            />
+
+        <FrameLayout
             android:id="@+id/layout_send_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:orientation="horizontal"
-            android:layout_marginBottom="@dimen/_3sdp"
-            android:background="@color/white"
-            android:paddingVertical="@dimen/_5sdp"
             >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@color/white"
+                android:paddingVertical="@dimen/_5sdp"
+                android:visibility="@{vm.chatRoomCurrent.kind == 2 || vm.settingCurrentChat.memberPermissions.allowSendMessage || vm.chatRoomCurrent.isOwner ? View.VISIBLE : View.GONE}"
+                >
 
-            <ImageView
-                android:id="@+id/img_image"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:src="@drawable/ic_pin"
-                android:padding="@dimen/_5sdp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:onClick="@{()->a.showDialogChooseFile()}"
-                android:visibility="@{vm.isTyping ? View.GONE : View.VISIBLE}"
-                />
+                <ImageView
+                    android:id="@+id/img_image"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:src="@drawable/ic_pin"
+                    android:padding="@dimen/_5sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:onClick="@{()->a.showDialogChooseFile()}"
+                    android:visibility="@{vm.isTyping ? View.GONE : View.VISIBLE}"
+                    />
 
-            <EditText
-                android:id="@+id/edt_send_message"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:text="@={vm.editTextSend}"
-                style="@style/EditTextChat"
-                app:layout_constraintStart_toEndOf="@+id/img_image"
-                app:layout_constraintEnd_toStartOf="@+id/img_send"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                />
-            <ImageView
-                android:id="@+id/img_send"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:src="@drawable/ic_send"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
+                <EditText
+                    android:id="@+id/edt_send_message"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:text="@={vm.editTextSend}"
+                    style="@style/EditTextChat"
+                    app:layout_constraintStart_toEndOf="@+id/img_image"
+                    app:layout_constraintEnd_toStartOf="@+id/button_send"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    />
+                <FrameLayout
+                    android:id="@+id/button_send"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:clickable="@{vm.editTextSend.empty &amp;&amp; !vm.isSending ? false : true}"
+                    >
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/ic_send"
+                        android:visibility="@{vm.isSending ? View.INVISIBLE : View.VISIBLE}"
+                        />
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{!vm.isSending ? View.INVISIBLE : View.VISIBLE}"
+                        android:indeterminateTint="@color/color_theme"
+                        />
+                </FrameLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_theme"
+                android:visibility="@{(vm.chatRoomCurrent.kind == 1 &amp;&amp; !vm.settingCurrentChat.memberPermissions.allowSendMessage &amp;&amp; !vm.chatRoomCurrent.isOwner) ? View.VISIBLE : View.GONE, default = gone}"
+                android:paddingVertical="@dimen/_5sdp"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_medium"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:text="@string/just_leader_can_send_message"
+                    />
+            </RelativeLayout>
+
+        </FrameLayout>
+
     </RelativeLayout>
 </layout>

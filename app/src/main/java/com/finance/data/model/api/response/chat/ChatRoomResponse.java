@@ -32,6 +32,7 @@ public class ChatRoomResponse {
     private String otherAvatar;
     private String otherFullName;
     private AccountChatResponse owner;
+    private Boolean isOwner;
     private String settings;
     private Integer status;
     private Integer totalMembers;
