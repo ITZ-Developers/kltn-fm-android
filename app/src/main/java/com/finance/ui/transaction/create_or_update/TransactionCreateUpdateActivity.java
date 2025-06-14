@@ -659,24 +659,30 @@ public class TransactionCreateUpdateActivity extends BaseActivity<ActivityTransa
         btnGallery.setOnClickListener(v -> {
             // Gallery option clicked
             dialog.dismiss();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(this,
-                            new String[]{Manifest.permission.READ_MEDIA_IMAGES}, Constants.STORAGE_REQUEST);
-                } else {
-                    openGallery();
-                }
-            } else {
-                if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(this,
-                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, Constants.STORAGE_REQUEST);
-                } else {
-                    openGallery();
-                }
+            // Check multiple permissions
+            boolean hasStoragePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+            boolean hasMediaImagesPermission = true; // Default true for older Android
+            // For Android 13+ (API 33+)
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                hasMediaImagesPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED;
             }
 
+            if (!hasStoragePermission || !hasMediaImagesPermission) {
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                    // Android 13+
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{
+                                    Manifest.permission.READ_MEDIA_IMAGES,
+                                    Manifest.permission.READ_MEDIA_VIDEO
+                            }, Constants.STORAGE_REQUEST);
+                } else {
+                    // Android 12 and below
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, Constants.STORAGE_REQUEST);
+                }
+            } else {
+                openGallery();
+            }
         });
         btnCamera.setOnClickListener(v -> {
             // Camera option clicked
